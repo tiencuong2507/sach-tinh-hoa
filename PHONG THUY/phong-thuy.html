@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phong thủy — Sách Tinh Hoa</title>
+<style>
+:root{--bg:#f7f3ea;--card:#fff;--ink:#222;--mute:#6b6253;--acc:#8b2e1f;--line:#e2dccf;--tot:#1e6b3a;--xau:#a3261a}
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:960px;margin:auto;padding:12px 16px 60px;background:var(--bg);color:var(--ink);line-height:1.6}
+h1{text-align:center;margin:8px 0 4px;color:var(--acc)}h2{margin:.3em 0}h3{margin:1em 0 .3em;color:var(--acc)}
+.sub{text-align:center;color:var(--mute);margin-bottom:10px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:5}
+nav button,.btn{padding:7px 14px;border:1px solid #b9ae98;background:#fff;border-radius:6px;cursor:pointer;font-size:15px}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+input,select{padding:8px;font-size:16px;border:1px solid #b9ae98;border-radius:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.row label{display:inline-flex;flex-direction:column;gap:2px;font-size:.92em;color:var(--mute)}
+.zh{font-family:"Noto Serif TC","PMingLiU","SimSun",serif;color:#444}
+.mute{color:var(--mute);font-size:.92em}.tag{display:inline-block;background:#efe7d6;border-radius:4px;padding:0 6px;margin-right:4px;font-size:.85em}
+.tot{color:var(--tot);font-weight:600}.xau{color:var(--xau);font-weight:600}.binh{color:#6b6253;font-weight:600}
+.tb{border-collapse:collapse;width:100%;margin:8px 0;font-size:.95em}.tb th,.tb td{border:1px solid var(--line);padding:5px 8px;vertical-align:top;text-align:left}
+.tb th{background:#efe7d6}.tb tr.hd td{background:#f0f7f1}.tb tr.homnay td{outline:2px solid var(--acc)}
+.rule{background:#fffbe9;border:1px solid #eadfae;border-radius:8px;padding:10px 14px}
+.hidden{display:none}
+.luoi{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:480px;margin:10px auto}
+.luoi .o{border:1px solid var(--line);border-radius:8px;padding:8px 6px;text-align:center;background:#fff;min-height:92px}
+.luoi .o.trung{background:#efe7d6}.luoi .o .h{font-size:.8em;color:var(--mute)}.luoi .o .s{font-size:1.7em;font-weight:700;line-height:1.2}
+.luoi .o .t{font-size:.85em}.luoi .o.sao5{background:#fde8e6;border-color:var(--xau)}.luoi .o.sao2{background:#fff3e0}.luoi .o.sao9,.luoi .o.sao1{background:#eef7f0}
+.laban{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.kim{font-size:2.6em;font-weight:700;color:var(--acc)}
+.son24{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;font-size:.85em}
+.son24 div{border:1px solid var(--line);border-radius:5px;padding:3px 4px;text-align:center;background:#fff}.son24 div.on{background:var(--acc);color:#fff}
+.son24 div.toa{outline:2px dashed var(--acc)}
+@media print{nav,.noprint{display:none}body{background:#fff}.card{border:none}}
+</style></head><body>
+<h1>🧭 Phong thủy</h1>
+<div class="sub">Bát trạch · Cửu cung phi tinh năm tháng · La bàn 24 sơn · dùng lõi lịch, can chi, cửu cung chung của kho</div>
+<nav>
+ <button data-t="battrach" class="on">Bát trạch</button>
+ <button data-t="phitinh">Phi tinh năm tháng</button>
+ <button data-t="laban">La bàn 24 sơn</button>
+ <button data-t="cach">Cách tính và nguồn</button>
+</nav>
+
+<section id="battrach">
+ <div class="card noprint">
+  <div class="row">
+   <label>Ngày sinh (dương lịch)<input id="btNgay" type="date"></label>
+   <label>Giới tính<select id="btGioi"><option value="nam">Nam</option><option value="nữ">Nữ</option></select></label>
+  </div>
+  <p class="mute">Năm sinh tính theo <b>Lập xuân</b>: sinh trước Lập xuân (khoảng 4/2) thì thuộc năm trước. Chỉ nhớ năm thì nhập một ngày giữa năm, ví dụ 1/7.</p>
+  <div class="row">
+   <label>Hướng nhà (mặt tiền nhìn ra)<select class="huong" id="btNha"></select></label>
+   <label>Cửa chính nhìn ra<select class="huong" id="btCua"></select></label>
+   <label>Vị trí bếp (cung trong nhà)<select class="huong" id="btBepVt"></select></label>
+   <label>Hướng bếp (lưng người nấu)<select class="huong" id="btBepH"></select></label>
+   <label>Đầu giường quay về<select class="huong" id="btGiuong"></select></label>
+   <label>Lưng ghế làm việc tựa về<select class="huong" id="btBan"></select></label>
+   <button class="btn" id="btnBatTrach">Xem</button>
+  </div>
+  <p class="mute">Đo hướng bằng thẻ <b>La bàn 24 sơn</b> rồi chọn hướng 45° tương ứng ở đây. Hướng là hướng đứng trong nhà nhìn ra.</p>
+ </div>
+ <div id="kqBatTrach"></div>
+</section>
+
+<section id="phitinh" class="hidden">
+ <div class="card noprint"><div class="row">
+  <label>Ngày đang xét<input id="ptNgay" type="date"></label>
+  <button class="btn" id="btnPhiTinh">Lập lưới</button> <button class="btn" id="btnPtNay">⏱ Hôm nay</button>
+ </div><p class="mute">Niên tinh theo năm Lập xuân, nguyệt tinh theo tháng tiết khí của ngày đang xét. Lưới vẽ Nam ở trên như sách; mỗi ô ghi hướng địa lý thật.</p></div>
+ <div id="kqPhiTinh"></div>
+</section>
+
+<section id="laban" class="hidden">
+ <div class="card noprint"><div class="row">
+  <label>Số độ la bàn (Bắc 0°, theo chiều kim đồng hồ)<input id="lbDo" type="number" min="0" max="360" step="0.5" style="width:120px" value="0"></label>
+  <input id="lbTruot" type="range" min="0" max="359.5" step="0.5" value="0" style="flex:1;min-width:200px">
+  <button class="btn" id="btnLaBan">Tra</button>
+ </div><p class="mute">Đứng giữa nhà, mặt quay ra cửa chính, đọc số độ kim chỉ hướng mặt. Đo xa kim loại, điện thoại nên đo vài lần. Độ lệch từ ở Việt Nam nhỏ (cỡ dưới 1°, tùy vùng) [I] nên với lưới 15° thường bỏ qua, trừ khi số đo sát ranh giới sơn.</p></div>
+ <div id="kqLaBan"></div>
+</section>
+
+<section id="cach" class="hidden"><div id="cachHtml"></div></section>
+
+<script src="../chung/lich.js"></script><script src="../chung/can-chi.js"></script>
+<script src="../chung/ngu-hanh.js"></script><script src="../chung/cuu-cung.js"></script>
+<script src="phong-thuy.js"></script>
+<script src="app.js"></script>
+</body></html>

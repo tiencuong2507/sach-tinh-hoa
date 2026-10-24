@@ -33,7 +33,8 @@ input,select{padding:8px;font-size:16px;border:1px solid #b9ae98;border-radius:6
 <section id="ngay">
  <div class="card noprint"><div class="row">
   Ngày giờ: <input id="dt" type="datetime-local">
-  Năm sinh (âm lịch) của người xem: <input id="ns" type="number" min="1900" max="2100" style="width:100px" placeholder="vd 1986">
+  Năm sinh (âm lịch) của gia chủ: <input id="ns" type="number" min="1900" max="2100" style="width:100px" placeholder="vd 1986">
+  Việc định làm: <select id="viec"><option value="">— chung, không theo việc —</option></select>
   <button class="btn" id="btnXem">Xem</button> <button class="btn" id="btnNay">⏱ Hôm nay</button>
  </div>
  <p class="mute">Ngày can chi đổi lúc 23h (giờ Tý). Tháng dùng để tính trực, thần hoàng đạo, Thiên đức, Nguyệt đức, Nguyệt phá là <b>tháng tiết khí</b> (nguyệt kiến).
@@ -43,7 +44,8 @@ input,select{padding:8px;font-size:16px;border:1px solid #b9ae98;border-radius:6
 
 <section id="thang" class="hidden">
  <div class="card noprint"><div class="row">Tháng <input id="tM" type="number" min="1" max="12" style="width:70px"> năm <input id="tY" type="number" min="1900" max="2100" style="width:90px">
-  năm sinh <input id="tNs" type="number" min="1900" max="2100" style="width:100px" placeholder="tùy chọn"> <button class="btn" id="btnThang">Lập bảng</button></div></div>
+  năm sinh <input id="tNs" type="number" min="1900" max="2100" style="width:100px" placeholder="tùy chọn">
+  việc <select id="tViec"><option value="">— chung —</option></select> <button class="btn" id="btnThang">Lập bảng</button></div></div>
  <div id="kqThang"></div>
 </section>
 
@@ -52,5 +54,6 @@ input,select{padding:8px;font-size:16px;border:1px solid #b9ae98;border-radius:6
 <script src="../chung/lich.js"></script><script src="../chung/can-chi.js"></script>
 <script src="../chung/ngu-hanh.js"></script><script src="../chung/cuu-cung.js"></script>
 <script src="xem-ngay.js"></script>
+<script src="data/than-sat.js"></script>
 <script src="app.js"></script>
 </body></html>

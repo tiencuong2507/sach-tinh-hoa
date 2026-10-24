@@ -47,7 +47,11 @@ function trichHtml(t, j) {
   return s + `</div>`;
 }
 function baiPage(b) {
-  let s = `<div class="card"><span class="tag">Bài ${b.so}</span><h2>${esc(b.ten)}</h2><div class="dan">${b.dan}</div>`;
+  const mp3 = `audio/bai-${String(b.so).padStart(2, "0")}.mp3`;
+  let s = `<div class="card"><span class="tag">Bài ${b.so}</span><h2>${esc(b.ten)}</h2>
+   <p class="noprint"><audio controls preload="none" src="${mp3}" onerror="this.parentNode.style.display='none'" style="width:100%;max-width:520px"></audio><br>
+   <span class="mute">🎧 Giọng đọc nam (tạo bằng máy, có thể đọc sai vài chữ cổ); nếu không hiện trình phát là bài này chưa có audio.</span></p>
+   <div class="dan">${b.dan}</div>`;
   s += `<h3>Ba trích dẫn</h3>`;
   b.trich.forEach((t, j) => s += trichHtml(t, j));
   s += `<h3>Suy ngẫm</h3><div class="suy">${b.suyNgam}</div>`;

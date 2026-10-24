@@ -11,7 +11,8 @@
 | Kinh Dịch (`KINH DICH/`) | 64/64 quẻ đủ nguyên văn, âm Hán Việt, dịch, giải; Thập dực đủ; 5 chương dẫn nhập; 10 chương nghiên cứu N1–N10; công cụ Gieo quẻ, Mai Hoa, Lục hào, Tra năm; 6 tool tự kiểm đều đạt |
 | Nguồn gốc đã tải | Chu Dịch, Thập dực (Wikisource), Hoàng cực kinh thế bản Tứ khố (8 quyển), Tăng san bốc dịch (trang tổng + chương 1–26) |
 | Lõi dùng chung đang có | `lich-am.js`: ngày Julius, đổi dương sang âm lịch (thuật toán Hồ Ngọc Đức), kinh độ mặt trời, chi tháng theo tiết khí · `app.js`: can chi năm, nạp âm 60 hoa giáp, Tam nguyên cửu vận, niên tinh · `mai-hoa.js`: hành của bát quái, sinh khắc ngũ hành · `luc-hao.js`: nạp giáp, tuần không, lục thần theo can ngày |
-| Sao lưu | `git init` ngày 24/10/2026, chưa có commit nào |
+| Sao lưu | git từ 24/10/2026; commit 2b9b427 khởi tạo, 1cf6164 lõi chung, c4e5965 nhịp 3; chưa có bản sao ngoài máy |
+| Cập nhật tối 24/10/2026 | Đã có thêm: `chung/` lõi dùng chung (13 nhóm mốc) · `XEM NGAY/` (trực, thần, giờ hoàng đạo, 28 sao, ngày kỵ, tuổi gia chủ Kim lâu Hoang ốc Tam tai, **122 thần sát × 60 việc trích từ Hiệp kỷ quyển 3–11, 507 trích dẫn dò khớp**) · `SACH NGAN/` Chu Tử gia huấn · `COI TAM/` 3 bài + audio bài 1 (edge-tts NamMinh) · `PHONG THUY/` Bát trạch, phi tinh năm tháng, la bàn 24 sơn · `index.html`. Chưa có: tử vi (chờ anh chốt phái), Huyền không đầy đủ, hình thế |
 | Khuôn làm một cuốn | `nguon/` (nguyên văn tải bằng tool, public domain) → `data/*.js` (nguyên văn + âm Hán Việt + dịch + giải, biên soạn riêng) → giao diện → `tools/kiem-tra-*.mjs` (đủ trường, tên hào khớp chữ Hán, trích dẫn dò được trong nguyên văn, giao diện giả lập dựng mọi trang không lỗi) |
 
 ## 1. Luật chung cho cả kho

@@ -40,11 +40,36 @@ ok(XemNgay.thienDuc(2, 3, 0) && !XemNgay.thienDuc(2, 2, 0) && XemNgay.thienDuc(3
 // 8. Giờ Tý sau 23h sang ngày mới; với tuổi: ngày Ngọ xung tuổi Tý (1984), thiên khắc địa xung Canh Ngọ với Giáp Tý? (Canh Kim khắc Giáp Mộc, Ngọ xung Tý) → có
 { const a = XemNgay.ngay(new Date(2025, 0, 1, 23, 30)), b = XemNgay.ngay(new Date(2025, 0, 2, 1, 0)); ok(a.ngayCanChi === b.ngayCanChi && a.ngayCanChi === "Tân Mùi", "23h30 ngày 1/1/2025 phải tính là ngày Tân Mùi, ra " + a.ngayCanChi);
   const t = XemNgay.ngay(new Date(2025, 0, 1, 12), 1984).tuoi; ok(t.xung && t.khacCan && t.tuoi === "Giáp Tý", "Canh Ngọ với tuổi Giáp Tý phải thiên khắc địa xung: " + JSON.stringify(t)); }
+// 8b. Năm với tuổi: sinh 1986, năm 2026 tuổi mụ 41 → không Kim lâu (41 chia 9 dư 5), Hoang ốc 41 = hàng chục 4 (lùi 3 cung) + 1 = Ngũ thọ tử (xấu), không Tam tai; năm 2028 Mậu Thân → Tam tai (tuổi Dần: Thân Dậu Tuất)
+//     sinh 1984, năm 2026 tuổi 43 → dư 7 không Kim lâu, Hoang ốc 3+3 = 6 → Nhất cát; sinh 1990, năm 2026 tuổi 37 → dư 1 Kim lâu thân; tuổi 12 → Tam địa sát, 15 → Lục hoang ốc, 19 → Tứ tấn tài, 20 → Nhì nghi
+{ const a = XemNgay.namVoiTuoi(1986, 2026); ok(a.tuoiMu === 41 && !a.kimLau && a.hoangOc === "Ngũ thọ tử" && a.hoangOcXau && !a.tamTai, "1986/2026: " + JSON.stringify(a));
+  ok(XemNgay.namVoiTuoi(1986, 2028).tamTai && XemNgay.namVoiTuoi(1986, 2028).tamTaiNam === "Thân, Dậu, Tuất", "1986 tam tai 2028");
+  const b = XemNgay.namVoiTuoi(1984, 2026); ok(b.tuoiMu === 43 && !b.kimLau && b.hoangOc === "Nhất cát" && !b.hoangOcXau, "1984/2026: " + JSON.stringify(b));
+  ok(XemNgay.namVoiTuoi(1990, 2026).kimLau === "Kim lâu thân", "1990/2026 Kim lâu thân");
+  ok(XemNgay.namVoiTuoi(2015, 2026).hoangOc === "Tam địa sát" && XemNgay.namVoiTuoi(2012, 2026).hoangOc === "Lục hoang ốc" && XemNgay.namVoiTuoi(2008, 2026).hoangOc === "Tứ tấn tài" && XemNgay.namVoiTuoi(2007, 2026).hoangOc === "Nhì nghi", "bảng Hoang ốc 12, 15, 19, 20");
+  ok(XemNgay.namVoiTuoi(1984, 2026).tamTaiNam === "Dần, Mão, Thìn" && XemNgay.namVoiTuoi(1989, 2026).tamTaiNam === "Hợi, Tý, Sửu" && XemNgay.namVoiTuoi(1987, 2026).tamTaiNam === "Tỵ, Ngọ, Mùi", "nhóm Tam tai");
+  const t = XemNgay.ngay(new Date(2026, 5, 1, 12), 1990).tuoi; ok(t.nam && t.dong.some(x => /Kim lâu thân/.test(x)), "dòng tuổi phải nêu Kim lâu"); }
 // 9. Câu quy tắc dẫn trong mã phải có trong nguyên văn Hiệp kỷ quyển 4 đã tải
 { const bo = s => s.replace(/\{\{[^}]*\}\}/g, "").replace(/[\s，。；：！？、○]/g, "");
   if (existsSync("nguon/hiep-ky-q04.txt")) { const q4 = bo(readFileSync("nguon/hiep-ky-q04.txt", "utf8"));
     for (const c of ["每月交節則疊兩值日其法從月建上起建", "建滿平收黑除危定執黄成開皆可用閉破不相當"]) ok(q4.includes(c), "không thấy trong Hiệp kỷ Q4: " + c); }
   else errs.push("thiếu nguon/hiep-ky-q04.txt (chạy node tools/tai-hiep-ky.mjs 4)"); }
+// 9b. Thần sát theo Hiệp kỷ (data/than-sat.js): 1/1/2025 (tháng Tý, ngày Canh Ngọ) phải có Nguyệt phá (hung) và không có Thiên đức; ngày Thiên đức tháng Dần là ngày can Đinh;
+//     xét việc: ngày Nguyệt phá tháng Tý với việc cưới gả phải ra "Không nên" và Nguyệt phá nằm trong danh sách kỵ; ngày có 不將 không Nguyệt phá, không hung sát kỵ cưới → "Nên" hoặc "Dùng được"; 400 ngày × 3 việc không lỗi
+{ const D = ctx.XN_THAN_SAT; ok(D && D.thanSat.length >= 100 && D.viec.length >= 40, "data thần sát chưa nạp");
+  const r = N(1, 1, 2025), ten = XemNgay.thanSatNgay(r).map(t => t.han);
+  ok(ten.includes("月破"), "1/1/2025 phải có Nguyệt phá, có: " + ten.join(","));
+  ok(!ten.includes("天德"), "1/1/2025 không thể có Thiên đức");
+  let coThienDuc = 0; for (let d = 4; d <= 28; d++) { const x = N(d, 2, 2026); if (XemNgay.thanSatNgay(x).some(t => t.han === "天德")) { coThienDuc++; ok(x.idxNgay % 10 === 3, `Thiên đức tháng Dần phải là ngày Đinh, ra ${x.ngayCanChi}`); } } ok(coThienDuc >= 2, "tháng Dần 2026 phải có ≥2 ngày Thiên đức");
+  const ma = D.viec.find(v => v.ma === "cuoi-ga") ? "cuoi-ga" : null; ok(ma, "thiếu việc cuoi-ga");
+  if (ma) { const x = XemNgay.xetViec(r, ma); ok(x && x.ketLuan === "Không nên" && x.ky.some(t => t.han === "月破"), "1/1/2025 cưới gả phải Không nên vì Nguyệt phá: " + JSON.stringify(x && {kl: x.ketLuan, ky: x.ky.map(t => t.han)}));
+    let batTuong = 0, tot = 0; for (let i = 0; i < 400; i++) { const y = XemNgay.ngay(new Date(2025, 0, 1 + i, 12)), ts = XemNgay.thanSatNgay(y);
+      if (ts.some(t => t.han === "不將") && !ts.some(t => t.han === "月破")) { batTuong++; const z = XemNgay.xetViec(y, ma); if (z.ketLuan === "Nên" || z.ketLuan.startsWith("Dùng được")) tot++; } }
+    ok(batTuong > 20 && tot >= 20, `ngày Bất tương không Nguyệt phá: ${batTuong}, trong đó cưới được ${tot} (đo 24/10/2026: 78 ngày, 37 cưới được; số còn lại bị Thiên lại, Trí tử, trực Bình, Vãng vong, Kiếp sát… đúng theo quyển 10)`);
+    let loi = 0; for (let i = 0; i < 400; i++) for (const m of ["dong-tho", "an-tang", ma]) { try { const z = XemNgay.xetViec(XemNgay.ngay(new Date(2025, 0, 1 + i, 12)), m); if (!z || !z.ketLuan) loi++; } catch (e) { loi++; } } ok(loi === 0, "xét việc lỗi " + loi); }
+  // Quy tắc khởi Thanh Long có trong Hiệp kỷ quyển 7 → nâng nhãn [V]
+  const bo = s => s.replace(/\{\{[^}]*\}\}/g, "").replace(/[\s，。；：！？、○]/g, "");
+  if (existsSync("nguon/hiep-ky-q07.txt")) ok(bo(readFileSync("nguon/hiep-ky-q07.txt", "utf8")).includes("寅申青龍起子卯酉起寅辰戌起辰巳亥起午子午起申丑未起戌"), "không thấy câu khởi Thanh Long trong Hiệp kỷ Q7"); else errs.push("thiếu nguon/hiep-ky-q07.txt"); }
 // 10. Giao diện giả lập: trang ngày, bảng tháng, trang cách tính không có undefined/NaN; 400 ngày liên tiếp không lỗi
 run("$('#dt').value='2026-02-17T09:30';$('#ns').value='1986';xem()"); ok(els.kq.innerHTML.includes("Bính Ngọ") && !/undefined|NaN/.test(els.kq.innerHTML), "trang ngày lỗi");
 run("$('#tM').value='2';$('#tY').value='2026';$('#tNs').value='1990';bangThang()"); ok(els.kqThang.innerHTML.split("<tr").length === 30 && !/undefined|NaN/.test(els.kqThang.innerHTML), "bảng tháng 2/2026 phải 28 dòng");

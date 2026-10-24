@@ -43,15 +43,30 @@ const XemNgay = (() => {
   const NGUYET_DUC = [8, 6, 2, 0]; // theo chiThang % 4: Tý Thìn Thân → Nhâm(8); Sửu Tỵ Dậu → Canh(6); Dần Ngọ Tuất → Bính(2); Mão Mùi Hợi → Giáp(0)
   const thienDuc = (chiThang, canNgay, chiNgay) => { const t = THIEN_DUC[chiThang]; return t.can !== undefined ? t.can === canNgay : t.chi === chiNgay; };
   const nguyetDuc = (chiThang, canNgay) => NGUYET_DUC[chiThang % 4] === canNgay;
+  // --- Năm với tuổi gia chủ (quy ước Việt Nam, [I] nhiều phái lệch nhau; tuổi mụ = năm âm lịch đang xét − năm sinh + 1)
+  // Kim lâu: tuổi mụ chia 9 dư 1, 3, 6, 8 (Kim lâu thân, thê, tử, lục súc) — kỵ cưới hỏi, làm nhà.
+  // Hoang ốc: từ tuổi 10 khởi Nhất cát, mỗi hàng chục lùi một cung (20 Nhì nghi, 30 Tam địa sát…), hàng đơn vị đếm tiếp; xấu ở Tam địa sát, Ngũ thọ tử, Lục hoang ốc — kỵ làm nhà.
+  // Tam tai: tuổi Thân Tý Thìn gặp năm Dần Mão Thìn; Dần Ngọ Tuất gặp Thân Dậu Tuất; Tỵ Dậu Sửu gặp Hợi Tý Sửu; Hợi Mão Mùi gặp Tỵ Ngọ Mùi.
+  const HOANG_OC = ["Nhất cát", "Nhì nghi", "Tam địa sát", "Tứ tấn tài", "Ngũ thọ tử", "Lục hoang ốc"];
+  const KIM_LAU = {1: "Kim lâu thân", 3: "Kim lâu thê", 6: "Kim lâu tử", 8: "Kim lâu lục súc"};
+  function namVoiTuoi(namSinh, namAm) {
+    const tuoiMu = namAm - namSinh + 1, kl = KIM_LAU[tuoiMu % 9] || null;
+    const ho = tuoiMu >= 10 ? HOANG_OC[mod(Math.floor(tuoiMu / 10) - 1 + tuoiMu % 10, 6)] : null;
+    const zT = CanChi.nam(namSinh) % 12, zNam = CanChi.nam(namAm) % 12;
+    const tamTaiChi = [[2,3,4],[5,6,7],[8,9,10],[11,0,1]][[0,4,8].includes(zT) ? 0 : [3,7,11].includes(zT) ? 1 : [2,6,10].includes(zT) ? 2 : 3];
+    return { tuoiMu, kimLau: kl, hoangOc: ho, hoangOcXau: !!ho && [2,4,5].includes(HOANG_OC.indexOf(ho)), tamTai: tamTaiChi.includes(zNam), tamTaiNam: tamTaiChi.map(i => CHI[i]).join(", ") };
+  }
   // --- Quan hệ ngày với tuổi (năm sinh âm lịch)
-  function voiTuoi(idxNgay, namSinh) {
+  function voiTuoi(idxNgay, namSinh, namAm) {
     const t = CanChi.nam(namSinh), cN = idxNgay % 10, zN = idxNgay % 12, cT = t % 10, zT = t % 12, r = [];
     const xungChi = CanChi.xung(zN, zT), khacCan = KHAC[HANH_CAN[cN]] === HANH_CAN[cT] || KHAC[HANH_CAN[cT]] === HANH_CAN[cN];
     if (xungChi && khacCan) r.push("thiên khắc địa xung (xấu nặng)"); else if (xungChi) r.push("ngày xung tuổi");
     if (CanChi.hop(zN, zT)) r.push("lục hợp với tuổi"); if (CanChi.tamHop(zN, zT)) r.push("tam hợp với tuổi"); if (CanChi.hai(zN, zT)) r.push("lục hại với tuổi");
     const qh = NguHanh.quanHe(CanChi.hanhNapAm(t), CanChi.hanhNapAm(idxNgay));
     r.push(`nạp âm ngày ${CanChi.hanhNapAm(idxNgay)} ${qh === "sinh" ? "sinh" : qh === "khắc" ? "khắc" : qh === "được sinh" ? "được tuổi sinh (hao)" : qh === "bị khắc" ? "bị tuổi khắc" : "cùng hành với"} tuổi ${CanChi.hanhNapAm(t)}`);
-    return { tuoi: CanChi.ten(t), xung: xungChi, khacCan, dong: r };
+    const nam = namAm ? namVoiTuoi(namSinh, namAm) : null;
+    if (nam) { if (nam.kimLau) r.push(`năm nay tuổi ${nam.tuoiMu} phạm ${nam.kimLau}`); if (nam.hoangOcXau) r.push(`Hoang ốc: ${nam.hoangOc}`); if (nam.tamTai) r.push(`năm Tam tai (tuổi này tam tai các năm ${nam.tamTaiNam})`); }
+    return { tuoi: CanChi.ten(t), xung: xungChi, khacCan, dong: r, nam };
   }
   // --- Tổng hợp một ngày. dt: Date giờ địa phương. Giờ Tý sau 23h sang ngày mới cho can chi ngày.
   function ngay(dt, namSinh) {
@@ -82,7 +97,41 @@ const XemNgay = (() => {
       truc: tr, trucLoai: TRUC_TOT[tr], than: th, sao, ky, tot,
       gioHD: gioHoangDao(chiNgay), lucNham: [0,1,2,3,4,5,6,7,8,9,10,11].map(g => Object.assign({ chi: g }, lucNham(am.thang, am.ngay, g))),
       canChiGio: [0,1,2,3,4,5,6,7,8,9,10,11].map(g => CanChi.ten(CanChi.gio(canNgay, g))),
-      tuoi: namSinh ? voiTuoi(idxNgay, namSinh) : null, diem, xepLoai };
+      tuoi: namSinh ? voiTuoi(idxNgay, namSinh, am.nam) : null, diem, xepLoai };
+  }
+  // --- Thần sát theo Hiệp kỷ (data/than-sat.js, window.XN_THAN_SAT) và xét theo việc.
+  // Mỗi thần sát có dinhNghia máy tính được; ngày nào có thần sát nào thì gom lại, rồi với việc đã chọn: cát thần có "nên" việc ấy cộng, hung thần "kỵ" việc ấy trừ.
+  // Nguyên tắc sách (quyển 10): không phải hễ gặp một hung sát là bỏ cả ngày, phải xem nặng nhẹ và cát thần nhiều hay hung thần nhiều.
+  const DATA = () => (typeof window !== "undefined" && window.XN_THAN_SAT) || null;
+  function coThanSat(ts, r) {
+    const d = ts.dinhNghia, chiT = r.chiThangDung, canN = r.idxNgay % 10, chiN = r.idxNgay % 12;
+    if (!d) return false;
+    switch (d.kieu) {
+      case "thang-chi": return (d.bang[chiT] || []).includes(chiN);
+      case "thang-can": return (d.bang[chiT] || []).includes(canN);
+      case "thang-can-hoac-chi": return (d.bangCan[chiT] || []).includes(canN) || (d.bangChi[chiT] || []).includes(chiN);
+      case "thang-canchi": return (d.bang[chiT] || []).includes(r.idxNgay);
+      case "truc": return r.truc === d.truc;
+      case "hoang-dao": return r.than.ten === d.than;
+      case "ngay-canchi": return d.ds.includes(r.idxNgay);
+      case "ngay-can": return d.ds.includes(canN);
+      case "ngay-chi": return d.ds.includes(chiN);
+      case "am-lich": return d.ngay.includes(r.am.ngay) && (!d.thang || d.thang.includes(r.am.thang));
+      default: return false;
+    }
+  }
+  function thanSatNgay(r) { const D = DATA(); return D ? D.thanSat.filter(ts => coThanSat(ts, r)) : []; }
+  function xetViec(r, maViec) {
+    const D = DATA(); if (!D) return null;
+    const v = D.viec.find(x => x.ma === maViec); if (!v) return null;
+    const co = thanSatNgay(r);
+    const kyCua = ts => ts.kyNhu ? ((D.thanSat.find(x => x.ma === ts.kyNhu) || {}).ky || []) : (ts.ky || []);   // "忌同劫煞": kỵ như thần sát khác
+    const nen = co.filter(ts => (ts.nen || []).includes(maViec)), ky = co.filter(ts => kyCua(ts).includes(maViec));
+    const hanChe = co.filter(ts => ts.chiChu && !(ts.nen || []).includes(maViec));   // ngày "止註": sách chỉ ghi nên vài việc, việc khác không ghi
+    const catKhac = co.filter(ts => ts.loai === "cát" && !nen.includes(ts)), hungKhac = co.filter(ts => ts.loai === "hung" && !ky.includes(ts));
+    let diem = nen.length * 2 - ky.length * 2 - hanChe.length + catKhac.length * 0.5 - hungKhac.length * 0.5;
+    const ketLuan = ky.length === 0 && hanChe.length === 0 && nen.length >= 1 ? "Nên" : ky.length >= 2 || (ky.length === 1 && nen.length === 0) ? "Không nên" : nen.length > ky.length ? "Dùng được, có điều kỵ nhẹ" : "Bình thường";
+    return { viec: v, nen, ky, hanChe, catKhac, hungKhac, diem, ketLuan };
   }
   // Bảng cả tháng dương lịch
   function thang(M, Y, namSinh) {
@@ -90,6 +139,6 @@ const XemNgay = (() => {
     for (let D = 1; D <= n; D++) rows.push(ngay(new Date(Y, M - 1, D, 12), namSinh));
     return rows;
   }
-  return { CAU_HINH, TRUC, TRUC_TOT, THAN, LUC_NHAM, TU28, truc, thanNgay, gioHoangDao, lucNham, tu28, thienDuc, nguyetDuc, voiTuoi, ngay, thang };
+  return { CAU_HINH, TRUC, TRUC_TOT, THAN, LUC_NHAM, TU28, HOANG_OC, truc, thanNgay, gioHoangDao, lucNham, tu28, thienDuc, nguyetDuc, namVoiTuoi, voiTuoi, coThanSat, thanSatNgay, xetViec, ngay, thang };
 })();
 if (typeof window !== "undefined") window.XemNgay = XemNgay;
