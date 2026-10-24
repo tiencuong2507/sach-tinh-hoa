@@ -1,0 +1,44 @@
+# Chữ nhàn — nguồn: https://vi.wikisource.org/wiki/Ch%E1%BB%AF_nh%C3%A0n
+{{Chất lượng vk|50%}}{{đầu đề
+ | tựa đề     = Chữ nhàn
+ | tác giả    = Nguyễn Công Trứ
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = 
+}}
+
+<poem>
+Thị tại môn tiền náo 市 在 門 前 閙
+Nguyệt lai môn hạ nhàn 月 來 門 下 閒<ref>Chợ ở trước cửa thì huyên náo, trăng lại trước cửa thì thanh nhàn. Hai câu này do cách ghép chữ mà đặt ra: cùng một chữ môn 門, nếu để chữ thị 市 vào trong thì thành ra chữ náo 閙; nếu để chữ nguyệt 月 vào thì thành ra chữ nhàn 閒.</ref>
+So lao tâm lao lực<ref>''Lao tâm, lao lực'' 勞心勞力: lao tâm là nhọc lòng, tức là làm việc bằng trí não; lao lực là nhọc sức tức là làm việc bằng chân tay.</ref> cũng một {{khác|đoàn|đàn}},
+Người {{khác|trần thế|nhân thế}} muốn nhàn sao được.
+{{số|5}}Nên {{khác|phải lấy chữ "Nhàn"|phải giữ lấy "Nhàn"}} làm trước,
+{{khác|Trời tiếc du|Dẫu trời cho có tiếc}}, ta cũng xin nài.
+Cuộc nhân sinh {{khác|&nbsp;|chừng}} bảy, tám, chín mười mươi,
+Mười lăm trẻ, năm mươi già không kể
+Thọat sinh ra, thì đà khóc chóe,
+{{số|10}}Trần có vui, sao chẳng cười khì?
+Khi hỉ lạc, khi ái ố, lúc {{khác|sầu bi|sân si}}<ref>''Hỉ'' 喜: mừng; ''lạc'' 樂: vui; ''ái'' 愛: yêu; ''ố'' 惡: ghét; ''sầu'' 愁: buồn; ''bi'' 悲: thương.</ref>,
+Chứa chi lắm một bầu nhân dục<ref>''Nhân dục'' 人欲: lòng ham muốn của người ta.</ref>?
+Tri túc, tiện túc; đãi túc, hà thời túc?
+知 足 便 足 待 足 何 時 足
+Tri nhàn, tiện nhàn; đãi nhàn, hà thời nhàn?<ref>Biết đủ là đủ, đợi cho đủ thì bao giờ mới đủ. Biết nhàn là nhàn, đợi cho nhàn thì bao giờ mới nhàn</ref>
+知 閒 便 閒 待 閒 何 時 閒
+{{số|15}}Cầm, kỳ, thi, tửu với giang san,
+Dễ mấy kẻ xuất trần, xuất thế<ref>''Xuất trần xuất thế'' 出塵出世 (xuất: ra; trần: bụi; thế: đời): ra ngoài cõi đời bụi bậm.</ref>?
+Ngã kim nhật tại tọa chi địa,
+我 今 日 在 坐 之 地
+Cổ chi nhân tằng tiên ngã tọa chi.<ref>Hai câu này ở bài tựa truyện [[w:Tây sương ký|Tây sương ký]] của [[w:Vương Thực Phủ|Vương Thực Phủ]] đời Nguyên; ý nói: chỗ ta đang ngồi hôm nay thì người xưa đã từng ngồi trước rồi. Ý nói: ở đời này không có cái gì là mới cả.</ref>
+古 之 人 曽 先 我 坐 之
+Ngàn muôn năm âu cũng thế ni,
+{{số|20}}Ai hay hát, mà ai hay nghe hát?
+Sông Xích Bích, buông thuyền năm Nhâm Tuất,
+Để ông Tô<ref>''Ông Tô'': tức là ông [[w:Tô Thức|Tô Thức]] hay Tô Đông Pha đời nhà Tống, một trong bát đại gia của văn chương Trung Quốc, thường hay cùng bạn thả thuyền chơi trên sông Xích Bích. Ông là tác giả của hai bài phú nổi tiếng Tiền và Hậu Xích Bích phú</ref> {{khác|riêng một thú|chiếm đoạt vẻ}} thanh tao.
+Chữ "Nhàn" là chữ làm sao?
+</poem>
+
+{{chú thích cuối trang}}
+[[Thể loại:Hát nói]]

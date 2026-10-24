@@ -1,0 +1,47 @@
+# Sơ nhật vô thường kệ — nguồn: https://vi.wikisource.org/wiki/S%C6%A1_nh%E1%BA%ADt_v%C3%B4_th%C6%B0%E1%BB%9Dng_k%E1%BB%87
+{{đầu đề
+ | tựa đề     = Sơ nhật vô thường kệ<ref>Vô thường: thuật ngữ đạo Phật, tức vô thường biến dịch, phản ánh một quan điểm cơ bản của triết học [[w:Phật giáo|Phật giáo]] cho rằng tất cả mọi vật trong thế giới hữu vi đều không ngừng vận động theo chu trình: sinh ra, lớn lên và hủy diệt. Kệ vô thường là bài kệ nói về quy luật biến dịch, sự vận động của thế giới hữu vi, ứng dụng vào một thời điểm nhất định. Lúc này là buổi sáng sớm, các thì sau là buổi trưa, buổi hoàng hôn, chập tối, nửa đêm... mỗi thì đều có một bài kệ vô thường</ref>
+ | tác giả    = Trần Thái Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = Nguyên văn bài thơ bằng chữ Hán, sau đây là phiên âm và dịch nghĩa
+}}
+
+{| align="center"
+! Phiên âm Hán Việt
+! Dịch nghĩa
+|-
+|
+<poem>
+''Dạ sắc sơ phân hiểu,
+''Thần quang tiệm xuất không.
+''Ám thôi tân phát bạch,
+''Tiệm cải cựu nhan hồng.
+''Bất giác niên hoa xúc,
+''Do tranh nghiệp quả<ref>Thuật ngữ đạo Phật, nghĩa là kết quả báo ứng do nghiệp của người đời</ref> hùng.
+''Thân như băng kiến hiện,
+''Mệnh tự chúc đương phong.
+''Mạc tác trường niên khách,
+''Chung quy tảo chiếu công.''
+</poem>
+|
+<poem>
+Sắc đêm mới vừa hửng sáng,
+Ánh ban mai hiện dần trên bầu trời.
+Ngầm giục mái tóc xanh điểm trắng,
+Dần thay vẻ hồng của dung nhan xưa.
+Chẳng biết tuổi xuân ngắn ngủi,
+Còn tranh nghiệp quả mạnh hùng.
+Thân như băng gặp nắng trời,
+Mệnh tựa ngọn đèn trước gió.
+Chớ làm người khách trọ mãi mãi,
+Cuối cùng hãy quay về với công soi rọi sớm.
+</poem>
+|}
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Kệ]]

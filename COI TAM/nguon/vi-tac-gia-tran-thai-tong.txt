@@ -1,0 +1,26 @@
+# Tác gia:Trần Thái Tông — nguồn: https://vi.wikisource.org/wiki/T%C3%A1c_gia:Tr%E1%BA%A7n_Th%C3%A1i_T%C3%B4ng
+{{tác gia
+|tên-họ=
+|tên=Tông
+|họ=Trần Thái
+|chữ đầu tên=T
+|năm sinh=
+| năm mất =
+|mô tả='''Trần Thái Tông''' (chữ Hán: 陳太宗; nguyên tên thật là '''Trần Bồ''' 陳蒲, sau đổi thành '''Trần Cảnh''' 陳煚; 17 tháng 7, 1218&nbsp;– 4 tháng 5, 1277) là nhà vua đầu tiên của [[w:nhà Trần|nhà Trần]], ở ngôi hơn 32 năm (1225&nbsp;- 1258), làm Thái thượng hoàng 19 năm.
+|hình=
+|lk wikipedia=
+|lk wikiquote=
+|lk commons=
+}}
+
+== Tác phẩm ==
+* [[Ký Thanh Phong am tăng Đức Sơn]] 
+* [[Sơ nhật vô thường kệ]]
+* [[Thử thời vô thường kệ]]
+* [[Vô đề (Trần Thái Tông 1)|Vô đề 1]]
+* [[Vô đề (Trần Thái Tông 2)|Vô đề 2]]
+
+{{PD-old}}
+
+[[Thể loại:Vua Việt Nam]]
+[[Thể loại:Nhà thơ Việt Nam]]

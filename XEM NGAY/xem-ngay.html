@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xem ngày giờ — Sách Tinh Hoa</title>
+<style>
+:root{--bg:#f7f3ea;--card:#fff;--ink:#222;--mute:#6b6253;--acc:#8b2e1f;--line:#e2dccf;--tot:#1e6b3a;--xau:#a3261a}
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:960px;margin:auto;padding:12px 16px 60px;background:var(--bg);color:var(--ink);line-height:1.6}
+h1{text-align:center;margin:8px 0 4px;color:var(--acc)}h2{margin:.3em 0}h3{margin:1em 0 .3em;color:var(--acc)}
+.sub{text-align:center;color:var(--mute);margin-bottom:10px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:5}
+nav button,.btn{padding:7px 14px;border:1px solid #b9ae98;background:#fff;border-radius:6px;cursor:pointer;font-size:15px}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+input,select{padding:8px;font-size:16px;border:1px solid #b9ae98;border-radius:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.zh{font-family:"Noto Serif TC","PMingLiU","SimSun",serif;color:#444}
+.mute{color:var(--mute);font-size:.92em}.tag{display:inline-block;background:#efe7d6;border-radius:4px;padding:0 6px;margin-right:4px;font-size:.85em}
+.tot{color:var(--tot);font-weight:600}.xau{color:var(--xau);font-weight:600}.binh{color:#6b6253;font-weight:600}
+.tb{border-collapse:collapse;width:100%;margin:8px 0;font-size:.95em}.tb th,.tb td{border:1px solid var(--line);padding:5px 8px;vertical-align:top;text-align:left}
+.tb th{background:#efe7d6}.tb tr.hd td{background:#f0f7f1}.tb tr.homnay td{outline:2px solid var(--acc)}
+.rule{background:#fffbe9;border:1px solid #eadfae;border-radius:8px;padding:10px 14px}
+.hidden{display:none}
+@media print{nav,.noprint{display:none}body{background:#fff}.card{border:none}}
+</style></head><body>
+<h1>🗓 Xem ngày giờ</h1>
+<div class="sub">Trạch nhật theo Hiệp kỷ biện phương thư và Ngọc hạp ký · lõi lịch dùng chung của kho</div>
+<nav>
+ <button data-t="ngay" class="on">Một ngày</button>
+ <button data-t="thang">Cả tháng</button>
+ <button data-t="cach">Cách tính và nguồn</button>
+</nav>
+
+<section id="ngay">
+ <div class="card noprint"><div class="row">
+  Ngày giờ: <input id="dt" type="datetime-local">
+  Năm sinh (âm lịch) của người xem: <input id="ns" type="number" min="1900" max="2100" style="width:100px" placeholder="vd 1986">
+  <button class="btn" id="btnXem">Xem</button> <button class="btn" id="btnNay">⏱ Hôm nay</button>
+ </div>
+ <p class="mute">Ngày can chi đổi lúc 23h (giờ Tý). Tháng dùng để tính trực, thần hoàng đạo, Thiên đức, Nguyệt đức, Nguyệt phá là <b>tháng tiết khí</b> (nguyệt kiến).
+ <label><input type="checkbox" id="theoAm"> tính theo tháng âm lịch như lịch phổ thông</label></p></div>
+ <div id="kq"></div>
+</section>
+
+<section id="thang" class="hidden">
+ <div class="card noprint"><div class="row">Tháng <input id="tM" type="number" min="1" max="12" style="width:70px"> năm <input id="tY" type="number" min="1900" max="2100" style="width:90px">
+  năm sinh <input id="tNs" type="number" min="1900" max="2100" style="width:100px" placeholder="tùy chọn"> <button class="btn" id="btnThang">Lập bảng</button></div></div>
+ <div id="kqThang"></div>
+</section>
+
+<section id="cach" class="hidden"><div id="cachHtml"></div></section>
+
+<script src="../chung/lich.js"></script><script src="../chung/can-chi.js"></script>
+<script src="../chung/ngu-hanh.js"></script><script src="../chung/cuu-cung.js"></script>
+<script src="xem-ngay.js"></script>
+<script src="app.js"></script>
+</body></html>

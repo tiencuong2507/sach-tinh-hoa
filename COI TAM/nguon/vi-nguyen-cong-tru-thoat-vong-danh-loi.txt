@@ -1,0 +1,33 @@
+# Thoát vòng danh lợi — nguồn: https://vi.wikisource.org/wiki/Tho%C3%A1t_v%C3%B2ng_danh_l%E1%BB%A3i
+{{Chất lượng vk|50%}}{{đầu đề
+ | tựa đề     = Thoát vòng danh lợi
+ | tác giả    = Nguyễn Công Trứ
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = 
+}}
+
+<poem>
+Chen chúc lợi danh đà chán ngắt
+Cúc tùng phong nguyệt mới vui sao
+Đám phồn hoa trót bước chân vào
+Sực nghĩ lại giật mình bao xiết kể.
+{{số|5}}Quá giả vãng nhi bất thuyết<ref>Lấy ý ở sách [[w:Luận ngữ|Luận Ngữ]]: việc đã qua rồi không nên nhắc nữa</ref>,
+Cái hình hài làm thiệt cái thân chi.
+Cuộc đời thử gẫm mà suy,
+Bạn tùng cúc xưa kia là cố cựu.
+Hẹn với lợi danh ba chén rượu,
+{{số|10}}Vui cùng phong nguyệt một bầu thơ,
+Chuyện cổ kim so sánh tựa bàn cờ,
+Riêng vui thú giang sơn phong nguyệt.
+Mặc xa mã thị thành không dám biết,
+Thú yên hà trời đất để riêng ta.
+{{số|15}}Nào ai, ai biết chăng là?
+</poem>
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Hát nói]]

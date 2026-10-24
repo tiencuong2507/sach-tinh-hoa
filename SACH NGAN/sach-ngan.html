@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sách ngắn — Đọc nguyên văn, âm Hán Việt, dịch và bình</title>
+<style>
+:root{--bg:#f7f3ea;--card:#fff;--ink:#222;--mute:#6b6253;--acc:#8b2e1f;--line:#e2dccf}
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:960px;margin:auto;padding:12px 16px 60px;background:var(--bg);color:var(--ink);line-height:1.6}
+h1{text-align:center;margin:8px 0 4px;color:var(--acc)}h2{margin:.3em 0}h3{margin:1em 0 .3em;color:var(--acc)}
+.sub{text-align:center;color:var(--mute);margin-bottom:10px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:5}
+nav button,.btn{padding:7px 14px;border:1px solid #b9ae98;background:#fff;border-radius:6px;cursor:pointer;font-size:15px}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+.row{display:flex;flex-wrap:wrap;gap:12px}.row>.card{flex:1;min-width:260px}
+.zh{font-family:"Noto Serif TC","PMingLiU","SimSun",serif;font-size:1.12em;color:#444}
+.hv{font-style:italic}.dich{margin:.2em 0}.giai{color:#333}.mute{color:var(--mute);font-size:.92em}
+.hao{border-top:1px dashed var(--line);padding:8px 0}.hao .t{font-weight:600}.hidden{display:none}
+.tag{display:inline-block;background:#efe7d6;border-radius:4px;padding:0 6px;margin-right:4px;font-size:.85em}
+.toc a{display:block;padding:3px 0;color:var(--ink);text-decoration:none;cursor:pointer}.toc a:hover{color:var(--acc)}
+.pager{display:flex;justify-content:space-between;margin:10px 0}
+.rule{background:#fffbe9;border:1px solid #eadfae;border-radius:8px;padding:10px 14px}
+label.sw{font-size:14px;color:var(--mute);margin-left:8px}
+.ketluan{background:#fffbe9;border:1px solid #eadfae;border-radius:8px;padding:10px 14px;margin-top:10px}
+@media print{nav,.pager,.noprint{display:none}body{background:#fff}.card{border:none}}
+</style></head><body>
+<h1>📜 Sách ngắn</h1>
+<div class="sub">Những cuốn kinh điển ngắn · nguyên văn – âm Hán Việt – dịch nghĩa – lời bình</div>
+<nav>
+ <button data-t="toc" class="on">📚 Mục lục</button>
+ <label class="sw"><input type="checkbox" id="showzh" checked> hiện chữ Hán</label>
+</nav>
+
+<section id="sach"><div id="book"></div></section>
+
+<script src="data/chu-tu-gia-huan.js"></script>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,6 @@
+# Toàn kho dùng LF để đồng bộ Windows – Mac không sinh diff rác
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.mp3 binary
+*.pdf binary

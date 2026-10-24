@@ -1,0 +1,30 @@
+# Khuyên người đời — nguồn: https://vi.wikisource.org/wiki/Khuy%C3%AAn_ng%C6%B0%E1%BB%9Di_%C4%91%E1%BB%9Di
+{{đầu đề
+ | tựa đề     = Khuyên người đời
+ | tác giả    = Nguyễn Công Trứ
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | ghi chú    = 
+}}
+
+<poem>
+Cho hay thiên-hạ khéo xem gương:
+Hễ khó thời thôi mấy kẻ màng.
+Miệng nói đã {{khác|đành|toan}} mua chuyện ghét;
+Tay không {{khác|chưa dễ|dễ dám}} ép người thương.
+Khéo khôn ai {{khác|cũng tranh|dễ chen}} phần được;
+Trong sạch ta thời {{khác|giữ|nhưng}} mực thường.
+Đi lại chẳng qua thời với mệnh,
+Cũng đừng thắc mắc<ref>''Thắc mắc'': không yêu</ref>, chớ lo-lường.
+</poem>
+
+{{chú thích cuối trang}}
+
+{{PD-old}}
+
+[[Thể loại:Thơ Việt Nam]]
+[[Thể loại:Thất ngôn bát cú]]

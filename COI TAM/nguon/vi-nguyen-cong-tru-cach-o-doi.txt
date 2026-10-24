@@ -1,0 +1,25 @@
+# Cách ở đời — nguồn: https://vi.wikisource.org/wiki/C%C3%A1ch_%E1%BB%9F_%C4%91%E1%BB%9Di
+{{đầu đề
+ | tựa đề     = Cách ở đời
+ | tác giả    = Nguyễn Công Trứ
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = 
+}}
+
+<poem>
+Ăn ở sao cho trải sự đời<ref>''Trải sự đời'': từng trải các việc, các mánh khóe ở trên đời, tỏ ra con người lịch thiệp.</ref>:
+Vừa lòng cũng khó, há rằng chơi.
+Nghe như chọc ruột, tai làm điếc;
+Giận đã căm gan, miệng mỉm cười.
+Bởi số {{khác|chạy đâu|tránh sao}} cho khỏi số;
+Lụy người<ref>''Lụy người'': nhờ vả người ta.</ref> nên nỗi phải chiều người.
+Mặc ai, chớ để điều ân oán<ref>''Để điều ân oán'': điều ân là điều ơn huệ làm cho người; điều oán là điều oán hận gây ra cho người. Nhưng ở đây, chữ oán nặng hơn chữ ân. Để điều ân oán ý nói: để cho người ta oán hận mình.</ref>,
+{{khác|Chung cục<ref>''Chung cục'': rốt cuộc.</ref> thời chi|Trong cuộc hơn thua}} cũng tại trời.
+</poem>
+{{chú thích cuối trang}}
+[[Thể loại:Thơ Việt Nam]]
+[[Thể loại:Thất ngôn bát cú]]

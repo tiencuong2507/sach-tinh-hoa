@@ -1,0 +1,33 @@
+# Nhân tình thế thái — nguồn: https://vi.wikisource.org/wiki/Nh%C3%A2n_t%C3%ACnh_th%E1%BA%BF_th%C3%A1i
+{{Chất lượng vk|50%}}{{đầu đề
+ | tựa đề     = Nhân tình thế thái
+ | tác giả    = Nguyễn Công Trứ
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = 
+}}
+
+<poem>
+Gớm chết nhân tình thế thái,
+Lạt nồng, coi chiếc túi đầy vơi!
+Trông tốt màu, lựa ý theo hơi,
+Giọng thù phụng<ref>Mua chuộc</ref> ngọt ngào đủ mực.
+{{số|5}}Khi trở mặt, sa mày nặng mặt,
+Thói đảo điên hủng hỉnh<ref>Khủng khỉnh</ref> không dời.
+Nghe ra thời cũng buồn cười,
+Nghĩ lại từ đây phải chạy.
+Buộc chỉ cổ tay<ref>Để nhớ đến già</ref> chừa trước ấy,
+{{số|10}}Chống rèm con mắt<ref>Giương to mắt mà nhìn cho rõ</ref> ngắm sau này.
+Việc trăm năm ngày tháng hãy dài,
+Đường kim cỗ hẳn nhiều lúc gặp.
+Thôi cũng chớ can chi mà gấp,
+Bỗng bồn chồn hấp tấp khéo xinh,
+{{số|15}}Gớm cho thế thái nhân tình!
+</poem>
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Hát nói]]

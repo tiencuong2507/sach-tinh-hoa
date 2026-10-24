@@ -1,0 +1,26 @@
+# Vịnh sự đời — nguồn: https://vi.wikisource.org/wiki/V%E1%BB%8Bnh_s%E1%BB%B1_%C4%91%E1%BB%9Di
+{{đầu đề
+ | tựa đề     = Vịnh sự đời
+ | tác giả    = Nguyễn Công Trứ
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = 
+}}
+
+<poem>
+Những nghĩ xa gần khéo gớm thay!
+Sự đời tráo trở giống bàn tay!
+Hãy xem gương trước to tày liếp,
+Mà biết lòng người mỏng tựa mây.
+Những tiếng bất chì nghe đã chán,
+Mấy điều cạnh khóe nói thêm gay.
+Ở ăn cũng tưởng<ref>Nghĩ</ref> về sau với,
+Trời hãy còn cao, đất hãy dày!
+</poem>
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Thơ Việt Nam]]

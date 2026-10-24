@@ -1,0 +1,27 @@
+# Vinh nhục — nguồn: https://vi.wikisource.org/wiki/Vinh_nh%E1%BB%A5c
+{{đầu đề
+ | tựa đề     = Vinh nhục
+ | tác giả    = Nguyễn Công Trứ
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = 
+}}
+
+<poem>
+Đương cơn khổ nhục, lắm người khinh
+Vốn hễ làm người, có nhục vinh
+Vận đỏ, ghe<ref>Lắm</ref> người cho muối cá
+Hồi đen, lắm kẻ xóc xương kình<ref>Làm hại</ref>
+Đại nhân bao quản nhời chênh lệch
+Quân tử khôn từ chốn đá đanh
+Thôi hẵng đợi trời bình trị đã
+Gặp thời vỗ cánh sẽ ra danh!
+</poem>
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Thơ Việt Nam]]
+[[Thể loại:Thất ngôn bát cú]]

@@ -1,0 +1,51 @@
+# Thử thời vô thường kệ — nguồn: https://vi.wikisource.org/wiki/Th%E1%BB%AD_th%E1%BB%9Di_v%C3%B4_th%C6%B0%E1%BB%9Dng_k%E1%BB%87
+{{đầu đề
+ | tựa đề     = Thử thời vô thường kệ
+ | tác giả    = Trần Thái Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = Nguyên văn bài thơ bằng chữ Hán, sau đây là phiên âm và dịch nghĩa
+}}
+
+{| align="center"
+! Phiên âm Hán Việt
+! Dịch nghĩa
+|-
+|
+<poem>
+''Cảnh bức tây sơn mộ,
+''Hà thời tích thốn âm.
+''Dủy năng bòn mã ý,
+''Na khẳng trụ viên tâm<ref>''Mã ý'', ''viên tâm'': Ý ngựa và lòng vượn, tức ý và lòng phóng túng hung hăng như con ngựa, con vượn không chịu ở yên, không ngừng lại ở một chỗ, luôn luôn mơ ước, vọng cầu</ref>.
+''Nhật xuất hoàn tương một,
+''Thân phù hựu phục trầm.
+''Lão lai ngu dữ trí,
+''Tử khứ cổ hòa câm (kim).
+''Bất miễn vô thường đáo,
+''Nan đào đại hạn<ref>Giới hạn lớn của cuộc đời, tức là sự chết</ref> lâm.
+''Các nghi hành chính đạo,
+''Vật sử nhập tà lâm.''
+</poem>
+|
+<poem>
+Cảnh gần về chiều, mặt trời khuất non Tây,
+Đến bao giờ mới luyến tiếc tấc bóng.
+Chỉ có thể buông lỏng ý ngựa,
+Nào chịu dừng lại cái lòng vượn.
+Mặt trời mọc rồi sẽ lặn,
+Tấm thân nổi rồi lại chìm.
+Tuổi già đến, nào kể gì khôn dại,
+Việc chết thì xưa cũng như nay.
+Không tránh khỏi lúc vô thường dẫn tới,
+Khó trốn khỏi cái hạn lớn kéo về.
+Ai nấy nên tu hành chính đạo,
+Chớ để mình lạc vào rừng tà.
+</poem>
+|}
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Kệ]]
