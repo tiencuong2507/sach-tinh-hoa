@@ -1,0 +1,58 @@
+Cách cục khớp trong 400 lá số (seed cố định):
+    5  Tử Phủ đồng cung 紫府同宮 [V]  vd 24/5/2004 6h nu
+    6  Tử Phủ triều viên 紫府朝垣 [V]  vd 12/3/1952 14h nu
+    5  Quân thần khánh hội 君臣慶會 [V]  vd 16/3/1995 20h nam
+    4  Phụ Bật củng đế (giáp đế) 輔弼拱主 [V]  vd 13/4/2016 8h nam
+    2  Tử Vi cư Ngọ 紫微居午 [V]  vd 11/4/1964 18h nu
+    6  Cực cư Mão Dậu 極居卯酉 [V]  vd 19/1/2023 8h nam
+    5  Tử Vi Thìn Tuất ngộ Phá Quân 紫微辰戌遇破軍 [V]  vd 27/12/2007 16h nam
+    4  Thiên Phủ lâm Tuất 天府臨戌 [V]  vd 21/2/2005 8h nam
+   32  Phủ Tướng triều viên 府相朝垣 [V]  vd 11/11/1981 14h nu
+    8  Nhật Nguyệt tịnh minh 日月並明 [V]  vd 20/5/1979 20h nam
+   11  Nhật Nguyệt phản bối 日月反背 [V]  vd 8/6/1997 20h nam
+    4  Nhật chiếu lôi môn (Nhật xuất phù tang) 日照雷門 [V]  vd 6/5/1972 2h nu
+    3  Nguyệt lãng thiên môn 月朗天門 [V]  vd 6/8/2025 16h nam
+    1  Nhật lệ trung thiên (Kim xán quang huy) 日麗中天 [V]  vd 8/1/1993 14h nu
+    5  Thủy trừng quế ngạc 水澄桂萼 [V]  vd 9/1/1991 0h nam
+   11  Nhật Nguyệt giáp Mệnh 日月夾命 [V]  vd 4/3/1971 4h nam
+    9  Nhật Nguyệt giáp tài 日月夾財 [V]  vd 15/9/2001 6h nu
+    5  Nhật Nguyệt đồng lâm 日月同臨 [V]  vd 24/2/1989 14h nu
+    6  Cự Cơ đồng lâm (Cự Cơ cư Mão) 巨機居卯 [V]  vd 20/8/1970 10h nu
+    4  Cự Cơ cư Dậu 巨機酉上 [V]  vd 3/11/1999 2h nu
+    4  Thạch trung ẩn ngọc 石中隱玉 [V]  vd 12/7/2013 2h nu
+    6  Cự Nhật đồng cung 巨日同宮 [V]  vd 24/10/1975 4h nam
+   14  Cơ Nguyệt Đồng Lương 機月同梁 [V]  vd 14/10/1980 16h nam
+    8  Cơ Lương đồng cung 機梁同宮 [V]  vd 4/11/2023 0h nam
+    5  Đồng Lương Dần Thân 同梁寅申 [V]  vd 14/10/1980 16h nam
+    6  Lương cư Ngọ vị 梁居午位 [V]  vd 16/12/1994 12h nam
+   12  Thất Sát triều đẩu 七殺朝斗 [V]  vd 2/6/2000 0h nam
+  100  Sát Phá Tham 殺破狼 [I]  vd 10/8/1966 4h nam
+   16  Hỏa Tham 火貪 [V]  vd 22/5/1989 6h nu
+   10  Linh Tham 鈴貪 [V]  vd 10/8/1966 4h nam
+   11  Tham Vũ đồng hành 貪武同行 [V]  vd 4/3/1971 4h nam
+   13  Vũ Khúc miếu viên 武曲廟垣 [V]  vd 11/11/1981 14h nu
+    6  Hùng tú triều nguyên 雄宿朝元 [V]  vd 10/8/2005 0h nam
+    5  Liêm Sát đồng vị 廉貞七殺 [V]  vd 22/5/2016 8h nam
+    9  Phiếm thủy đào hoa 泛水桃花 [V]  vd 26/1/1999 2h nu
+    4  Phong lưu thái trượng 風流彩杖 [V]  vd 7/3/2001 10h nu
+   25  Lộc Mã giao trì 祿馬交馳 [V]  vd 9/1/1991 0h nam
+   41  Song Lộc (hợp lộc củng lộc) 雙祿 [V]  vd 25/4/1976 22h nu
+    3  Minh Lộc ám Lộc 明祿暗祿 [V]  vd 10/8/1966 4h nam
+   14  Khoa Quyền Lộc củng 科權祿拱 [V]  vd 26/1/1978 20h nam
+   51  Văn tinh ám củng 文星暗拱 [V]  vd 19/2/1974 18h nu
+    6  Xương Khúc giáp Mệnh 昌曲夾命 [V]  vd 27/9/2002 16h nam
+    9  Tả Hữu giáp Mệnh 左右夾命 [V]  vd 20/12/2023 22h nu
+   19  Tọa quý hướng quý 坐貴向貴 [V]  vd 28/6/2008 10h nu
+   12  Khôi Việt giáp Mệnh 魁鉞夾命 [V]  vd 14/3/1977 8h nam
+    5  Mã đầu đới kiếm 馬頭帶劍 [V]  vd 28/8/1976 6h nu
+    3  Hình tù giáp ấn 刑囚夾印 [V]  vd 28/8/1976 6h nu
+    4  Dương Đà giáp Kỵ 羊陀夾忌 [V]  vd 10/8/1966 4h nam
+    6  Không Kiếp giáp Mệnh 空劫夾命 [V]  vd 18/11/1960 22h nu
+    8  Không Kiếp thủ Mệnh 空劫守命 [V]  vd 18/11/1958 12h nam
+    4  Hỏa Linh giáp Mệnh 火鈴夾命 [V]  vd 28/8/2010 6h nu
+   62  Mệnh vô chính diệu 命無正曜 [V]  vd 20/5/1979 20h nam
+    0  Tài ấm giáp ấn 財蔭夾印 [V]
+
+Sao có nguyên văn: 34/34; câu trích đã dò: 232; cách cục: 53 (có nguồn [V] 52, không nguồn [I] 1); cách cục 0 ca: 1
+  CẢNH BÁO: cách cục "Tài ấm giáp ấn" không khớp ca nào trong 400 lá số — [U] điều kiện có thể không bao giờ xảy ra
+Luận giải: đạt

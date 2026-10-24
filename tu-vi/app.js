@@ -8,6 +8,9 @@ const SAT_TINH = new Set(["Kình Dương","Đà La","Hỏa Tinh","Linh Tinh","Đ
 const CAT_TINH = new Set(["Tả Phụ","Hữu Bật","Văn Xương","Văn Khúc","Thiên Khôi","Thiên Việt","Lộc Tồn","Thiên Mã","Hồng Loan","Thiên Hỷ","Long Trì","Phượng Các","Tam Thai","Bát Tọa","Ân Quang","Thiên Quý","Thai Phụ","Phong Cáo","Thiên Quan","Thiên Phúc","Quốc Ấn","Đường Phù","Thiên Trù","Thiên Đức","Nguyệt Đức","Giải Thần","Thiên Giải","Địa Giải","Niên Giải","Thiên Tài","Thiên Thọ","Thiên Y","Đào Hoa","Hoa Cái"]);
 // Thứ tự ô trong lưới 4×4: hàng trên Tỵ Ngọ Mùi Thân, cột phải Dậu Tuất, hàng dưới Hợi Tý Sửu Dần (phải → trái), cột trái Mão Thìn
 const LUOI = [5, 6, 7, 8, 4, null, 9, 3, 10, 2, 1, 0, 11];
+// 13 khung giờ theo địa chi; giá trị là giờ đại diện (0 = Tý sớm, 23 = Tý khuya) để lõi giữ nguyên quy tắc giờ Tý
+const KHUNG_GIO = [[0, "Tý sớm (0h–1h)"], [1, "Sửu (1h–3h)"], [3, "Dần (3h–5h)"], [5, "Mão (5h–7h)"], [7, "Thìn (7h–9h)"], [9, "Tỵ (9h–11h)"], [11, "Ngọ (11h–13h)"], [13, "Mùi (13h–15h)"], [15, "Thân (15h–17h)"], [17, "Dậu (17h–19h)"], [19, "Tuất (19h–21h)"], [21, "Hợi (21h–23h)"], [23, "Tý khuya (23h–24h, tính sang ngày sau theo cấu hình)"]];
+const quyKhungGio = h => { h = parseInt(h, 10); if (isNaN(h)) return 11; if (h >= 23) return 23; if (h < 1) return 0; return CanChi.chiGioTuGio(h) * 2 - 1; };
 let laSoHienTai = null;
 
 function docNhap() {
@@ -21,7 +24,7 @@ function napNhap() {
   let v = null; try { v = JSON.parse(localStorage.getItem("tv_nhap") || "null"); } catch (e) {}
   const nay = new Date();
   $("#loaiLich").value = v?.loai || "duong"; $("#ngay").value = v?.ngay || nay.getDate(); $("#thang").value = v?.thang || nay.getMonth() + 1; $("#nam").value = v?.nam || 1990;
-  $("#nhuan").checked = !!v?.nhuan; $("#gio").value = v?.gio ?? 12; $("#gioiTinh").value = v?.gioiTinh || "nam"; $("#profile").value = v?.profile || "viet"; $("#namXem").value = v?.namXem || nay.getFullYear();
+  $("#nhuan").checked = !!v?.nhuan; $("#gio").value = quyKhungGio(v?.gio ?? 11); $("#gioiTinh").value = v?.gioiTinh || "nam"; $("#profile").value = v?.profile || "viet"; $("#namXem").value = v?.namXem || nay.getFullYear();
   $("#lbNhuan").classList.toggle("hidden", $("#loaiLich").value !== "am");
 }
 
@@ -68,6 +71,7 @@ function lapLaSo() {
     const nhap = docNhap(); laSoHienTai = TuVi.laSo(nhap);
     const Y = parseInt($("#namXem").value, 10), ln = Y ? TuVi.luuNien(laSoHienTai, Y) : null;
     $("#kq").innerHTML = veLaSo(laSoHienTai, ln); luuNhap();
+    if (window.TuViLuan) { try { $("#luan").innerHTML = TuViLuan.luanLaSo(laSoHienTai, ln); } catch (e) { $("#luan").innerHTML = `<div class="card"><b>Chưa luận được:</b> ${esc(e.message)}</div>`; } }
   } catch (e) { $("#kq").innerHTML = `<div class="card"><b>Không lập được lá số:</b> ${esc(e.message)}</div>`; }
 }
 
@@ -88,7 +92,7 @@ function trangCach() {
 }
 
 function khoiTao() {
-  $("#gio").innerHTML = Array.from({ length: 24 }, (_, h) => `<option value="${h}">${h}h – giờ ${CHI[CanChi.chiGioTuGio(h)]}</option>`).join("");
+  $("#gio").innerHTML = KHUNG_GIO.map(([v, ten]) => `<option value="${v}">${ten}</option>`).join("");
   $("#profile").innerHTML = Object.keys(TuVi.PROFILE).map(p => `<option value="${p}">${p}</option>`).join("");
   napNhap();
   const ghiChu = () => { const p = TuVi.PROFILE[$("#profile").value]; $("#ghiChuCauHinh").innerHTML = `Cấu hình <b>${esc($("#profile").value)}</b>: Tứ Hóa Canh ${esc(p.tuHoaCanh)}, Nhâm ${esc(p.tuHoaNham)} · giờ Tý 23h ${p.gioTySangNgaySau ? "sang ngày sau" : "cùng ngày"} · năm theo ${esc(p.ranhGioiNam)} · tháng nhuận ${esc(p.thangNhuan)} · Hỏa Linh ${esc(p.hoaLinhChieu)} · Tràng sinh ${esc(p.trangSinhChieu)}. Chi tiết ở thẻ "Cách an sao và nguồn".`; };
@@ -96,6 +100,9 @@ function khoiTao() {
   $("#loaiLich").onchange = () => $("#lbNhuan").classList.toggle("hidden", $("#loaiLich").value !== "am");
   $("#profile").onchange = ghiChu;
   $("#btnLap").onclick = lapLaSo; $("#btnIn").onclick = () => window.print();
+  const anHan = () => { try { document.body.classList.toggle("anHan", !$("#hienHan").checked); localStorage.setItem("tv_hienHan", $("#hienHan").checked ? "1" : "0"); } catch (e) {} };
+  try { if (localStorage.getItem("tv_hienHan") === "0") $("#hienHan").checked = false; } catch (e) {}
+  $("#hienHan").onchange = anHan; anHan();
   $$("nav button").forEach(b => { b.onclick = () => { $$("nav button").forEach(x => x.classList.toggle("on", x === b)); ["laso", "cach"].forEach(id => $("#" + id).classList.toggle("hidden", id !== b.dataset.t)); if (b.dataset.t === "cach") trangCach(); }; });
   trangCach();
   if (localStorage.getItem("tv_nhap")) lapLaSo();

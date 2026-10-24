@@ -40,6 +40,10 @@ input,select{padding:6px 8px;font-size:15px;border:1px solid #b9ae98;border-radi
 .giua .ct{display:grid;grid-template-columns:auto 1fr;gap:2px 10px}
 .giua .ct b{color:var(--acc)}
 .chuThich{font-size:.88em;color:var(--mute)}
+.luan h3{margin-top:1em}.luan .nv{background:#fffbe9;border-left:3px solid #eadfae;padding:6px 10px;margin:4px 0 8px;font-size:.92em}
+.luan .nv .am{color:#5a4a2a;font-style:italic}.luan .cc{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:8px 0}
+.luan .cc.hung{border-color:#d9a79f}.luan .cc.cát{border-color:#b9d4c0}.luan .cungLuan{margin:6px 0}.luan .cungLuan ul{margin:2px 0 0 18px}
+body.anHan .zh{display:none}
 @media(max-width:760px){.laso{font-size:.9em}.o{min-height:120px}}
 @media print{nav,.noprint{display:none}body{background:#fff;max-width:none;padding:0}.card{border:none;margin:0}.laso{break-inside:avoid}}
 </style></head><body>
@@ -61,15 +65,18 @@ input,select{padding:6px 8px;font-size:15px;border:1px solid #b9ae98;border-radi
    <label>Giờ <select id="gio"></select></label>
    <label>Giới <select id="gioiTinh"><option value="nam">nam</option><option value="nu">nữ</option></select></label>
   </div>
+  <p class="mute" style="margin:4px 0 0">Sinh sát ranh hai khung (ví dụ 12h55, 13h05): lập cả hai lá số rồi xem lá nào ứng với đời; giờ theo đồng hồ Việt Nam (+7).</p>
   <div class="row" style="margin-top:8px">
    <label>Phái / cấu hình <select id="profile"></select></label>
    <label>Xem lưu niên năm <input id="namXem" type="number" min="1800" max="2199" style="width:84px"></label>
    <button class="btn" id="btnLap">Lập lá số</button>
+   <label class="btn"><input type="checkbox" id="hienHan" checked> hiện chữ Hán</label>
    <button class="btn" id="btnIn">🖨 In</button>
   </div>
   <p class="mute" id="ghiChuCauHinh"></p>
  </div>
  <div id="kq"></div>
+ <div id="luan"></div>
  <p class="chuThich">Lá số để chiêm nghiệm; luận giải là việc của người học, không có một phái nào là chuẩn duy nhất.</p>
 </section>
 
@@ -78,5 +85,6 @@ input,select{padding:6px 8px;font-size:15px;border:1px solid #b9ae98;border-radi
 <script src="../chung/lich.js"></script><script src="../chung/can-chi.js"></script>
 <script src="../chung/ngu-hanh.js"></script><script src="../chung/lich-chon.js"></script>
 <script src="tu-vi.js"></script>
+<script src="data/luan-sao.js"></script><script src="data/cach-cuc.js"></script><script src="luan.js"></script>
 <script src="app.js"></script>
 </body></html>

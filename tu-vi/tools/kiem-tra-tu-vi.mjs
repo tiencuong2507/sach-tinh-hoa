@@ -14,11 +14,11 @@ const SO_LA_SO = +(process.env.SO_LA_SO || 400);
 
 // ---------- nạp như trình duyệt
 const html = readFileSync("tu-vi.html", "utf8"), srcs = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]);
-ok(srcs.length === 6 && srcs[3] === "../chung/lich-chon.js" && srcs[4] === "tu-vi.js" && srcs[5] === "app.js", "tu-vi.html phải nạp 4 file chung (kể cả lich-chon.js) + tu-vi.js + app.js, thấy: " + srcs.join(", "));
+ok(srcs.length === 9 && srcs[3] === "../chung/lich-chon.js" && srcs[4] === "tu-vi.js" && srcs[7] === "luan.js" && srcs[8] === "app.js", "tu-vi.html phải nạp 4 file chung + tu-vi.js + 2 data + luan.js + app.js, thấy: " + srcs.join(", "));
 function taoCtx() {
   const els = {}, kho = {};
   const mk = id => els[id] || (els[id] = { id, innerHTML: "", value: "", checked: false, dataset: { t: id }, classList: { toggle() {}, contains() { return false; } }, onclick: null, onchange: null });
-  const ctx = { console, document: { querySelector: s => mk(s.replace("#", "")), querySelectorAll: s => s === "nav button" ? [mk("navLaso"), mk("navCach")] : [] },
+  const ctx = { console, document: { querySelector: s => mk(s.replace("#", "")), querySelectorAll: s => s === "nav button" ? [mk("navLaso"), mk("navCach")] : [], body: { classList: { toggle() {} } } },
     localStorage: { getItem: k => (k in kho ? kho[k] : null), setItem: (k, v) => { kho[k] = String(v); }, removeItem: k => { delete kho[k]; } }, print() {} };
   ctx.window = ctx; vm.createContext(ctx); return { ctx, els, kho };
 }
