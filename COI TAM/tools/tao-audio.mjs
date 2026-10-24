@@ -3,7 +3,7 @@
 //    bỏ chữ Hán và âm Hán Việt (giọng máy đọc sai), thêm dấu chấm cuối đoạn để giọng ngắt nghỉ;
 // 2) gọi edge-tts (gói Python, giọng vi-VN-NamMinhNeural của Microsoft, dịch vụ không chính thức [I]) ghi audio/bai-NN.mp3 và audio/bai-NN.txt (văn bản đã đọc).
 // Giọng: nam, hạ tốc độ và cao độ một chút cho trầm ấm. Đổi ở CAU_HINH.
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, unlinkSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import vm from "node:vm";
 const CAU_HINH = { voice: "vi-VN-NamMinhNeural", rate: "-10%", pitch: "-4Hz" };
@@ -26,6 +26,12 @@ for (const b of ctx.CT_BAI) {
   const vanBan = phan.filter(Boolean).join("\n\n");
   const txt = `audio/bai-${String(b.so).padStart(2, "0")}.txt`, mp3 = txt.replace(".txt", ".mp3");
   writeFileSync(txt, vanBan, "utf8");
-  execFileSync("python", ["-m", "edge_tts", "--voice", CAU_HINH.voice, "--rate=" + CAU_HINH.rate, "--pitch=" + CAU_HINH.pitch, "-f", txt, "--write-media", mp3], { stdio: "inherit" });
-  console.log(`Bài ${b.so}: ${vanBan.length} ký tự → ${mp3}${existsSync(mp3) ? "" : " (KHÔNG tạo được)"}`);
+  // Dịch vụ edge-tts thỉnh thoảng từ chối; thử lại tối đa 3 lần, mỗi lần cách 20 giây; thất bại thì vẫn để lại file .txt cho bước tạo giọng khác
+  let ok = false;
+  for (let lan = 1; lan <= 3 && !ok; lan++) {
+    try { execFileSync("python", ["-m", "edge_tts", "--voice", CAU_HINH.voice, "--rate=" + CAU_HINH.rate, "--pitch=" + CAU_HINH.pitch, "-f", txt, "--write-media", mp3], { stdio: "inherit" }); ok = existsSync(mp3) && statSync(mp3).size > 10000; }
+    catch (e) { ok = false; }
+    if (!ok) { try { unlinkSync(mp3); } catch (e) {} if (lan < 3) { console.log(`Bài ${b.so}: edge-tts lỗi lần ${lan}, chờ 20 giây…`); Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 20000); } }
+  }
+  console.log(`Bài ${b.so}: ${vanBan.length} ký tự → ${ok ? mp3 : "KHÔNG tạo được audio (đã ghi " + txt + ")"}`);
 }
