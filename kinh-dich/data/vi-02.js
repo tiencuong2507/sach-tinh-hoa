@@ -102,7 +102,7 @@ Object.assign(window.KD_VI, {
  tk: "Khiêm tốn: có mà không tự cho là có; hạ mình mà càng sáng, đức khiêm đi đến cuối cùng.",
  tu: {hv: "Khiêm: Hanh, quân tử hữu chung.", dich: "Khiêm: hanh thông, người quân tử có kết quả tốt đẹp đến cuối."},
  thoan: "Khiêm thì hanh thông: đạo trời giáng xuống mà sáng sủa, đạo đất thấp mà đi lên. Đạo trời làm vơi chỗ đầy mà thêm cho chỗ khiêm; đạo đất làm đổi chỗ đầy mà rót về chỗ khiêm; quỷ thần hại kẻ đầy mà ban phúc cho kẻ khiêm; đạo người ghét kẻ đầy mà ưa kẻ khiêm. Khiêm thì ở chỗ tôn mà càng sáng, ở chỗ thấp mà không ai vượt được; đó là chỗ trọn vẹn của quân tử.",
- tuong: {hv: "Địa trung hữu sơn, Khiêm; quân tử dĩ biều đa ích quả, xứng vật bình thi.", dich: "Trong đất có núi là quẻ Khiêm; người quân tử noi đó mà bớt chỗ nhiều, bù chỗ ít, cân nhắc sự vật mà ban phát công bằng."},
+ tuong: {hv: "Địa trung hữu sơn, Khiêm; quân tử dĩ bầu đa ích quả, xứng vật bình thi.", dich: "Trong đất có núi là quẻ Khiêm; người quân tử noi đó mà bớt chỗ nhiều, bù chỗ ít, cân nhắc sự vật mà ban phát công bằng."},
  giai: "Núi cao mà nằm dưới đất: cái cao giấu mình trong cái thấp. Đây là quẻ duy nhất mà cả sáu hào đều không có lời xấu. Khiêm không phải tự hạ thấp giả tạo mà là <b>có thực tài, thực công mà không kể</b>, luôn cân bằng nhiều ít. Hào cửu tam – dương duy nhất – là chủ quẻ: “có công mà khiêm”.",
  khuyen: "Rất tốt cho mọi việc nếu giữ thái độ khiêm cung, lắng nghe, chia sẻ công lao. Tránh khoe khoang; khi cần cương quyết thì vẫn phải làm, nhưng vì lẽ phải chứ không vì mình.",
  hao: [

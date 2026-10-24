@@ -102,7 +102,7 @@ Object.assign(window.KD_VI, {
  tk: "Bóc lột, suy tàn: tiểu nhân lấn át, nền móng bị bào mòn; quân tử thuận thời mà dừng, giữ hạt giống.",
  tu: {hv: "Bác: Bất lợi hữu du vãng.", dich: "Bác: không lợi khi có việc đi."},
  thoan: "Bác là bóc mòn, là âm nhu làm biến đổi dương cương. Không lợi có việc đi vì tiểu nhân đang lớn. Thuận mà dừng là xem tượng quẻ. Người quân tử coi trọng lẽ tiêu – tức, đầy – vơi, đó là sự vận hành của trời.",
- tuong: {hv: "Sơn phụ ư địa, Bác; thượng dĩ hậu hạ, an trạch.", dich: "Núi tựa sát trên đất là quẻ Bác; người trên noi đó mà vun dày cho người dưới để yên chỗ ở."},
+ tuong: {hv: "Sơn phụ địa thượng, Bác; thượng dĩ hậu hạ, an trạch.", dich: "Núi tựa sát trên đất là quẻ Bác; người trên noi đó mà vun dày cho người dưới để yên chỗ ở."},
  giai: "Năm âm ở dưới đẩy dần một dương còn sót trên cùng: thế lực xấu đã chiếm gần hết, như cái giường bị gặm từ chân lên. Đây là thời suy, <b>không nên hành động lớn</b>; nên thuận thế mà dừng, giữ mình. Nhưng hào thượng cửu là “trái lớn không bị ăn” – hạt giống của sự phục hồi; suy đến cùng thì sẽ hồi (quẻ Phục tiếp theo). Đại tượng: người trên muốn vững thì phải lo cho nền tảng ở dưới.",
  khuyen: "Tình thế đang xấu đi, nguồn lực hao mòn. Tránh mạo hiểm và đối đầu; củng cố nền móng, bảo toàn cái cốt lõi, đợi thời chuyển.",
  hao: [

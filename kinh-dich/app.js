@@ -2,6 +2,11 @@
 "use strict";
 const ZH = window.KD_ZH || {}, VI = window.KD_VI || {}, INTRO = window.KD_INTRO || [], STUDY = window.KD_STUDY || [];
 const HT = { thuong: [], ha: [], ...(window.KD_HETU || {}) };
+// 64 nguyên tắc hành xử (Đại tượng truyện): data/nguyen-tac-64.js; trang "nt"
+const NT = Array.from(window.KD_NGUYEN_TAC || []).filter(Boolean);
+const NT_NHOM = ["Tu thân","Làm việc","Ứng xử","Gia đình","Lãnh đạo","Tiền của","Thời thế"];
+const NT_TUAN_GOC = Date.UTC(2026, 0, 5); // thứ Hai 5/1/2026: mốc đếm tuần để gợi ý "nguyên tắc tuần này"
+const NT_MS_TUAN = 7 * 24 * 3600 * 1000;
 HT.thuong = Array.from(HT.thuong || []).filter(Boolean); HT.ha = Array.from(HT.ha || []).filter(Boolean);
 // Các thiên Thập dực khác: mã trang "t" + mã thiên + số chương (ví dụ tv0 = Văn ngôn chương 1)
 const TD = window.KD_TD || {};
@@ -79,6 +84,7 @@ function hexPage(n, opt={}) {
 function bookToc() {
   let s = `<div class="card"><h2>Mục lục</h2><div class="row"><div class="toc"><h3>Dẫn nhập</h3>`;
   INTRO.forEach((c,i)=> s += `<a onclick="go('i${i}')">${c.title}</a>`);
+  if (NT.length) s += `<h3>Cẩm nang</h3><a onclick="go('nt')">64 nguyên tắc hành xử (Đại tượng truyện)</a>`;
   s += `</div><div class="toc"><h3>Thượng kinh (1–30)</h3>`;
   for (let n=1;n<=64;n++) {
     if (n===31) s += `</div><div class="toc"><h3>Hạ kinh (31–64)</h3>`;
@@ -96,7 +102,7 @@ function bookToc() {
     STUDY.forEach((c,i)=> s += `<a onclick="go('s${i}')">${c.title}</a>`); s += `</div>`; }
   return s + `</div>`;
 }
-const PAGES = () => ["toc", ...INTRO.map((_,i)=>"i"+i), ...Array.from({length:64},(_,i)=>"q"+(i+1)),
+const PAGES = () => ["toc", ...INTRO.map((_,i)=>"i"+i), ...(NT.length ? ["nt"] : []), ...Array.from({length:64},(_,i)=>"q"+(i+1)),
   ...tdPages(true), ...HT.thuong.map((_,i)=>"a"+i), ...HT.ha.map((_,i)=>"b"+i), ...tdPages(false), ...STUDY.map((_,i)=>"s"+i)];
 // Trang một chương Thập dực (Văn ngôn, Thuyết quái, Tự quái, Tạp quái): cùng bố cục với Hệ từ
 function tdPage(id) {
@@ -116,15 +122,53 @@ function heTuPage(phan, i) {
   return s + `<h3>Giải nghĩa</h3><div class="giai">${c.giai}</div>
     <p class="mute">Nguyên văn: Wikisource 易傳/繫辭${phan==="thuong"?"上":"下"} (phạm vi công cộng; chia chương theo Wikisource). Phần dịch và giải nghĩa là bản biên soạn tham khảo.</p></div>`;
 }
+// Trang 64 nguyên tắc hành xử: bộ lọc theo nhóm + tìm nhanh; danh sách dựng lại riêng trong #ntList để ô tìm không mất focus
+let ntNhom = "", ntQ = "";
+function ntKhoi(x) {
+  const h = HEX[x.n];
+  return `<div class="hao ntk"><div class="t"><a onclick="go('q${x.n}')" style="cursor:pointer">${h.ch} ${x.n}. ${h.name}</a> <span class="tag">${x.nhom}</span></div>
+    ${zh(x.zh)}<div class="hv">${x.hv}</div><div class="dich">→ ${x.dich}</div>
+    <p style="margin:.4em 0"><span class="tag">Nguyên tắc</span> <b>${x.nguyenTac}</b></p>
+    <div class="giai"><b>Vì sao:</b> ${x.giaiThich}</div>
+    <div class="giai" style="margin-top:.3em"><b>Đời nay:</b> ${x.tinhHuong}</div>
+    <div class="giai" style="margin-top:.3em"><b>Hôm nay:</b> ${x.viecHomNay}</div></div>`;
+}
+function ntList() {
+  const q = norm(ntQ.trim());
+  const ds = NT.filter(x => (!ntNhom || x.nhom === ntNhom) &&
+    (!q || String(x.n) === q || norm(HEX[x.n].name + " " + x.nguyenTac + " " + x.dich + " " + x.tinhHuong + " " + x.viecHomNay).includes(q) || x.zh.includes(ntQ.trim())));
+  return `<p class="mute">Hiện ${ds.length}/${NT.length} nguyên tắc${ntNhom ? ` · nhóm ${ntNhom}` : ""}${q ? ` · tìm “${esc(ntQ.trim())}”` : ""}</p>` +
+    (ds.length ? ds.map(ntKhoi).join("") : `<p class="mute"><i>Không có nguyên tắc nào khớp.</i></p>`);
+}
+function ntLoc(nhom) { ntNhom = nhom === ntNhom ? "" : nhom; $("#ntBtn").innerHTML = ntNut(); $("#ntList").innerHTML = ntList(); }
+function ntTim(v) { ntQ = v || ""; $("#ntList").innerHTML = ntList(); }
+const ntNut = () => [["", "Tất cả"], ...NT_NHOM.map(g => [g, `${g} (${NT.filter(x => x.nhom === g).length})`])]
+  .map(([g, t]) => `<button class="btn${ntNhom === g ? " on" : ""}" onclick="ntLoc('${g}')">${t}</button>`).join(" ");
+function ntPage() {
+  const k = Math.floor((Date.now() - NT_TUAN_GOC) / NT_MS_TUAN), tuan = NT[((k % NT.length) + NT.length) % NT.length];
+  let s = `<div class="card"><span class="tag">Cẩm nang</span><h2>64 nguyên tắc hành xử</h2>
+    <p>Mỗi quẻ có một câu Đại tượng truyện (大象傳) dạy người quân tử <i>noi theo tượng mà làm</i>: 君子以… Sáu mươi tư câu gộp lại là một bộ quy tắc trọn vẹn về tu thân, làm việc, ứng xử, trị gia, quản trị, tiền của và thời thế.
+    Đây là cách đọc Dịch không cần gieo: Hệ từ gọi là <i>quan tượng ngoạn từ</i> (xem tượng mà ngẫm lời).</p>
+    <p class="mute">Nguyên văn và âm Hán Việt lấy từ kinh văn (Wikisource 周易). Phần <b>nguyên tắc</b>, <b>vì sao</b>, <b>đời nay</b>, <b>hôm nay</b> là bản biên soạn của kho để soi câu xưa vào đời sống hôm nay, không phải lời người xưa; tên người, địa danh trong tình huống là dựng lên, không chỉ ai cụ thể.</p>
+    ${tuan ? `<div class="rule">📌 <b>Nguyên tắc tuần này</b> (tuần thứ ${k + 1} từ mốc ${new Date(NT_TUAN_GOC).toLocaleDateString("vi-VN")}): <a onclick="go('q${tuan.n}')" style="cursor:pointer">quẻ ${tuan.n}. ${HEX[tuan.n].short}</a> – <b>${tuan.nguyenTac}</b> · <i>${tuan.viecHomNay}</i></div>` : ""}
+    <div id="ntBtn" style="margin:10px 0;display:flex;flex-wrap:wrap;gap:6px">${ntNut()}</div>
+    <input id="ntQ" placeholder="Tìm nhanh: số quẻ, tên quẻ, chữ trong nguyên tắc hay tình huống…" style="width:100%;box-sizing:border-box" oninput="ntTim(this.value)" value="${esc(ntQ)}"></div>
+    <div class="card" id="ntList">${ntList()}</div>
+    <div class="card"><h3>Cách dùng</h3>
+    <p>Mỗi tuần chọn <b>một</b> nguyên tắc (theo gợi ý tuần, theo nhóm đang cần, hoặc theo quẻ vừa gieo). Thứ Hai đọc kỹ câu Hán và phần vì sao; mỗi ngày làm một việc nhỏ theo tinh thần ấy, tối ghi một dòng xem hôm nay có lúc nào nguyên tắc đó soi được không.
+    Cuối tuần tự hỏi ba câu: việc gì đã khác đi, chỗ nào mình vẫn phạm, có cần giữ thêm một tuần nữa không. Sáu mươi tư tuần là hơn một năm; đi hết một vòng rồi quay lại từ đầu, lần sau sẽ đọc ra những điều lần trước chưa thấy.</p>
+    <p class="mute">Nguyên văn: Wikisource 周易 (phạm vi công cộng). Phần biên soạn là của kho, để tham khảo.</p></div>`;
+  return s;
+}
 function go(id) {
   const P = PAGES(), k = P.indexOf(id), pv = P[k-1], nx = P[k+1];
-  const title = p => p==="toc" ? "Mục lục" : p[0]==="i" ? INTRO[+p.slice(1)].title : p[0]==="s" ? STUDY[+p.slice(1)].title
+  const title = p => p==="toc" ? "Mục lục" : p==="nt" ? "64 nguyên tắc hành xử" : p[0]==="i" ? INTRO[+p.slice(1)].title : p[0]==="s" ? STUDY[+p.slice(1)].title
     : p[0]==="a" ? `Hệ từ thượng ${+p.slice(1)+1}` : p[0]==="b" ? `Hệ từ hạ ${+p.slice(1)+1}`
     : p[0]==="t" ? `${tdThien(p[1]).ten.replace(" truyện","")}${TD[tdThien(p[1]).key].length>1?" "+(+p.slice(2)+1):""}` : `Quẻ ${p.slice(1)}. ${HEX[+p.slice(1)].short}`;
   const pager = `<div class="pager">${pv?`<button class="btn" onclick="go('${pv}')">← ${title(pv)}</button>`:"<span></span>"}
     <button class="btn" onclick="go('toc')">Mục lục</button>${nx?`<button class="btn" onclick="go('${nx}')">${title(nx)} →</button>`:"<span></span>"}</div>`;
   const chap = c => `<div class="card"><h2>${c.title}</h2>${c.html}</div>`;
-  let body = id==="toc" ? bookToc() : id[0]==="i" ? chap(INTRO[+id.slice(1)]) : id[0]==="s" ? chap(STUDY[+id.slice(1)])
+  let body = id==="toc" ? bookToc() : id==="nt" ? ntPage() : id[0]==="i" ? chap(INTRO[+id.slice(1)]) : id[0]==="s" ? chap(STUDY[+id.slice(1)])
     : id[0]==="a" ? heTuPage("thuong", +id.slice(1)) : id[0]==="b" ? heTuPage("ha", +id.slice(1))
     : id[0]==="t" ? tdPage(id) : hexPage(+id.slice(1));
   $("#book").innerHTML = pager + body + pager;
