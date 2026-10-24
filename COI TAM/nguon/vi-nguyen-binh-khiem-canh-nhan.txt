@@ -1,0 +1,28 @@
+# Cảnh nhàn — nguồn: https://vi.wikisource.org/wiki/C%E1%BA%A3nh_nh%C3%A0n
+{{đầu đề
+ | tựa đề     = Cảnh nhàn
+ | tác giả    = Nguyễn Bỉnh Khiêm
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | ghi chú    = Bài thơ vốn không có đầu đề, tên bài là do người đời sau đặt.
+}}
+
+<poem>
+Lọ là thành-thị, lọ lâm-{{khác|toàn|tuyền}}, 
+Được {{khác|thứ|thú}} thì hơn miễn phận {{khác|nhàn|yên}}. 
+   {{khác|Vụng|Trẻ}}, bất tài nên kém bạn, 
+   Già, vô sự ấy là tiên. 
+Đồ-thư một {{khác|quyển|cuốn}} nhà làm của; 
+Phong-nguyệt năm hồ<ref>''Năm hồ'': nơi Phạm Lãi du thuyền thoát tục</ref> khách nổi thuyền. 
+{{khác|Dù|Dầu}} nhẫn<ref>''Nhẫn'' (tiếng cổ) có mấy nghĩa: 1) Chịu đựng, nhịn. 2) Tất cả</ref> chê khen, {{khác|dù|dầu}} miệng thế, 
+Cơ-mầu tạo-hóa mặc tự-nhiên.
+</poem>
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Thơ Việt Nam]]
+[[Thể loại:Thất ngôn bát cú]]

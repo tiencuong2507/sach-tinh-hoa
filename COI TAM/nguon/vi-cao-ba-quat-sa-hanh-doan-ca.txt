@@ -1,0 +1,81 @@
+# Sa hành đoản ca — nguồn: https://vi.wikisource.org/wiki/Sa_h%C3%A0nh_%C4%91o%E1%BA%A3n_ca
+{{đầu đề
+ | tựa đề     = Sa hành đoản ca (沙行短歌)<br>Bài hát ngắn « Đi trên bãi cát »
+ | tác giả    = Cao Bá Quát
+ | dịch giả   = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | năm        = 
+ | ghi chú    = 
+}}
+
+{| align="center"
+! Nguyên văn chữ Hán
+! Phiên âm Hán Việt
+! Dịch nghĩa
+|-
+|
+<poem>
+長沙復長沙， 
+一步一回卻。 
+日入行未已， 
+客子淚交落。 
+君不學仙家美睡翁， 
+登山涉水怨何窮。 
+古來名利人， 
+奔走路途中。 
+風前酒店有美酒， 
+醒者常少醉者同。 
+長沙長沙奈渠何， 
+坦路茫茫畏路多。 
+聽我一倡窮途歌。 
+北山之北山萬疊， 
+{{khác|南山之南|南海之南}}波萬級， 
+君胡為乎沙上立。
+</poem>
+|
+<poem>
+Trường sa phục trường sa,
+Nhất bộ nhất hồi khước.
+Nhật nhập hành vị dĩ,
+Khách tử lệ giao lạc.
+Quân bất học tiên nga mỹ thụy ông<ref>''Ông tiên ngủ kỹ'': Sách ''Thần tiên thập dị'' nói: Hạ Hầu Ấn lúc leo núi hay lội nước vẫn cứ nhắm mắt ngủ say, người bên cạnh nghe thấy tiếng ngáy, mà Ấn vẫn bước đều không hề trượt hay vấp, người đời gọi ông là « tiên ngủ ».</ref>,
+Đăng sơn thiệp thủy oán hà cùng.
+Cổ lai danh lợi nhân,
+Bôn tẩu lộ đồ trung.
+Phong tiền tửu điếm hữu mỹ tửu,
+Tỉnh giả thường thiểu, túy giả đồng.
+Trường sa, trường sa, nại cừ hà?
+Thản lộ mang mang úy lộ đa,
+Thính ngã nhất xướng cùng đồ ca.
+Bắc sơn chi bắc sơn vạn điệp,
+{{khác|Nam sơn chi nam|Nam hải chi nam (phía nam bể Nam)}} ba vạn cấp<ref>Pháp Chân bảo viên thái thú rằng: « Nếu ông cứ bắt tôi ra làm quan, thì tôi sẽ đi ẩn ở phía bắc núi Bắc hoặc ở phía nam núi Nam ». Tỏ ý kiên quyết từ chối không nhận lời (''Hậu Hán thư'').</ref>.
+Quân hồ vì hồ sa thượng lập?
+</poem>
+|
+<poem>
+Bãi cát dài, lại bãi cát dài,
+Đi một bước như lùi một bước.
+Mặt trời đã lặn mà vẫn còn đi.
+Khách [trên đường] nước mắt lã chã rơi.
+Anh không học được ông tiên có phép ngủ kỹ,
+Cứ trèo non, lội nước mãi, bao giờ cho hết ta oán!
+Xưa nay hạng người danh lợi,
+Vẫn tất tả ở ngoài đường xá.
+[Hễ] quán rượu ở đầu gió có rượu ngon,
+[Thì] người tỉnh thường ít mà người say vô số!
+Bãi cát dài, bãi cát dài, biết tính sao đây?
+Bước đường bằng phẳng thì mờ mịt, bước đường ghê sợ thì nhiều,
+Hãy nghe ta hát khúc ca « đường cùng ».
+Phía Bắc núi Bắc núi muôn trùng,
+Phía Nam núi Nam sóng muôn đợt.
+Anh còn đứng làm chi trên bãi cát?
+</poem>
+|}
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Thơ Việt Nam]]
+[[Thể loại:Cổ phong]]

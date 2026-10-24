@@ -1,0 +1,73 @@
+# Cáo tật thị chúng — nguồn: https://vi.wikisource.org/wiki/C%C3%A1o_t%E1%BA%ADt_th%E1%BB%8B_ch%C3%BAng
+{{đầu đề
+ | tựa đề     = Cáo tật thị chúng - 告疾示眾
+ | tác giả    = Mãn Giác
+ | dịch giả   = Ngô Tất Tố
+ | năm        = 1096
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = Theo '''Thiền uyển tập anh''', cuối năm 1096, Mãn Giác thiền sư cáo bệnh và làm bài kệ này để bảo cho mọi người biết. Nhan đề bài thơ do Lê Quý Đôn đặt<ref>Theo ''Thơ văn Lý-Trần'', tập I, NXB Khoa học xã hội, Hà Nội, 1977, tr.299</ref>
+}}
+
+{| align="center"
+! Nguyên văn chữ Hán
+! Phiên âm Hán Việt
+! Dịch nghĩa<ref>Theo SGK Ngữ văn 10, Tập 1, NXB Giáo dục, tr.140</ref>
+! Dịch thơ của Ngô Tất Tố
+|-
+|
+<poem>
+春去百花落，
+春到百花開。
+事逐眼前過，
+老從頭上來。
+莫謂春殘花落盡，
+庭前昨夜一枝梅。 
+</poem>
+|
+<poem>
+Xuân khứ bách hoa lạc,
+Xuân đáo bách hoa khai.
+Sự trục nhãn tiền quá,
+Lão tòng đầu thượng lai.
+Mạc vị xuân tàn hoa lạc tận,
+Đình tiền tạc dạ nhất chi mai.
+</poem>
+|
+<poem>
+Xuân đi, trăm hoa rụng,
+Xuân đến, trăm hoa nở.
+Việc đời ruổi qua trước mắt,
+Tuổi già hiện đến từ trên mái đầu.
+Chớ bảo xuân tàn hoa rụng hết,
+Đêm qua, một cành mai trước sân.
+</poem>
+|
+<poem>
+Xuân ruổi trăm hoa rụng
+Xuân tới, trăm hoa cười
+Trước mắt việc đi mãi
+Trên đầu già đến rồi
+Đừng bảo xuân tàn hoa rụng hết
+Đêm qua, sân trước một nhành mai.
+</poem>
+|}
+
+Dịch lại:'''Nhất chi Mai'''
+
+Xuân đi trăm hoa rụng
+
+Xuân về trăm hoa cười
+
+Trước mắt việc qua mãi
+
+Trên đầu già đến rồi
+
+Đừng bảo xuân tàn hoa rụng hết
+
+Sân trước ghi lòng một cành mai
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Kệ]]

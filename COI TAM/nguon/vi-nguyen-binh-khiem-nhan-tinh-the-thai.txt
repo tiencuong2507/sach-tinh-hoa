@@ -1,0 +1,28 @@
+# Nhân tình thế thái (Nguyễn Bỉnh Khiêm) — nguồn: https://vi.wikisource.org/wiki/Nh%C3%A2n_t%C3%ACnh_th%E1%BA%BF_th%C3%A1i_(Nguy%E1%BB%85n_B%E1%BB%89nh_Khi%C3%AAm)
+{{tương tự|Nhân tình thế thái}}{{đầu đề
+ | tựa đề     = Nhân tình thế thái
+ | tác giả    = Nguyễn Bỉnh Khiêm
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | ghi chú    = Bài trong '''Bạch Vân quốc ngữ thi''', vốn không có đầu đề, tên bài thơ là do người đời sau đặt.
+}}
+
+<poem>
+Thế gian biến cải vũng nên {{khác|đồi|doi}} ;
+Mặn, {{khác|nhạt|lạt}}, chua cay, lẫn ngọt bùi.
+Còn bạc, còn tiền, còn đệ tử ;
+Hết cơm, hết {{khác|rượu|gạo}}, hết ông tôi.
+Xưa nay đều trọng người chân-{{khác|thực|thật}} ;
+Ai nấy nào ưa kẻ đãi-bôi<ref>Nói tử tế giả tạo</ref>.
+Ở thế, mới hay người bạc ác :
+{{khác|Giàu|Sang}} thì tìm đến, khó tìm lui.
+</poem>
+
+{{chú thích cuối trang}}
+{{PD-old}}
+
+[[Thể loại:Thơ Nôm]]

@@ -1,0 +1,66 @@
+# Tác gia:Nguyễn Bỉnh Khiêm — nguồn: https://vi.wikisource.org/wiki/T%C3%A1c_gia:Nguy%E1%BB%85n_B%E1%BB%89nh_Khi%C3%AAm
+{{tác gia
+ | tên-họ         = 
+ | họ             = Nguyễn Bỉnh
+ | tên            = Khiêm
+ | chữ đầu tên    = K
+ | năm sinh       = 
+ | năm mất =
+ | mô tả          = '''Nguyễn Bỉnh Khiêm''' (chữ Hán: 阮秉謙) được biết đến nhiều vì tư cách đạo đức, tài thơ văn của một nhà giáo có tiếng thời kỳ Lê-Mạc phân tranh cũng như tài tiên tri các tiến triển của lịch sử Việt Nam.
+ | hình           =
+ | lk wikipedia   = 
+ | lk wikiquote   =
+ | lk commons     =
+}}
+
+==Thơ Nôm==
+===Bạch Vân quốc ngữ thi===
+* [[Thơ vô đề của Nguyễn Bỉnh Khiêm|Vô đề]]
+* [[Cảnh nhàn]]
+* [[Cảnh nhàn lúc tuổi già]]
+* [[Dĩ hòa vi quí]]
+* [[Giới bất vọng cầu địa]]
+* [[Giới dĩ phú lăng bần]]
+* [[Giới điêu toa]]
+* [[Giới đổ bác]]
+* [[Giới hiệp quí kiêu nhân]]
+* [[Giới sắc]]
+* [[Giới tham]]
+* [[Khuyến đãi bằng hữu]]
+* [[Khuyến đãi tông tộc]]
+* [[Khuyến huynh đệ vật cạnh tranh]]
+* [[Khuyến phu đãi thê]]
+* [[Mùa thu đi chơi thuyền]]
+* [[Nhàn]]
+* [[Nhân tình thế thái (Nguyễn Bỉnh Khiêm)|Nhân tình thế thái]]
+* [[Tử sự phụ mẫu]]
+
+===Khác===
+* [[Bạch Vân ca]]
+* [[Bạch Vân gia huấn]]
+* [[Sấm Trạng Trình]]
+* [[Trung Tân ngụ hứng]]
+
+==Thơ chữ Hán==
+* [[Ất Sửu tân xuân hí tác]]
+* [[Cảm hứng thi]]
+* [[Du Phổ Minh tự]]
+* [[Hạ cảnh (Nguyễn Bỉnh Khiêm)|Hạ cảnh]]
+* [[Khuê tình]]
+* [[Ngẫu thành thi]]
+* [[Nhân thôn]]
+* [[Ngụ hứng]]
+* [[Thủy hành phó doanh cảm tác]]
+* [[Tòng Tây chinh]]
+* [[Trung Tân quán ngụ hứng]]
+* [[Trung Tân quán nhị lão dung thụ]]
+* [[Tự thuật (Nguyễn Bỉnh Khiêm)|Tự thuật]]
+* [[Tức sự (Nguyễn Bỉnh Khiêm)|Tức sự]]
+* [[Vấn ngư giả]]
+* [[Vũ]]
+* [[Xuân đán cảm tác]]
+
+{{PD-old}}
+{{authority control}}
+
+[[Thể loại:Nhà thơ Việt Nam]]

@@ -1,0 +1,29 @@
+# Nhân sinh nghịch lữ — nguồn: https://vi.wikisource.org/wiki/Nh%C3%A2n_sinh_ngh%E1%BB%8Bch_l%E1%BB%AF
+{{đầu đề
+ | tựa đề     = Nhân sinh nghịch lữ
+ | tác giả    = Cao Bá Quát
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | ghi chú    = 
+}}
+
+<poem>
+Nhân sinh thiên-địa nhất nghịch lữ<ref>Người ta sinh ra trong khoảng trời đất như một khách trọ.</ref>,
+Có bao năm, ba vạn sáu nghìn ngày.
+Như thoi đưa, như bóng sổ, như gang tay,
+Sực nhớ chữ cổ nhân bỉnh chúc<ref>''Bỉnh chúc'': cầm đuốc chơi đêm. Ý nói ham chuộng an nhàn, thích thú hành lạc.</ref>.
+''Cao sơn lưu thủy thi thiên trục<ref>Núi cao, nước chảy nghìn bài thơ. Chỉ cảnh thanh-tú, khiến thi nhân xúc cảm.</ref>,''
+''Minh nguyệt thanh phong tửu nhất thuyền<ref>Trăng trong giáo mát rượu một thuyền.</ref>.''
+Giang tay người tài-tử khách thuyền-quyên,
+Chén rượu thánh, câu thơ thần thích chí.
+Thành-thị ấy mà giang-sơn ấy,
+Đâu chẳng là tuyết, nguyệt, phong, hoa.
+Bốn mùa xuân lại, thu qua.
+</poem>
+{{chú thích cuối trang}}
+
+[[Thể loại:Hát nói]]

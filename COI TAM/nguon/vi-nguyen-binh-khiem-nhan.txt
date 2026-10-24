@@ -1,0 +1,27 @@
+# Nhàn — nguồn: https://vi.wikisource.org/wiki/Nh%C3%A0n
+{{đầu đề
+ | tựa đề     = Nhàn
+ | tác giả    = Nguyễn Bỉnh Khiêm
+ | năm        = 
+ | dịch giả   = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = ''Nhàn'' là bài thơ Nôm trong ''Bạch Vân quốc ngữ thi'', vốn không có đầu đề, nhan đề bài thơ là do người đời sau đặt
+}}
+
+<poem>
+Một mai, một cuốc, một cần câu,
+Thơ thẩn cùng ai vui thú nào.
+Ta dại, ta tìm nơi vắng vẻ,
+Người khôn, người đến chốn lao xao.
+Thu ăn măng trúc, đông ăn giá,
+Xuân tắm hồ sen, hạ tắm ao.
+Rượu, đến cội cây, ta sẽ nhắp,
+Nhìn xem phú quý tựa chiêm bao<ref>Tích ''giấc mộng Nam Kha'' của Thuần Vu Phần</ref>.
+</poem>
+
+{{chú thích cuối trang}}
+
+[[Thể loại:Thơ Nôm]]
+[[Thể loại:Thất ngôn bát cú]]

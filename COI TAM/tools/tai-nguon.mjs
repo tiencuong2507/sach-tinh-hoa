@@ -34,6 +34,22 @@ const MAC_DINH = [
   ["vi", "Thoát vòng danh lợi", "vi-nguyen-cong-tru-thoat-vong-danh-loi"],
   ["vi", "Vinh nhục", "vi-nguyen-cong-tru-vinh-nhuc"],
   ["vi", "Khuyên người đời", "vi-nguyen-cong-tru-khuyen-nguoi-doi"],
+  // Bài 4–6 (tải 24/10/2026). Trang 好了歌 chỉ là bản nhúng (#lst) từ hồi 1 Hồng Lâu Mộng nên tải trang hồi 1.
+  ["zh", "前赤壁賦", "zh-to-thuc-tien-xich-bich-phu"],
+  ["zh", "莊子/知北遊", "zh-trang-tu-tri-bac-du"],
+  ["zh", "莊子/至樂", "zh-trang-tu-chi-lac"],
+  ["zh", "紅樓夢/第001回", "zh-hong-lau-mong-hoi-01"],
+  ["vi", "Cáo tật thị chúng", "vi-man-giac-cao-tat-thi-chung"],
+  ["vi", "Tác gia:Cao Bá Quát", "vi-tac-gia-cao-ba-quat"],
+  ["vi", "Sa hành đoản ca", "vi-cao-ba-quat-sa-hanh-doan-ca"],
+  ["vi", "Nhân sinh nghịch lữ", "vi-cao-ba-quat-nhan-sinh-nghich-lu"],
+  ["vi", "Tác gia:Tản Đà", "vi-tac-gia-tan-da"],
+  ["vi", "Cảm thu tiễn thu", "vi-tan-da-cam-thu-tien-thu"],
+  ["vi", "Thăm mả cũ bên đường", "vi-tan-da-tham-ma-cu-ben-duong"],
+  ["vi", "Tác gia:Nguyễn Bỉnh Khiêm", "vi-tac-gia-nguyen-binh-khiem"],
+  ["vi", "Nhàn", "vi-nguyen-binh-khiem-nhan"],
+  ["vi", "Cảnh nhàn", "vi-nguyen-binh-khiem-canh-nhan"],
+  ["vi", "Nhân tình thế thái (Nguyễn Bỉnh Khiêm)", "vi-nguyen-binh-khiem-nhan-tinh-the-thai"],
 ];
 
 const slugOf = t => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D")
@@ -49,7 +65,13 @@ async function taiNhom(wiki, items) {       // items: [[title, slug], ...] tối
   const api = `https://${wiki}.wikisource.org/w/api.php`;
   const q = new URLSearchParams({ action: "query", prop: "revisions", rvprop: "content", rvslots: "main", format: "json",
     formatversion: "2", redirects: "1", titles: items.map(x => x[0]).join("|") });
-  const res = await fetch(`${api}?${q}`, { headers: { "User-Agent": "CoiTamOffline/0.1 (personal study tool; contact via vi.wikisource talk)" } });
+  let res;
+  for (let lan = 0; ; lan++) {                 // bị giới hạn (429): nghỉ 30 s rồi thử lại, tối đa 3 lần
+    res = await fetch(`${api}?${q}`, { headers: { "User-Agent": "CoiTamOffline/0.1 (personal study tool; contact via vi.wikisource talk)" } });
+    if (res.status !== 429 || lan >= 3) break;
+    console.log(`  ${wiki}: HTTP 429, nghỉ 30 s rồi thử lại (${lan + 1}/3)`);
+    await nghi(30000);
+  }
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
   // Lần ngược chuẩn hoá / chuyển hướng để gắn đúng slug cho tên trang trả về
