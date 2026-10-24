@@ -205,7 +205,7 @@ function traNam() {
 
 // ---- điều hướng ----
 function tab(id) {
-  ["sach","tra","gieo","nhap","mh","lh","nam","ls"].forEach(x=>$("#"+x).classList.toggle("hidden",x!==id));
+  ["sach","tra","gieo","nhap","mh","lh","nam","tv","ls"].forEach(x=>$("#"+x).classList.toggle("hidden",x!==id));
   document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===id));
   if (id==="ls") hist();
 }

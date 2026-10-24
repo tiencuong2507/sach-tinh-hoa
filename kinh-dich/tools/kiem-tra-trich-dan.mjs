@@ -5,7 +5,8 @@ const bo = s => s.replace(/\{\{SK anchor\|([^}]*)\}\}/g, "$1").replace(/-\{([^}]
   .replace(/[\s，。；：！？、「」『』《》“”‘’,.;:!?()（）·・﹐﹕…\-]/g, "")
   .replace(/㑹/g, "會").replace(/靑/g, "青").replace(/爲/g, "為").replace(/旣/g, "既");
 const kho = d => readdirSync(d).filter(f => f.endsWith(".txt")).map(f => bo(readFileSync(`${d}/${f}`, "utf8"))).join("|");
-const cap = [["data/hckt.js", kho("nguon/hckt")], ["data/luc-hao-sach.js", kho("nguon/luc-hao")]];
+const cap = [["data/hckt.js", kho("nguon/hckt")], ["data/luc-hao-sach.js", kho("nguon/luc-hao")],
+  ["data/nghien-cuu-n11.js", kho("nguon/zh") + "|" + kho("nguon/zh-truyen")]];
 let tong = 0; const thieu = [];
 for (const [f, goc] of cap) {
   const txt = readFileSync(f, "utf8");

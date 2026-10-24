@@ -1,0 +1,48 @@
+// Chương N11 — Luận thời cuộc theo tượng số. Viết ngày 24/10/2026. Mọi câu Hán trong <span class="zh"> được tools/kiem-tra-trich-dan.mjs dò trong nguon/zh và nguon/zh-truyen.
+// Hai tầng tách bạch: TÍNH (con số từ lịch, nhãn [V], thẻ ⏳ Thời vận) và LUẬN (tượng, nhãn [I], có ngày viết, không sửa sau).
+window.KD_STUDY = window.KD_STUDY || [];
+window.KD_STUDY.push({title:"N11. Luận thời cuộc theo tượng số: phương pháp, bài luận 2026–2030 và sổ dự đoán", html:`
+<p>Kinh Dịch không phải sách bói, mà là sách về <b>quy luật biến đổi</b>; bói chỉ là một cửa vào. Thoán truyện quẻ Bí nói rõ cách dùng: <span class="zh">觀乎天文，以察時變</span> – xem văn của trời để xét sự đổi thay của thời. Hệ từ hạ gọi cái năng lực ấy là "biết cơ": <span class="zh">知幾其神乎</span>, và cho biết lẽ chung của mọi biến đổi: <span class="zh">易窮則變，變則通，通則久</span> – cùng thì biến, biến thì thông, thông thì bền. Chương này dựng một phương pháp đọc thời cuộc bằng tượng số sao cho <b>kiểm được</b>: phần tính để riêng, phần luận để riêng, mỗi nhận định có dấu hiệu để chấm đúng sai, và mọi nhận định được đóng băng bằng git theo ngày viết.</p>
+
+<h3>1. Năm tầng thời gian và ba luật đọc</h3>
+<p>Thẻ <b>⏳ Thời vận</b> tính cho bất kỳ thời điểm nào năm tầng lồng nhau, từ dài đến ngắn:</p>
+<table class="tb"><tr><th>Tầng</th><th>Chu kỳ</th><th>Hệ thống</th><th>Nói về cái gì</th></tr>
+<tr><td>Hội – Vận – Thế</td><td>10.800 / 360 / 30 năm</td><td>Hoàng cực kinh thế (N9)</td><td>khí hậu của thời đại, không đổi trong một đời người</td></tr>
+<tr><td>Vận 20 năm, sao năm</td><td>20 năm / 1 năm</td><td>Tam nguyên cửu vận (N6, N7)</td><td>"mùa" của một thế hệ; sao năm đổi hằng năm</td></tr>
+<tr><td>Tháng</td><td>1 tháng tiết khí</td><td>12 quẻ tiêu tức (N5)</td><td>nhịp âm dương trong năm</td></tr>
+<tr><td>Ngày giờ</td><td>1 giờ</td><td>Mai Hoa thời gian</td><td>việc trong tay, tâm trạng trong ngày</td></tr></table>
+<p>Ba luật đọc: (1) <b>tầng dài chi phối tầng ngắn</b>: một năm tốt trong vận xấu vẫn là năm tốt-trong-xấu; (2) <b>tượng chỉ gợi khuynh hướng, không định sự kiện</b>: quẻ Ly nói "sáng, bám, lửa", không nói "cháy ở đâu"; (3) <b>nhận định nào không có dấu hiệu kiểm thì không được ghi</b>. Luật thứ ba là chỗ phân biệt cẩm nang với sấm ký.</p>
+
+<h3>2. Tầng dài: Hội Ngọ, Thế Dậu 2302 (phần tính, [V])</h3>
+<p>Theo niên biểu Thiệu Ung (N9), từ 2217 TCN nhân loại ở <b>Hội Ngọ</b>, quẻ Cấu ䷫: một hào âm mới sinh dưới năm hào dương. Tượng của cả thời đại là "thịnh mà bắt đầu có mầm suy": văn minh ở mức cao, nhưng mỗi thành tựu mang sẵn cái giá của nó. Trong hội ấy, năm 2026 thuộc Vận Ất 192 (1744–2103) và <b>Thế Dậu 2302 (2014–2043)</b>, năm thứ 13 của Thế, tức khoảng giữa. Hoàng cực kinh thế không phối quẻ thống nhất cho cấp Vận và Thế, nên ở hai tầng này chương chỉ ghi vị trí, không luận tượng.</p>
+
+<h3>3. Tầng 20 năm: vận 9 quẻ Ly, 2024–2043 (phần tính [V], tượng [I])</h3>
+<p>Tam nguyên cửu vận đặt 2024–2043 vào <b>vận 9</b>, quái <b>Ly ䷝</b>. Đại tượng quẻ Ly: <span class="zh">明兩作離</span> – hai vầng sáng nối nhau, đó là Ly. Thoán và Đại tượng (quẻ 30 trong sách) nói Ly là "bám": lửa bám vào củi mà sáng, nên vận Ly là thời của những gì <b>cần chỗ bám để tỏa sáng</b>: thông tin, hình ảnh, năng lượng, văn hóa, danh tiếng. Cái hay của Ly là sáng; cái dở của Ly là nóng vội và lệ thuộc vào chỗ bám. Chương N7 đã bàn kỹ; ở đây chỉ thêm bảng sao năm của cả vận để đọc từng năm:</p>
+<table class="tb"><tr><th>Năm</th><th>2024</th><th>2025</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th><th>2033</th></tr>
+<tr><td>Sao năm</td><td>3 Mộc</td><td>2 Thổ</td><td>1 Thủy</td><td><b>9 Hỏa</b></td><td>8 Thổ</td><td>7 Kim</td><td>6 Kim</td><td>5 Thổ</td><td>4 Mộc</td><td>3 Mộc</td></tr>
+<tr><td>Với vận Ly (Hỏa)</td><td>sinh vận</td><td>vận sinh</td><td>khắc vận</td><td>đương lệnh</td><td>vận sinh</td><td>vận khắc</td><td>vận khắc</td><td>vận sinh</td><td>sinh vận</td><td>sinh vận</td></tr></table>
+<p class="mute">Sao năm tính từ Lập xuân; "sinh vận" là hành của sao sinh hành của vận (Mộc sinh Hỏa), "khắc vận" là sao khắc vận (Thủy khắc Hỏa), "vận khắc" là vận khắc sao (Hỏa khắc Kim). Đây là phép phong thủy, không phải kinh văn; dùng như một lớp nhịp điệu phụ.</p>
+
+<h3>4. Bài luận 2026–2030 (viết 24/10/2026, nhãn [I] toàn bộ)</h3>
+<p><b>2026 Bính Ngọ, sao Nhất Bạch (Thủy) trong vận Ly (Hỏa).</b> Năm can Bính Hỏa, chi Ngọ Hỏa, nạp âm Thiên Hà Thủy (nước trên trời: mưa), sao năm Thủy. Tượng là <b>nước gặp lửa</b>: hai thứ không hòa mà phải sống chung, như quẻ Ký Tế ䷾ (Thủy trên Hỏa) mà Đại tượng dặn: <span class="zh">君子以思患而豫防之</span> – người quân tử nghĩ đến hoạn nạn mà phòng trước. Khuynh hướng: một năm của <b>xung đột giữa nhiệt và lạnh</b> trong mọi nghĩa: thời tiết cực đoan hai chiều, tranh luận gay gắt giữa cái mới nóng và cái cũ nguội, túi tiền thắt lại (Thủy khắc vận Hỏa) trong khi khát vọng vẫn bốc. Cách ứng xử theo tượng: giữ cho lửa có chỗ bám (việc đang làm, nghề đang có) và dự phòng, không mở rộng vội. Đọc tháng: tháng Tuất đang xét (24/10/2026) là quẻ Bác ䷖, Đại tượng <span class="zh">山附地上，剝</span>: núi dựa vào đất mà lở dần, lúc "trên hậu dưới mới yên nhà", tức là tháng nên củng cố nền, không xây tầng.</p>
+<p><b>2027 Đinh Mùi, sao Cửu Tử trùng vận: năm đương lệnh.</b> Sao năm và vận cùng là Hỏa, lửa gặp lửa. Trong vận Ly, đây là năm <b>sáng nhất và cũng nóng nhất</b>. Khuynh hướng: những gì thuộc Ly (truyền thông, hình ảnh, công nghệ chiếu sáng và hiển thị, văn hóa biểu diễn, danh tiếng cá nhân) lên đỉnh; đồng thời dễ "cháy": bong bóng, tin giả, kiệt sức. Tượng dặn của Càn: <span class="zh">天行健，君子以自強不息</span> – sức mạnh phải đi cùng bền bỉ, không phải bùng lên. Người đọc nên dùng năm này để <b>thu hoạch cái đã trồng</b>, không gieo cái cần nhiều năm.</p>
+<p><b>2028 Mậu Thân, sao Bát Bạch (Thổ): lửa sinh đất, khí lắng xuống.</b> Hỏa sinh Thổ: sau năm cháy sáng là năm <b>thành hình, đóng kết</b>: đất, nhà, hạ tầng, tích lũy. Khôn dặn: <span class="zh">君子以厚德載物</span> – lấy đức dày mà chở vật. Khuynh hướng: chuyển từ nói sang làm, từ danh sang thực; người biết "dày" (kiên nhẫn, chịu nặng) được lợi.</p>
+<p><b>2029 Kỷ Dậu và 2030 Canh Tuất, sao Thất Xích rồi Lục Bạch (Kim): vận Hỏa khắc sao Kim.</b> Hai năm Kim bị lửa của vận nung: tượng của <b>rèn</b>, cũng là tượng của <b>tổn hao</b>: công cụ, tiền tệ, quy tắc, tổ chức bị thử lửa và phải đúc lại. Tượng dặn của Bĩ: <span class="zh">君子以儉德辟難</span> – lấy đức tiết kiệm mà tránh nạn. Khuynh hướng: hai năm của việc sắp xếp lại luật chơi; người nhiều nợ, nhiều cấu trúc cồng kềnh chịu sức ép lớn nhất. Cuối 2030 là giữa vận, bước sang nửa sau vận Ly, lửa bắt đầu thiếu củi.</p>
+<p><b>Cho cá nhân, mọi năm</b>: Hệ từ hạ nói <span class="zh">尺蠖之屈，以求信也</span> – con sâu đo co mình lại là để duỗi ra. Trong một vận sáng, lợi thế thuộc về người có chỗ bám chắc và biết co đúng lúc, không thuộc về người sáng nhất.</p>
+
+<h3>5. Sổ dự đoán (đóng băng ngày 24/10/2026; cột Kết quả chỉ được điền khi đến hạn, không sửa cột khác)</h3>
+<table class="tb"><tr><th>#</th><th>Thời hạn</th><th>Nhận định</th><th>Căn cứ tầng</th><th>Dấu hiệu để chấm</th><th>Kết quả</th></tr>
+<tr><td>1</td><td>hết 2026</td><td>Năm 2026 thời tiết cực đoan theo cả hai chiều (nắng nóng kỷ lục và mưa lũ lớn) rõ hơn 2025 ở Việt Nam</td><td>Bính Ngọ, Thiên Hà Thủy, sao Thủy trong vận Hỏa</td><td>số đợt nắng nóng trên 40°C và số đợt lũ lớn do Tổng cục Khí tượng thủy văn công bố so với 2025</td><td></td></tr>
+<tr><td>2</td><td>hết 2027</td><td>Các ngành thuộc Ly (truyền thông số, hiển thị, giải trí, năng lượng mặt trời) ở Việt Nam đạt đỉnh tăng trưởng của vận trong 2027, chậm lại từ 2028</td><td>sao Cửu Tử đương lệnh 2027, Bát Bạch 2028</td><td>doanh thu ngành theo Tổng cục Thống kê hoặc báo cáo ngành năm 2027 so với 2026 và 2028</td><td></td></tr>
+<tr><td>3</td><td>hết 2028</td><td>2028 là năm của hạ tầng và bất động sản thực (xây, bàn giao) hơn là năm của giá</td><td>Hỏa sinh Thổ, sao Bát Bạch</td><td>số km đường cao tốc, công trình lớn hoàn thành và số căn hộ bàn giao năm 2028 so với 2027</td><td></td></tr>
+<tr><td>4</td><td>hết 2030</td><td>2029–2030 có đợt sửa đổi lớn về luật chơi tài chính, tiền tệ hoặc tổ chức (luật, cơ cấu lại) gây sức ép lên đơn vị nợ nhiều</td><td>vận Hỏa khắc sao Kim hai năm liền</td><td>văn bản pháp luật lớn về tài chính, ngân hàng, doanh nghiệp ban hành 2029–2030; số doanh nghiệp tái cơ cấu nợ</td><td></td></tr>
+<tr><td>5</td><td>hết 2043</td><td>Nửa sau vận 9 (2034–2043) nhìn chung khó hơn nửa đầu cho những gì dựa vào "ánh sáng" (danh tiếng, truyền thông), dễ hơn cho những gì dựa vào "nước" (vận 1 Khảm sắp tới: logistics, tài nguyên, trí tuệ ẩn)</td><td>tầng vận: Ly chuyển Khảm 2044</td><td>đối chiếu năm 2043 với bảng này; ai chấm sau hãy ghi rõ ngày chấm</td><td></td></tr></table>
+<p class="mute">Năm nhận định này cố ý ít và đo được. Nếu đa số sai, phương pháp phải sửa, không được sửa nhận định. Đây là cách duy nhất để "học Dịch" không thành "tin Dịch".</p>
+
+<h3>6. Giới hạn</h3>
+<ul>
+<li>Hoàng cực kinh thế chỉ phối quẻ thống nhất ở cấp Hội; tầng Vận, Thế không có tượng để luận.</li>
+<li>Sao năm và vận 20 năm thuộc phong thủy Huyền không (đời Minh Thanh), không phải kinh văn; chương dùng như một lớp nhịp điệu, không như lời kinh.</li>
+<li>Quẻ ngày giờ theo Mai Hoa là việc cá nhân; không dùng để luận thời cuộc.</li>
+<li>Bài luận mục 4 là bản viết của kho ngày 24/10/2026, mang dấu của thời điểm viết; người đọc sau nên đọc cùng cột Kết quả của sổ dự đoán.</li></ul>
+<p class="mute">Nguồn kinh văn: Chu Dịch và Thập dực trên Wikisource (phạm vi công cộng), đã tải tại <code>nguon/zh</code>, <code>nguon/zh-truyen</code>; mọi câu Hán trong chương được tool dò trong nguyên văn. Phần tính: thẻ ⏳ Thời vận, <code>thoi-van.js</code>, dùng lõi chung của kho.</p>`});

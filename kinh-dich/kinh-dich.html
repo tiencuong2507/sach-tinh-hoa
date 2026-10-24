@@ -40,6 +40,7 @@ label.sw{font-size:14px;color:var(--mute);margin-left:8px}
  <button data-t="mh">🌸 Mai Hoa</button>
  <button data-t="lh">☯ Lục hào</button>
  <button data-t="nam">🗓 Tra năm</button>
+ <button data-t="tv">⏳ Thời vận</button>
  <button data-t="ls">🕘 Lịch sử</button>
  <label class="sw"><input type="checkbox" id="showzh" checked> hiện chữ Hán</label>
 </nav>
@@ -96,6 +97,13 @@ label.sw{font-size:14px;color:var(--mute);margin-left:8px}
  <button class="btn" id="btnNam">Tra</button></div><div id="kqNam"></div>
 </section>
 
+<section id="tv" class="hidden">
+ <div class="card noprint"><h2>⏳ Thời vận</h2>
+ <p>Các tầng thời gian lồng nhau của một thời điểm: Hội – Vận – Thế (Hoàng cực kinh thế), vận 20 năm và sao năm, sao tháng (Tam nguyên cửu vận), quẻ tiêu tức của tháng, quẻ ngày giờ theo Mai Hoa. Phần này chỉ tính; cách luận ở chương N11.</p>
+ Thời điểm: <input id="tvDT" type="datetime-local"> <button class="btn" id="btnTV">Xem</button> <button class="btn" id="btnTVNay">⏱ Bây giờ</button></div>
+ <div id="kqTV"></div>
+</section>
+
 <section id="ls" class="hidden"><div id="hist"></div></section>
 
 <script src="../chung/lich.js"></script><script src="../chung/can-chi.js"></script>
@@ -105,6 +113,7 @@ label.sw{font-size:14px;color:var(--mute);margin-left:8px}
 <script src="data/nghien-cuu.js"></script>
 <script src="data/hckt.js"></script>
 <script src="data/luc-hao-sach.js"></script>
+<script src="data/nghien-cuu-n11.js"></script>
 <script src="data/vi-01.js"></script><script src="data/vi-02.js"></script>
 <script src="data/vi-03.js"></script><script src="data/vi-04.js"></script>
 <script src="data/vi-05.js"></script><script src="data/vi-06.js"></script>
@@ -116,4 +125,5 @@ label.sw{font-size:14px;color:var(--mute);margin-left:8px}
 <script src="app.js"></script>
 <script src="mai-hoa.js"></script>
 <script src="luc-hao.js"></script>
+<script src="thoi-van.js"></script>
 </body></html>

@@ -72,6 +72,15 @@ if (!els.kqNam.innerHTML.includes("Bính Ngọ") || els.kqNam.innerHTML.includes
   run("$('#namY').value='2026';$('#soNam').value='5';traNam()");
   if (!els.kqNam.innerHTML.includes("Hội Ngọ") || !els.kqNam.innerHTML.includes("Thế Dậu 2302")) errs.push("Tra năm chưa hiện Hoàng cực kinh thế");
 }
+// Chương N11 (thời cuộc) và thẻ Thời vận: mục lục có N11, trang s10 có sổ dự đoán 5 dòng; ThoiVan.hien dựng cho 3 thời điểm không undefined, đúng tầng đã biết
+{ run("go('toc')"); if (!els.book.innerHTML.includes("N11. Luận thời cuộc")) errs.push("Mục lục thiếu chương N11");
+  run("go('s10')"); const h = els.book.innerHTML;
+  if (!h.includes("Sổ dự đoán") || (h.match(/<tr><td>\d<\/td>/g) || []).length !== 5 || !h.includes("知幾其神乎")) errs.push("Chương N11 thiếu sổ dự đoán 5 dòng hoặc trích dẫn");
+  for (const [y, m, d, hoi, van, sao, que] of [[2026, 10, 24, 7, 9, 1, 23], [2027, 6, 1, 7, 9, 9, 1], [2044, 2, 10, 7, 1, 1, 11]]) {
+    const r = run(`ThoiVan.tang(new Date(${y},${m - 1},${d},12))`);
+    if (r.h.hoi !== hoi || r.v.van !== van || r.saoNam !== sao || r.queThang !== que) errs.push(`Thời vận ${d}/${m}/${y}: hội ${r.h.hoi} vận ${r.v.van} sao ${r.saoNam} quẻ tháng ${r.queThang}`);
+    const html = run(`ThoiVan.hien(new Date(${y},${m - 1},${d},12))`); if (/undefined|NaN/.test(html) || !html.includes("Thời vận")) errs.push(`Thẻ Thời vận ${d}/${m}/${y} lỗi`); }
+  run("$('#tvDT').value='2026-10-24T12:00';$('#btnTV').onclick()"); if (!els.kqTV.innerHTML.includes("Bính Ngọ")) errs.push("Nút Thời vận không dựng kết quả"); }
 // Chương N10 (Lục hào): có trong mục lục, dựng được, bảng lục thân sinh từ KD_LUC_HAO_SACH, trích dẫn chương 3 và 12
 { run("go('toc')"); if (!els.book.innerHTML.includes("N10. Lục hào")) errs.push("Mục lục thiếu chương N10");
   run("go('s9')"); const h = els.book.innerHTML;
