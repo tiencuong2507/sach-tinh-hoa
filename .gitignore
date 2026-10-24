@@ -5,3 +5,7 @@ node_modules/
 Thumbs.db
 # Tạm thời của trình duyệt / công cụ
 *.tmp
+# Giọng ghi âm riêng của anh Cường, không đưa lên kho công khai
+COI TAM/audio/mau-giong/
+coi-tam/audio/mau-giong/
+/1000022003.m4a
