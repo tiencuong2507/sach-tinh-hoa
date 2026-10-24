@@ -94,7 +94,7 @@ function trangCach() {
 
 function tab(id) { ["ngay","thang","cach"].forEach(x => $("#"+x).classList.toggle("hidden", x !== id)); document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id)); }
 document.querySelectorAll("nav button").forEach(b => b.onclick = () => tab(b.dataset.t));
-$("#btnXem").onclick = xem; $("#btnNay").onclick = () => { datDT(new Date()); xem(); }; $("#theoAm").onchange = xem;
+$("#btnXem").onclick = xem; $("#btnNay").onclick = () => { datDT(new Date()); xem(); }; $("#theoAm").onchange = xem; $("#dt").onchange = xem; $("#viec").onchange = xem;
 $("#btnThang").onclick = bangThang;
 { const n = new Date(); datDT(n); $("#tM").value = n.getMonth() + 1; $("#tY").value = n.getFullYear(); }
 napViec(); trangCach(); xem();
