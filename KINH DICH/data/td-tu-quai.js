@@ -1,0 +1,78 @@
+// Tự quái truyện (序卦傳), thượng và hạ thiên. Nguyên văn: Wikisource 易傳/序卦 (phạm vi công cộng).
+// Âm Hán Việt, dịch nghĩa, giải nghĩa: bản biên soạn tham khảo theo hướng chú giải truyền thống.
+window.KD_TD = window.KD_TD || {};
+window.KD_TD.tuQuai = [
+{
+ tieuDe: "Thượng thiên: từ Càn Khôn đến Khảm Ly (quẻ 1–30)",
+ tom: "Giải thích vì sao 30 quẻ Thượng kinh xếp theo thứ tự ấy: mỗi quẻ sinh ra từ tình thế của quẻ trước – hoặc nối tiếp (vật sinh ra thì non dại → cần nuôi), hoặc đảo ngược (\"vật không thể mãi thông, nên tiếp bằng Bĩ\").",
+ doan: [
+  {zh:"有天地，然後萬物生焉。盈天地之間者，唯萬物，故受之以屯；屯者盈也，屯者物之始生也。物生必蒙，故受之以蒙；蒙者蒙也，物之穉也。",
+   hv:"Hữu thiên địa, nhiên hậu vạn vật sinh yên. Doanh thiên địa chi gian giả, duy vạn vật, cố thụ chi dĩ Truân; Truân giả doanh dã, Truân giả vật chi thủy sinh dã. Vật sinh tất mông, cố thụ chi dĩ Mông; Mông giả mông dã, vật chi trĩ dã.",
+   dich:"Có trời đất (Càn, Khôn) rồi muôn vật mới sinh ra. Đầy khắp khoảng trời đất chỉ có muôn vật, nên tiếp bằng quẻ Truân; Truân là đầy, là lúc vật mới sinh. Vật sinh ra ắt còn non dại, nên tiếp bằng Mông; Mông là mờ tối, là vật còn non.",
+   g:"Càn Khôn không được gọi tên mà nói \"có trời đất\" – hai quẻ đầu là nền của tất cả."},
+  {zh:"物穉不可不養也，故受之以需；需者飲食之道也。飲食必有訟，故受之以訟。訟必有眾起，故受之以師；師者眾也。眾必有所比，故受之以比；比者比也。",
+   hv:"Vật trĩ bất khả bất dưỡng dã, cố thụ chi dĩ Nhu; Nhu giả ẩm thực chi đạo dã. Ẩm thực tất hữu tụng, cố thụ chi dĩ Tụng. Tụng tất hữu chúng khởi, cố thụ chi dĩ Sư; Sư giả chúng dã. Chúng tất hữu sở tỷ, cố thụ chi dĩ Tỷ; Tỷ giả tỷ dã.",
+   dich:"Vật non không thể không nuôi, nên tiếp bằng Nhu; Nhu là đạo ăn uống. Ăn uống ắt có tranh chấp, nên tiếp bằng Tụng. Tranh chấp ắt có đám đông nổi lên, nên tiếp bằng Sư; Sư là đông người. Đông người ắt phải có chỗ gắn bó, nên tiếp bằng Tỷ; Tỷ là gần gũi, gắn bó.",
+   g:"Một chuỗi \"xã hội học\" rất gọn: nhu cầu sống → tranh giành → bạo lực tập thể → liên minh."},
+  {zh:"比必有所畜也，故受之以小畜。物畜然後有禮，故受之以履。履而泰，然後安，故受之以泰；泰者通也。物不可以終通，故受之以否。物不可以終否，故受之以同人。",
+   hv:"Tỷ tất hữu sở súc dã, cố thụ chi dĩ Tiểu Súc. Vật súc nhiên hậu hữu lễ, cố thụ chi dĩ Lý. Lý nhi thái, nhiên hậu an, cố thụ chi dĩ Thái; Thái giả thông dã. Vật bất khả dĩ chung thông, cố thụ chi dĩ Bĩ. Vật bất khả dĩ chung bĩ, cố thụ chi dĩ Đồng Nhân.",
+   dich:"Gắn bó thì ắt có chỗ tích chứa, nên tiếp bằng Tiểu Súc. Vật tích chứa rồi mới có lễ, nên tiếp bằng Lý. Theo lễ mà thông thái rồi mới yên, nên tiếp bằng Thái; Thái là thông. Vật không thể thông mãi, nên tiếp bằng Bĩ. Vật không thể bế tắc mãi, nên tiếp bằng Đồng Nhân.",
+   g:"Lần đầu xuất hiện công thức <b>\"vật bất khả dĩ chung…\"</b> (vật không thể mãi…) – công thức của quy luật đảo chiều, lặp lại nhiều lần trong thiên này (xem chương N3)."},
+  {zh:"與人同者，物必歸焉，故受之以大有。有大者不可以盈，故受之以謙。有大而能謙，必豫，故受之以豫。豫必有隨，故受之以隨。",
+   hv:"Dữ nhân đồng giả, vật tất quy yên, cố thụ chi dĩ Đại Hữu. Hữu đại giả bất khả dĩ doanh, cố thụ chi dĩ Khiêm. Hữu đại nhi năng khiêm, tất dự, cố thụ chi dĩ Dự. Dự tất hữu tùy, cố thụ chi dĩ Tùy.",
+   dich:"Hòa đồng với người thì vật ắt quy về, nên tiếp bằng Đại Hữu. Có lớn thì không được để đầy tràn, nên tiếp bằng Khiêm. Có lớn mà biết khiêm thì ắt vui, nên tiếp bằng Dự. Vui thì ắt có người theo, nên tiếp bằng Tùy."},
+  {zh:"以喜隨人者，必有事，故受之以蠱；蠱者事也。有事而后可大，故受之以臨；臨者大也。物大然後可觀，故受之以觀。可觀而后有所合，故受之以噬嗑；嗑者合也。",
+   hv:"Dĩ hỷ tùy nhân giả, tất hữu sự, cố thụ chi dĩ Cổ; Cổ giả sự dã. Hữu sự nhi hậu khả đại, cố thụ chi dĩ Lâm; Lâm giả đại dã. Vật đại nhiên hậu khả quan, cố thụ chi dĩ Quan. Khả quan nhi hậu hữu sở hợp, cố thụ chi dĩ Phệ Hạp; Hạp giả hợp dã.",
+   dich:"Vì vui mà theo người thì ắt sinh chuyện, nên tiếp bằng Cổ; Cổ là việc (việc hư hỏng cần sửa). Có việc rồi sau mới lớn được, nên tiếp bằng Lâm; Lâm là lớn. Vật lớn rồi mới đáng xem, nên tiếp bằng Quan. Đáng xem rồi sau mới có chỗ hợp, nên tiếp bằng Phệ Hạp; Hạp là hợp."},
+  {zh:"物不可以苟合而已，故受之以賁；賁者飾也。致飾然後亨，則盡矣，故受之以剝；剝者剝也。物不可以終盡，剝窮上反下，故受之以復。",
+   hv:"Vật bất khả dĩ cẩu hợp nhi dĩ, cố thụ chi dĩ Bí; Bí giả sức dã. Trí sức nhiên hậu hanh, tắc tận hĩ, cố thụ chi dĩ Bác; Bác giả bác dã. Vật bất khả dĩ chung tận, Bác cùng thượng phản hạ, cố thụ chi dĩ Phục.",
+   dich:"Vật không thể hợp một cách cẩu thả là xong, nên tiếp bằng Bí; Bí là trang sức. Trau chuốt đến cùng rồi hanh thông thì cũng là hết, nên tiếp bằng Bác; Bác là bóc mòn. Vật không thể hết hẳn; Bác cùng ở trên thì quay về dưới, nên tiếp bằng Phục.",
+   g:"\"Bác cùng thượng phản hạ\": hào dương cuối cùng bị bóc ở trên cùng của Bác ䷖ thì sinh lại ở dưới cùng thành Phục ䷗ – hình ảnh mẫu mực của \"cùng tắc biến\"."},
+  {zh:"復則不妄矣，故受之以无妄。有无妄然後可畜，故受之以大畜。物畜然後可養，故受之以頤；頤者養也。",
+   hv:"Phục tắc bất vọng hĩ, cố thụ chi dĩ Vô Vọng. Hữu vô vọng nhiên hậu khả súc, cố thụ chi dĩ Đại Súc. Vật súc nhiên hậu khả dưỡng, cố thụ chi dĩ Di; Di giả dưỡng dã.",
+   dich:"Trở về (đạo chính) thì không càn bậy, nên tiếp bằng Vô Vọng. Có sự không càn bậy rồi mới tích chứa được, nên tiếp bằng Đại Súc. Vật tích chứa rồi mới nuôi được, nên tiếp bằng Di; Di là nuôi."},
+  {zh:"不養則不可動，故受之以大過。物不可以終過，故受之以坎；坎者陷也。陷必有所麗，故受之以離；離者麗也。",
+   hv:"Bất dưỡng tắc bất khả động, cố thụ chi dĩ Đại Quá. Vật bất khả dĩ chung quá, cố thụ chi dĩ Khảm; Khảm giả hãm dã. Hãm tất hữu sở lệ, cố thụ chi dĩ Ly; Ly giả lệ dã.",
+   dich:"Không nuôi thì không động được, nên tiếp bằng Đại Quá. Vật không thể mãi quá mức, nên tiếp bằng Khảm; Khảm là sa hãm. Sa hãm thì ắt phải có chỗ bám, nên tiếp bằng Ly; Ly là bám vào.",
+   g:"Theo Tự quái, Khảm đi trước Ly: sa vào hiểm thì phải tìm chỗ bám, chỗ sáng. Đây là thứ tự trong kinh, khác với thứ tự Ly → Khảm của Tam nguyên cửu vận (chương N3, N7)."}
+ ],
+ giai:"Thượng thiên Tự quái đi từ trời đất → muôn vật → xã hội (ăn uống, tranh chấp, binh lửa, liên minh, lễ) → thịnh suy (Thái – Bĩ, Bác – Phục) → kết ở Khảm – Ly (nước – lửa, mặt trăng – mặt trời). Các nhà nghiên cứu hiện đại cho rằng phần nhiều liên kết là gượng ép, nhưng thiên này vẫn quý vì cho thấy cách người xưa nghĩ về chuỗi nhân quả: <b>mỗi tình thế chứa sẵn mầm của tình thế kế tiếp</b>, và đến cực thì đảo chiều."
+},
+{
+ tieuDe: "Hạ thiên: từ Hàm Hằng đến Ký Tế, Vị Tế (quẻ 31–64)",
+ tom: "Hạ kinh mở bằng trật tự người (trai gái → vợ chồng → cha con → vua tôi → lễ nghĩa), đi qua các vòng tiến – lui, tổn – ích, tụ – tán, và kết bằng Vị Tế: \"vật không thể cùng, nên tiếp bằng Vị Tế – là hết\".",
+ doan: [
+  {zh:"有天地然後有萬物，有萬物然後有男女，有男女然後有夫婦，有夫婦然後有父子，有父子然後有君臣，有君臣然後有上下，有上下然後禮儀有所錯。",
+   hv:"Hữu thiên địa nhiên hậu hữu vạn vật, hữu vạn vật nhiên hậu hữu nam nữ, hữu nam nữ nhiên hậu hữu phu phụ, hữu phu phụ nhiên hậu hữu phụ tử, hữu phụ tử nhiên hậu hữu quân thần, hữu quân thần nhiên hậu hữu thượng hạ, hữu thượng hạ nhiên hậu lễ nghĩa hữu sở thố.",
+   dich:"Có trời đất rồi mới có muôn vật; có muôn vật rồi mới có trai gái; có trai gái rồi mới có vợ chồng; có vợ chồng rồi mới có cha con; có cha con rồi mới có vua tôi; có vua tôi rồi mới có trên dưới; có trên dưới rồi lễ nghĩa mới có chỗ đặt để.",
+   g:"Đoạn này giới thiệu quẻ Hàm (31) mà không gọi tên – Hàm là sự cảm ứng trai gái, gốc của mọi quan hệ người. Wikisource gắn liên kết quẻ Hàm vào cụm 禮儀有所錯."},
+  {zh:"夫婦之道，不可以不久也，故受之以恆；恆者久也。物不可以久居其所，故受之以遯；遯者退也。物不可終遯，故受之以大壯。物不可以終壯，故受之以晉；晉者進也。",
+   hv:"Phu phụ chi đạo, bất khả dĩ bất cửu dã, cố thụ chi dĩ Hằng; Hằng giả cửu dã. Vật bất khả dĩ cửu cư kỳ sở, cố thụ chi dĩ Độn; Độn giả thoái dã. Vật bất khả chung độn, cố thụ chi dĩ Đại Tráng. Vật bất khả dĩ chung tráng, cố thụ chi dĩ Tấn; Tấn giả tiến dã.",
+   dich:"Đạo vợ chồng không thể không lâu bền, nên tiếp bằng Hằng; Hằng là lâu. Vật không thể ở mãi một chỗ, nên tiếp bằng Độn; Độn là lui. Vật không thể lui mãi, nên tiếp bằng Đại Tráng. Vật không thể mạnh mãi, nên tiếp bằng Tấn; Tấn là tiến."},
+  {zh:"進必有所傷，故受之以明夷；夷者傷也。傷於外者，必反其家，故受之以家人。家道窮必乖，故受之以睽；睽者乖也。乖必有難，故受之以蹇；蹇者難也。物不可終難，故受之以解；解者緩也。",
+   hv:"Tiến tất hữu sở thương, cố thụ chi dĩ Minh Di; Di giả thương dã. Thương ư ngoại giả, tất phản kỳ gia, cố thụ chi dĩ Gia Nhân. Gia đạo cùng tất quai, cố thụ chi dĩ Khuê; Khuê giả quai dã. Quai tất hữu nạn, cố thụ chi dĩ Kiển; Kiển giả nạn dã. Vật bất khả chung nạn, cố thụ chi dĩ Giải; Giải giả hoãn dã.",
+   dich:"Tiến thì ắt có chỗ bị thương, nên tiếp bằng Minh Di; Di là thương tổn. Bị thương ở ngoài thì ắt trở về nhà, nên tiếp bằng Gia Nhân. Đạo nhà đến cùng thì ắt chia lìa, nên tiếp bằng Khuê; Khuê là trái lìa. Trái lìa ắt có hoạn nạn, nên tiếp bằng Kiển; Kiển là nạn. Vật không thể mãi hoạn nạn, nên tiếp bằng Giải; Giải là thư giãn.",
+   g:"Một chuỗi rất đời thường: bươn chải bị tổn thương → về nhà → trong nhà sinh bất hòa → bất hòa sinh nạn → nạn rồi cũng qua."},
+  {zh:"緩必有所失，故受之以損。損而不已，必益，故受之以益。益而不已，必決，故受之以夬；夬者決也。決必有所遇，故受之以姤；姤者遇也。",
+   hv:"Hoãn tất hữu sở thất, cố thụ chi dĩ Tổn. Tổn nhi bất dĩ, tất ích, cố thụ chi dĩ Ích. Ích nhi bất dĩ, tất quyết, cố thụ chi dĩ Quải; Quải giả quyết dã. Quyết tất hữu sở ngộ, cố thụ chi dĩ Cấu; Cấu giả ngộ dã.",
+   dich:"Thư giãn thì ắt có chỗ sơ thất, nên tiếp bằng Tổn. Bớt mãi không thôi thì ắt được thêm, nên tiếp bằng Ích. Thêm mãi không thôi thì ắt vỡ, nên tiếp bằng Quải; Quải là quyết (vỡ bờ). Vỡ ra thì ắt có chỗ gặp, nên tiếp bằng Cấu; Cấu là gặp.",
+   g:"\"Tổn nhi bất dĩ tất ích, ích nhi bất dĩ tất quyết\" – công thức tổn ích tuần hoàn, rất gần với quan niệm \"vật cực tất phản\"."},
+  {zh:"物相遇而后聚，故受之以萃；萃者聚也。聚而上者，謂之升，故受之以升。升而不已，必困，故受之以困。困乎上者，必反下，故受之以井。井道不可不革，故受之以革。革物者莫若鼎，故受之以鼎。",
+   hv:"Vật tương ngộ nhi hậu tụ, cố thụ chi dĩ Tụy; Tụy giả tụ dã. Tụ nhi thượng giả, vị chi thăng, cố thụ chi dĩ Thăng. Thăng nhi bất dĩ, tất khốn, cố thụ chi dĩ Khốn. Khốn hồ thượng giả, tất phản hạ, cố thụ chi dĩ Tỉnh. Tỉnh đạo bất khả bất cách, cố thụ chi dĩ Cách. Cách vật giả mạc nhược đỉnh, cố thụ chi dĩ Đỉnh.",
+   dich:"Vật gặp nhau rồi mới tụ lại, nên tiếp bằng Tụy; Tụy là tụ. Tụ mà đi lên thì gọi là thăng, nên tiếp bằng Thăng. Lên mãi không thôi thì ắt khốn, nên tiếp bằng Khốn. Khốn ở trên thì ắt quay xuống dưới, nên tiếp bằng Tỉnh (giếng). Đạo giếng không thể không đổi mới, nên tiếp bằng Cách. Làm đổi mới vật không gì bằng cái vạc, nên tiếp bằng Đỉnh.",
+   g:"Giếng lâu ngày đóng bùn phải thau (Cách); vạc nấu biến đồ sống thành chín (Đỉnh) – hai quẻ đi đôi: Cách là bỏ cũ, Đỉnh là lập mới (Tạp quái: \"Cách khứ cố, Đỉnh thủ tân\")."},
+  {zh:"主器者莫若長子，故受之以震；震者動也。物不可以終動，止之，故受之以艮；艮者止也。物不可以終止，故受之以漸；漸者進也。進必有所歸，故受之以歸妹。",
+   hv:"Chủ khí giả mạc nhược trưởng tử, cố thụ chi dĩ Chấn; Chấn giả động dã. Vật bất khả dĩ chung động, chỉ chi, cố thụ chi dĩ Cấn; Cấn giả chỉ dã. Vật bất khả dĩ chung chỉ, cố thụ chi dĩ Tiệm; Tiệm giả tiến dã. Tiến tất hữu sở quy, cố thụ chi dĩ Quy Muội.",
+   dich:"Người giữ đồ tế khí (vạc) không ai bằng con trưởng, nên tiếp bằng Chấn; Chấn là động. Vật không thể động mãi, phải dừng lại, nên tiếp bằng Cấn; Cấn là dừng. Vật không thể dừng mãi, nên tiếp bằng Tiệm; Tiệm là tiến (dần dần). Tiến thì ắt có chỗ về, nên tiếp bằng Quy Muội."},
+  {zh:"得其所歸者必大，故受之以豐；豐者大也。窮大者必失其居，故受之以旅。旅而無所容，故受之以巽；巽者入也。入而后說之，故受之以兌；兌者說也。",
+   hv:"Đắc kỳ sở quy giả tất đại, cố thụ chi dĩ Phong; Phong giả đại dã. Cùng đại giả tất thất kỳ cư, cố thụ chi dĩ Lữ. Lữ nhi vô sở dung, cố thụ chi dĩ Tốn; Tốn giả nhập dã. Nhập nhi hậu duyệt chi, cố thụ chi dĩ Đoài; Đoài giả duyệt dã.",
+   dich:"Được chỗ về thì ắt lớn, nên tiếp bằng Phong; Phong là lớn thịnh. Lớn đến cùng thì ắt mất chỗ ở, nên tiếp bằng Lữ. Đi đất khách không chỗ dung thân, nên tiếp bằng Tốn; Tốn là thâm nhập. Vào được rồi sau mới vui, nên tiếp bằng Đoài; Đoài là vui.",
+   g:"\"Cùng đại giả tất thất kỳ cư\" – thịnh lớn đến tột thì mất chỗ đứng: cùng một ý với Thoán quẻ Phong \"nhật trung tắc trắc, nguyệt doanh tắc thực\"."},
+  {zh:"說而后散之，故受之以渙；渙者離也。物不可以終離，故受之以節。節而信之，故受之以中孚。有其信者，必行之，故受之以小過。有過物者，必濟，故受之既濟。物不可窮也，故受之以未濟；終焉。",
+   hv:"Duyệt nhi hậu tán chi, cố thụ chi dĩ Hoán; Hoán giả ly dã. Vật bất khả dĩ chung ly, cố thụ chi dĩ Tiết. Tiết nhi tín chi, cố thụ chi dĩ Trung Phu. Hữu kỳ tín giả, tất hành chi, cố thụ chi dĩ Tiểu Quá. Hữu quá vật giả, tất tế, cố thụ chi Ký Tế. Vật bất khả cùng dã, cố thụ chi dĩ Vị Tế; chung yên.",
+   dich:"Vui rồi sau thì tan ra, nên tiếp bằng Hoán; Hoán là lìa tan. Vật không thể lìa tan mãi, nên tiếp bằng Tiết. Có chừng mực rồi người mới tin, nên tiếp bằng Trung Phu. Có lòng tin thì ắt làm, nên tiếp bằng Tiểu Quá. Có tài vượt hơn vật thì ắt nên việc, nên tiếp bằng Ký Tế. Vật không thể cùng tận, nên tiếp bằng Vị Tế; hết vậy.",
+   g:"Câu kết \"vật bất khả cùng dã, cố thụ chi dĩ Vị Tế; chung yên\" là tuyên ngôn triết học của cả bộ kinh: sách dừng ở \"chưa xong\", vì vũ trụ không có điểm kết thúc. Bản này viết 受之既濟 (không có chữ 以), giữ nguyên theo nguồn."}
+ ],
+ giai:"Hạ thiên đi từ quan hệ người → các vòng tiến lui (Độn – Đại Tráng – Tấn – Minh Di), hợp tan (Gia Nhân – Khuê), khó dễ (Kiển – Giải), bớt thêm (Tổn – Ích), tụ tán (Tụy – Hoán) → kết ở Ký Tế – Vị Tế. Toàn bộ Tự quái có thể đọc như một <b>mô hình chu kỳ</b>: không trạng thái nào kéo dài mãi; khi một xu thế đi đến cực, nó sinh ra xu thế đối lập. Đây là gốc kinh văn của cách nhìn \"thời thế xoay vòng\" mà anh đang nghiên cứu – nhưng lưu ý Tự quái mô tả logic chuyển tiếp, không cho mốc thời gian cụ thể."
+}
+];

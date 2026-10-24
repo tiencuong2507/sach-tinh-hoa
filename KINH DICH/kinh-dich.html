@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kinh Dịch — Đọc, tra cứu và giải nghĩa</title>
+<style>
+:root{--bg:#f7f3ea;--card:#fff;--ink:#222;--mute:#6b6253;--acc:#8b2e1f;--line:#e2dccf}
+body{font-family:"Segoe UI",system-ui,sans-serif;max-width:960px;margin:auto;padding:12px 16px 60px;background:var(--bg);color:var(--ink);line-height:1.6}
+h1{text-align:center;margin:8px 0 4px;color:var(--acc)}h2{margin:.3em 0}h3{margin:1em 0 .3em;color:var(--acc)}
+.sub{text-align:center;color:var(--mute);margin-bottom:10px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:5}
+nav button,.btn{padding:7px 14px;border:1px solid #b9ae98;background:#fff;border-radius:6px;cursor:pointer;font-size:15px}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+input,select{padding:8px;font-size:16px;border:1px solid #b9ae98;border-radius:6px}#q{width:100%;box-sizing:border-box}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.grid button{padding:8px;background:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer;text-align:left;font-size:14px}
+.grid b{font-size:26px;vertical-align:middle}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+.hx{width:110px;margin:8px 0}.ln{display:flex;gap:14px;height:12px;margin:7px 0}
+.ln span{flex:1;background:#222;border-radius:2px}.mv span{background:#c0392b}
+.row{display:flex;flex-wrap:wrap;gap:12px}.row>.card{flex:1;min-width:260px}
+.zh{font-family:"Noto Serif TC","PMingLiU","SimSun",serif;font-size:1.12em;color:#444}
+.hv{font-style:italic}.dich{margin:.2em 0}.giai{color:#333}.mute{color:var(--mute);font-size:.92em}
+.hao{border-top:1px dashed var(--line);padding:8px 0}.hao.on{background:#fff3ef;border-left:4px solid #c0392b;padding-left:10px}
+.hao .t{font-weight:600}.hidden{display:none}.tag{display:inline-block;background:#efe7d6;border-radius:4px;padding:0 6px;margin-right:4px;font-size:.85em}
+.toc a{display:block;padding:3px 0;color:var(--ink);text-decoration:none;cursor:pointer}.toc a:hover{color:var(--acc)}
+.pager{display:flex;justify-content:space-between;margin:10px 0}
+.rule{background:#fffbe9;border:1px solid #eadfae;border-radius:8px;padding:10px 14px}
+label.sw{font-size:14px;color:var(--mute);margin-left:8px}
+.tb{border-collapse:collapse;width:100%;margin:8px 0;font-size:.95em}.tb th,.tb td{border:1px solid var(--line);padding:5px 8px;vertical-align:top;text-align:left}
+.tb th{background:#efe7d6}
+@media print{nav,.pager,.noprint{display:none}body{background:#fff}.card{border:none}}
+</style></head><body>
+<h1>☯ Kinh Dịch</h1>
+<div class="sub">Chu Dịch · nguyên văn – âm Hán Việt – dịch nghĩa – giải nghĩa</div>
+<nav>
+ <button data-t="sach" class="on">📖 Đọc sách</button>
+ <button data-t="tra">🔍 Tra quẻ</button>
+ <button data-t="gieo">🎲 Gieo quẻ</button>
+ <button data-t="nhap">✍️ Tự nhập quẻ</button>
+ <button data-t="mh">🌸 Mai Hoa</button>
+ <button data-t="lh">☯ Lục hào</button>
+ <button data-t="nam">🗓 Tra năm</button>
+ <button data-t="ls">🕘 Lịch sử</button>
+ <label class="sw"><input type="checkbox" id="showzh" checked> hiện chữ Hán</label>
+</nav>
+
+<section id="sach"><div id="book"></div></section>
+
+<section id="tra" class="hidden">
+ <input id="q" placeholder="Số, tên Việt có/không dấu, hoặc chữ Hán: 11, thai, dia thien, 泰…">
+ <div id="list" class="grid"></div><div id="detail"></div>
+</section>
+
+<section id="gieo" class="hidden">
+ <div class="card noprint"><p>Mỗi hào tung 3 đồng xu (ngửa = 3, sấp = 2), gieo 6 lần từ hào 1 (dưới) lên hào 6 (trên).
+ Tổng 6 = lão âm (động), 7 = thiếu dương, 8 = thiếu âm, 9 = lão dương (động).</p>
+ <input id="hoi" placeholder="Điều muốn hỏi (không bắt buộc)" style="width:100%;box-sizing:border-box"><br><br>
+ <button class="btn" id="btnGieo">🎲 Gieo quẻ</button></div><div id="kq"></div>
+</section>
+
+<section id="nhap" class="hidden">
+ <div class="card"><p>Anh gieo đồng xu thật rồi chọn giá trị từng hào (hào 6 ở trên cùng):</p><div id="sel"></div><br>
+ <input id="hoi2" placeholder="Điều muốn hỏi (không bắt buộc)" style="width:100%;box-sizing:border-box"><br><br>
+ <button class="btn" id="btnNhap">Lập quẻ</button></div><div id="kq2"></div>
+</section>
+
+<section id="mh" class="hidden">
+ <div class="card noprint"><h2>🌸 Mai Hoa Dịch Số</h2>
+ <p>Lập quẻ không cần gieo xu. <b>Theo thời gian:</b> (số chi năm + tháng âm + ngày âm) chia 8 lấy dư ra thượng quái; cộng thêm số chi giờ, chia 8 ra hạ quái, chia 6 ra hào động.
+ Số tiên thiên: Càn 1, Đoài 2, Ly 3, Chấn 4, Tốn 5, Khảm 6, Cấn 7, Khôn 8 (dư 0 tính 8). Chi: Tý 1 … Hợi 12. Phần mềm tự đổi sang âm lịch Việt Nam (múi giờ +7).</p>
+ <input id="mhHoi" placeholder="Điều muốn hỏi (không bắt buộc)" style="width:100%;box-sizing:border-box"><br><br>
+ Thời điểm: <input id="mhDT" type="datetime-local">
+ <button class="btn" id="btnMHNgay">Lập quẻ theo thời điểm này</button> <button class="btn" id="btnMHBayGio">⏱ Lập theo giờ hiện tại</button>
+ <hr style="border:none;border-top:1px dashed var(--line);margin:14px 0">
+ <b>Theo số:</b> số trước <input id="mhA" type="number" min="1" style="width:90px"> số sau <input id="mhB" type="number" min="1" style="width:90px">
+ <label><input type="checkbox" id="mhGio" checked> cộng số giờ để tính hào động</label>
+ <button class="btn" id="btnMHSo">Lập quẻ theo số</button>
+ <p class="mute">Sách Mai Hoa Dịch Số tương truyền của Thiệu Ung (邵雍, đời Tống); bản lưu hành hiện nay được biên tập muộn hơn, việc quy tác giả còn bàn cãi. Đây là thuật số đời sau, không phải kinh văn Chu Dịch; kết quả chỉ để chiêm nghiệm.</p></div>
+ <div id="kqMH"></div>
+</section>
+
+<section id="lh" class="hidden">
+ <div class="card noprint"><h2>☯ Bói Lục hào (Nạp giáp)</h2>
+ <p>Gieo 3 đồng xu 6 lần như thẻ Gieo quẻ (hoặc nhập kết quả gieo thật). Phần mềm an quẻ theo bát cung, Thế – Ứng, nạp giáp can chi, lục thân, lục thần, phục thần; lấy <b>nguyệt kiến theo tiết khí</b> và <b>nhật thần, tuần không</b> theo ngày gieo (múi giờ +7; từ 23h tính sang ngày mới).</p>
+ <input id="lhHoi" placeholder="Điều muốn hỏi (mỗi việc chỉ hỏi một lần)" style="width:100%;box-sizing:border-box"><br><br>
+ Việc hỏi (để chọn dụng thần): <select id="lhViec"></select><br><br>
+ Thời điểm gieo: <input id="lhDT" type="datetime-local"> <button class="btn" id="btnLHGieo">🎲 Gieo 3 xu × 6 lần</button>
+ <details style="margin-top:10px"><summary>Nhập kết quả gieo thật</summary><div id="lhSel"></div><button class="btn" id="btnLHNhap">Lập quẻ</button></details>
+ <p class="mute">Lục hào là thuật bói đời sau (gốc từ Kinh Phòng đời Hán, thành hình qua Hỏa châu lâm, Bốc phệ chính tông, Tăng san bốc dịch), không phải kinh văn Chu Dịch. Kết quả để chiêm nghiệm, không thay quyết định của anh.</p></div>
+ <div id="kqLH"></div>
+</section>
+
+<section id="nam" class="hidden">
+ <div class="card"><p>Tra can chi, ngũ hành, nạp âm, vận (Tam nguyên cửu vận) và sao năm. Năm tính từ Lập xuân (khoảng 4/2 dương lịch).</p>
+ Từ năm <input id="namY" type="number" value="2026" style="width:110px"> xem <input id="soNam" type="number" value="20" style="width:70px"> năm
+ <button class="btn" id="btnNam">Tra</button></div><div id="kqNam"></div>
+</section>
+
+<section id="ls" class="hidden"><div id="hist"></div></section>
+
+<script src="data/nguyen-van.js"></script>
+<script src="data/dan-nhap.js"></script>
+<script src="data/nghien-cuu.js"></script>
+<script src="data/hckt.js"></script>
+<script src="data/luc-hao-sach.js"></script>
+<script src="data/vi-01.js"></script><script src="data/vi-02.js"></script>
+<script src="data/vi-03.js"></script><script src="data/vi-04.js"></script>
+<script src="data/vi-05.js"></script><script src="data/vi-06.js"></script>
+<script src="data/vi-07.js"></script><script src="data/vi-08.js"></script>
+<script src="data/he-tu-1.js"></script><script src="data/he-tu-2.js"></script><script src="data/he-tu-3.js"></script>
+<script src="data/he-tu-4.js"></script><script src="data/he-tu-5.js"></script><script src="data/he-tu-6.js"></script>
+<script src="data/td-van-ngon.js"></script><script src="data/td-thuyet-quai.js"></script>
+<script src="data/td-tu-quai.js"></script><script src="data/td-tap-quai.js"></script>
+<script src="lich-am.js"></script>
+<script src="app.js"></script>
+<script src="mai-hoa.js"></script>
+<script src="luc-hao.js"></script>
+</body></html>

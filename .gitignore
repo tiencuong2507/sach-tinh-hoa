@@ -1,0 +1,7 @@
+# Kho Sách Tinh Hoa
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+# Tạm thời của trình duyệt / công cụ
+*.tmp

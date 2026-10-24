@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "kinh-dich",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8731", "--bind", "127.0.0.1", "--directory", "KINH DICH"],
+      "port": 8731,
+      "autoPort": false
+    }
+  ]
+}
