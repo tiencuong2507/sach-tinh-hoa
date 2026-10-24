@@ -1,0 +1,209 @@
+Bảng Tử Vi Toàn thư (5 cục × 30 ngày = 150 ô cần có; bản chép Wikisource có 149 ô): 148/149 ô khớp công thức; lệch 1; thiếu 2
+  lệch: cục 3 ngày 9: bảng ghi Dần, công thức ra Thìn
+  thiếu: cục 3 ngày 5 không có trong bảng (công thức: Dần)
+  thiếu: cục 4 ngày 30 không có trong bảng (công thức: Hợi)
+
+iztro 2.6.3 (MIT) — cấu hình mặc định đọc từ astro.getConfig(): {"mutagens":{},"brightness":{},"yearDivide":"normal","horoscopeDivide":"normal","ageDivide":"normal","dayDivide":"forward","algorithm":"default"}
+  → yearDivide normal = năm đổi ở mồng một Tết (lunar-lite ganzhi.js: normal → getYearGan, exact → getYearGanByLiChun; lunar-typescript Lunar.mjs: ByLiChun so theo ngày)
+  → dayDivide forward = giờ Tý khuya (timeIndex 12) cộng một ngày (location.js getStartIndex, utils fixLunarDayIndex); tháng không đổi (utils fixLunarMonthIndex dùng tháng của ngày dương truyền vào)
+  → fixLeap=true (mặc định bySolar): tháng nhuận ngày 1–15 tính tháng trước, 16+ tính tháng sau (utils fixLunarMonthIndex)
+  → Tứ Hóa data/heavenlyStems.js: 庚 阳武阴同, 壬 梁紫左武 (= profile viet); Hỏa Linh đếm thuận (location.js getHuoLingIndex); Thiên Mã theo chi năm; Tràng sinh dương nam âm nữ thuận (decorativeStar.js)
+  → Lịch: iztro dùng lunar-typescript (giờ Bắc Kinh +8); lõi chung của kho dùng múi +7 → một số ngày âm lệch nhau (đo bên dưới)
+  → Profile đối chứng: viet (khớp toàn bộ các điểm quy tắc trên)
+
+Bảng độ sáng tĩnh: Toàn thư so với iztro khớp 232/232 ô; khác: Lộc Tồn: iztro không có bảng
+
+
+=== Đối chứng 400 lá số ngẫu nhiên 1950–2030 (seed cố định) — profile viet vs iztro mặc định (23h → ngày sau, timeIndex 0) ===
+Hạng mục                                                                            Tất cả  Tỉ lệ     Cùng âm lịch  Tỉ lệ
+Can chi năm                                                                        400/400  100.00%        386/386  100.00%
+Cung Mệnh                                                                          399/400  99.75%         386/386  100.00%
+      vd: 27/2/1985 0h nam (âm VN 8/2/1985, âm iztro 8/1/1985, Ất Sửu): ta Mão, iztro 寅
+Cung Thân                                                                          399/400  99.75%         386/386  100.00%
+      vd: 27/2/1985 0h nam (âm VN 8/2/1985, âm iztro 8/1/1985, Ất Sửu): ta Mão, iztro 寅
+Cục                                                                                400/400  100.00%        386/386  100.00%
+14 chính tinh                                                                      387/400  96.75%         386/386  100.00%
+      vd: 24/2/2030 17h nu (âm VN 23/1/2030, âm iztro 22/1/2030, Canh Tuất): Tử Vi ta Ngọ, iztro Dậu; Thiên Cơ ta Tỵ, iztro Thân; Thái Dương ta Mão, iztro Ngọ; Vũ Khúc ta Dần, iztro Tỵ; Thiên Đồng ta Sửu, iztro Thìn; Liêm Trinh ta Tuất, iztro Sửu; Thiên Phủ ta Tuất, iztro Mùi; Thái Âm ta Hợi, iztro Thân; Tham Lang ta Tý, iztro Dậu; Cự Môn ta Sửu, iztro Tuất; Thiên Tướng ta Dần, iztro Hợi; Thiên Lương ta Mão, iztro Tý; Thất Sát ta Thìn, iztro Sửu; Phá Quân ta Thân, iztro Tỵ
+      vd: 26/3/1957 10h nu (âm VN 26/2/1957, âm iztro 25/2/1957, Đinh Dậu): Tử Vi ta Tuất, iztro Tỵ; Thiên Cơ ta Dậu, iztro Thìn; Thái Dương ta Mùi, iztro Dần; Vũ Khúc ta Ngọ, iztro Sửu; Thiên Đồng ta Tỵ, iztro Tý; Liêm Trinh ta Dần, iztro Dậu; Thiên Phủ ta Ngọ, iztro Hợi; Thái Âm ta Mùi, iztro Tý; Tham Lang ta Thân, iztro Sửu; Cự Môn ta Dậu, iztro Dần; Thiên Tướng ta Tuất, iztro Mão; Thiên Lương ta Hợi, iztro Thìn; Thất Sát ta Tý, iztro Tỵ; Phá Quân ta Thìn, iztro Dậu
+      vd: 26/12/2008 11h nam (âm VN 30/11/2008, âm iztro 29/11/2008, Mậu Tý): Tử Vi ta Ngọ, iztro Tỵ; Thiên Cơ ta Tỵ, iztro Thìn; Thái Dương ta Mão, iztro Dần; Vũ Khúc ta Dần, iztro Sửu; Thiên Đồng ta Sửu, iztro Tý; Liêm Trinh ta Tuất, iztro Dậu; Thiên Phủ ta Tuất, iztro Hợi; Thái Âm ta Hợi, iztro Tý; Tham Lang ta Tý, iztro Sửu; Cự Môn ta Sửu, iztro Dần; Thiên Tướng ta Dần, iztro Mão; Thiên Lương ta Mão, iztro Thìn; Thất Sát ta Thìn, iztro Tỵ; Phá Quân ta Thân, iztro Dậu
+Lộc Tồn Kình Đà                                                                    400/400  100.00%        386/386  100.00%
+Xương Khúc Tả Hữu                                                                  399/400  99.75%         386/386  100.00%
+      vd: 27/2/1985 0h nam (âm VN 8/2/1985, âm iztro 8/1/1985, Ất Sửu): Tả Phụ ta Tỵ, iztro Thìn; Hữu Bật ta Dậu, iztro Tuất
+Khôi Việt                                                                          400/400  100.00%        386/386  100.00%
+Hỏa Linh                                                                           400/400  100.00%        386/386  100.00%
+Không Kiếp                                                                         400/400  100.00%        386/386  100.00%
+Thiên Mã                                                                           400/400  100.00%        386/386  100.00%
+Phụ tinh theo năm (Loan Hỷ Đào Cái Cô Quả Trì Các Khốc Hư Quan Phúc Trù Toái Tài Thọ Đức Không Niên Giải)     399/400  99.75%         386/386  100.00%
+      vd: 27/2/1985 0h nam (âm VN 8/2/1985, âm iztro 8/1/1985, Ất Sửu): Thiên Tài ta Thìn, iztro Mão; Thiên Thọ ta Thìn, iztro Mão
+Phụ tinh theo tháng/ngày/giờ (Hình Riêu Giải Thần Thai Tọa Quang Quý Thai Phụ Phong Cáo)     386/400  96.50%         386/386  100.00%
+      vd: 24/2/2030 17h nu (âm VN 23/1/2030, âm iztro 22/1/2030, Canh Tuất): Tam Thai ta Dần, iztro Sửu; Bát Tọa ta Tý, iztro Sửu; Ân Quang ta Tuất, iztro Dậu; Thiên Quý ta Tuất, iztro Dậu
+      vd: 26/3/1957 10h nu (âm VN 26/2/1957, âm iztro 25/2/1957, Đinh Dậu): Tam Thai ta Ngọ, iztro Tỵ; Bát Tọa ta Thân, iztro Dậu; Ân Quang ta Tỵ, iztro Thìn; Thiên Quý ta Dậu, iztro Thân
+      vd: 26/12/2008 11h nam (âm VN 30/11/2008, âm iztro 29/11/2008, Mậu Tý): Tam Thai ta Mùi, iztro Ngọ; Bát Tọa ta Mùi, iztro Thân; Ân Quang ta Thân, iztro Mùi; Thiên Quý ta Dần, iztro Sửu
+Thiên Thương Thiên Sứ                                                              399/400  99.75%         386/386  100.00%
+      vd: 27/2/1985 0h nam (âm VN 8/2/1985, âm iztro 8/1/1985, Ất Sửu): Thiên Thương ta Thân, iztro Mùi; Thiên Sứ ta Tuất, iztro Dậu
+Tứ Hóa                                                                             400/400  100.00%        386/386  100.00%
+Triệt (2 cung)                                                                     400/400  100.00%        386/386  100.00%
+Tuần (iztro 旬空 nằm trong 2 cung Tuần)                                              400/400  100.00%        386/386  100.00%
+Vòng Tràng sinh (12 cung)                                                          400/400  100.00%        386/386  100.00%
+Vòng Bác sĩ (12 cung)                                                              400/400  100.00%        386/386  100.00%
+Vòng Thái Tuế (6 mốc Tuế, Tang, Quan Phù, Long Đức, Bạch Hổ, Điếu Khách)           400/400  100.00%        386/386  100.00%
+Đại hạn (12 cung, tuổi khởi và chiều)                                              399/400  99.75%         386/386  100.00%
+      vd: 27/2/1985 0h nam (âm VN 8/2/1985, âm iztro 8/1/1985, Ất Sửu): ta Mệnh 5-14 kế 115-124, iztro 寅5-14 卯115-124 辰105-114 巳95-104 午85-94 未75-84 申65-74 酉55-64 戌45-54 亥35-44 子25-34 丑15-24
+Tiểu hạn (12 cung)                                                                 400/400  100.00%        386/386  100.00%
+Lưu niên 2026: lưu Lộc Kình Đà Mã Khôi Việt Xương Khúc Loan Hỷ                     400/400  100.00%        386/386  100.00%
+Lưu niên 2026: lưu Tứ Hóa                                                          400/400  100.00%        386/386  100.00%
+(thông tin) Độ sáng tại vị trí sao của ta so với iztro (chỉ lệch ở ca lệch lịch; bảng tĩnh ở trên)   7853/8000  98.16%
+Âm lịch VN (+7) khác âm lịch iztro (+8): 14/400 ca; trong đó giữ ngày dương, ghi đè ngày âm của iztro vào lõi ta thì khớp toàn bộ hạng mục: 14/14
+Mẫu: 400 lá số, 2 giới, 12 chi giờ, 18 ca 23h, 9 ca tháng nhuận (trong đó 5 ca từ ngày 16), năm 1950–2030
+
+=== (thông tin) 18 ca 23h: ta (sang ngày sau) vs iztro timeIndex 12 cùng ngày — iztro cộng ngày nhưng giữ tháng của ngày dương, nên lệch ở ngày cuối tháng âm ===
+Hạng mục                                                                            Tất cả  Tỉ lệ     Cùng âm lịch  Tỉ lệ
+Can chi năm                                                                          18/18  100.00%            0/0  —
+Cung Mệnh                                                                            15/18  83.33%             0/0  —
+      vd: 19/7/1952 23h nam (âm VN 29/5n/1952, âm iztro 28/5n/1952, Nhâm Thìn): ta Mùi, iztro 午
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): ta Tý, iztro 亥
+      vd: 22/12/2003 23h nam (âm VN 1/12/2003, âm iztro 29/11/2003, Quý Mùi): ta Sửu, iztro 子
+Cung Thân                                                                            15/18  83.33%             0/0  —
+      vd: 19/7/1952 23h nam (âm VN 29/5n/1952, âm iztro 28/5n/1952, Nhâm Thìn): ta Mùi, iztro 午
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): ta Tý, iztro 亥
+      vd: 22/12/2003 23h nam (âm VN 1/12/2003, âm iztro 29/11/2003, Quý Mùi): ta Sửu, iztro 子
+Cục                                                                                  17/18  94.44%             0/0  —
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): ta Thổ ngũ cục, iztro 木三局
+14 chính tinh                                                                        17/18  94.44%             0/0  —
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): Tử Vi ta Ngọ, iztro Thìn; Thiên Cơ ta Tỵ, iztro Mão; Thái Dương ta Mão, iztro Sửu; Vũ Khúc ta Dần, iztro Tý; Thiên Đồng ta Sửu, iztro Hợi; Liêm Trinh ta Tuất, iztro Thân; Thiên Phủ ta Tuất, iztro Tý; Thái Âm ta Hợi, iztro Sửu; Tham Lang ta Tý, iztro Dần; Cự Môn ta Sửu, iztro Mão; Thiên Tướng ta Dần, iztro Thìn; Thiên Lương ta Mão, iztro Tỵ; Thất Sát ta Thìn, iztro Ngọ; Phá Quân ta Thân, iztro Tuất
+Lộc Tồn Kình Đà                                                                      18/18  100.00%            0/0  —
+Xương Khúc Tả Hữu                                                                    15/18  83.33%             0/0  —
+      vd: 19/7/1952 23h nam (âm VN 29/5n/1952, âm iztro 28/5n/1952, Nhâm Thìn): Tả Phụ ta Dậu, iztro Thân; Hữu Bật ta Tỵ, iztro Ngọ
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): Tả Phụ ta Dần, iztro Sửu; Hữu Bật ta Tý, iztro Sửu
+      vd: 22/12/2003 23h nam (âm VN 1/12/2003, âm iztro 29/11/2003, Quý Mùi): Tả Phụ ta Mão, iztro Dần; Hữu Bật ta Hợi, iztro Tý
+Khôi Việt                                                                            18/18  100.00%            0/0  —
+Hỏa Linh                                                                             18/18  100.00%            0/0  —
+Không Kiếp                                                                           18/18  100.00%            0/0  —
+Thiên Mã                                                                             18/18  100.00%            0/0  —
+Phụ tinh theo năm (Loan Hỷ Đào Cái Cô Quả Trì Các Khốc Hư Quan Phúc Trù Toái Tài Thọ Đức Không Niên Giải)       15/18  83.33%             0/0  —
+      vd: 19/7/1952 23h nam (âm VN 29/5n/1952, âm iztro 28/5n/1952, Nhâm Thìn): Thiên Tài ta Hợi, iztro Tuất; Thiên Thọ ta Hợi, iztro Tuất
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): Thiên Tài ta Sửu, iztro Tý; Thiên Thọ ta Sửu, iztro Tý
+      vd: 22/12/2003 23h nam (âm VN 1/12/2003, âm iztro 29/11/2003, Quý Mùi): Thiên Tài ta Thân, iztro Mùi; Thiên Thọ ta Thân, iztro Mùi
+Phụ tinh theo tháng/ngày/giờ (Hình Riêu Giải Thần Thai Tọa Quang Quý Thai Phụ Phong Cáo)       15/18  83.33%             0/0  —
+      vd: 19/7/1952 23h nam (âm VN 29/5n/1952, âm iztro 28/5n/1952, Nhâm Thìn): Thiên Hình ta Dần, iztro Sửu; Thiên Riêu ta Ngọ, iztro Tỵ; Tam Thai ta Sửu, iztro Tý; Bát Tọa ta Sửu, iztro Dần
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): Thiên Hình ta Mùi, iztro Ngọ; Thiên Riêu ta Hợi, iztro Tuất; Giải Thần ta Ngọ, iztro Thìn; Tam Thai ta Dần, iztro Mùi; Bát Tọa ta Tý, iztro Mùi; Ân Quang ta Dậu, iztro Mão; Thiên Quý ta Mão, iztro Dậu
+      vd: 22/12/2003 23h nam (âm VN 1/12/2003, âm iztro 29/11/2003, Quý Mùi): Thiên Hình ta Thân, iztro Mùi; Thiên Riêu ta Tý, iztro Hợi; Tam Thai ta Mão, iztro Mùi; Bát Tọa ta Hợi, iztro Mùi; Ân Quang ta Dậu, iztro Dần; Thiên Quý ta Mão, iztro Thân
+Thiên Thương Thiên Sứ                                                                15/18  83.33%             0/0  —
+      vd: 19/7/1952 23h nam (âm VN 29/5n/1952, âm iztro 28/5n/1952, Nhâm Thìn): Thiên Thương ta Tý, iztro Hợi; Thiên Sứ ta Dần, iztro Sửu
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): Thiên Thương ta Tỵ, iztro Thìn; Thiên Sứ ta Mùi, iztro Ngọ
+      vd: 22/12/2003 23h nam (âm VN 1/12/2003, âm iztro 29/11/2003, Quý Mùi): Thiên Thương ta Ngọ, iztro Tỵ; Thiên Sứ ta Thân, iztro Mùi
+Tứ Hóa                                                                               18/18  100.00%            0/0  —
+Triệt (2 cung)                                                                       18/18  100.00%            0/0  —
+Tuần (iztro 旬空 nằm trong 2 cung Tuần)                                                18/18  100.00%            0/0  —
+Vòng Tràng sinh (12 cung)                                                            17/18  94.44%             0/0  —
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): ta Tràng Sinh tại Thân, iztro 长生 tại 亥
+Vòng Bác sĩ (12 cung)                                                                18/18  100.00%            0/0  —
+Vòng Thái Tuế (6 mốc Tuế, Tang, Quan Phù, Long Đức, Bạch Hổ, Điếu Khách)             18/18  100.00%            0/0  —
+Đại hạn (12 cung, tuổi khởi và chiều)                                                15/18  83.33%             0/0  —
+      vd: 19/7/1952 23h nam (âm VN 29/5n/1952, âm iztro 28/5n/1952, Nhâm Thìn): ta Mệnh 2-11 kế 12-21, iztro 寅82-91 卯92-101 辰102-111 巳112-121 午2-11 未12-21 申22-31 酉32-41 戌42-51 亥52-61 子62-71 丑72-81
+      vd: 7/12/1961 23h nam (âm VN 1/11/1961, âm iztro 30/10/1961, Tân Sửu): ta Mệnh 5-14 kế 115-124, iztro 寅93-102 卯83-92 辰73-82 巳63-72 午53-62 未43-52 申33-42 酉23-32 戌13-22 亥3-12 子113-122 丑103-112
+      vd: 22/12/2003 23h nam (âm VN 1/12/2003, âm iztro 29/11/2003, Quý Mùi): ta Mệnh 4-13 kế 114-123, iztro 寅104-113 卯94-103 辰84-93 巳74-83 午64-73 未54-63 申44-53 酉34-43 戌24-33 亥14-23 子4-13 丑114-123
+Tiểu hạn (12 cung)                                                                   18/18  100.00%            0/0  —
+(thông tin) Độ sáng tại vị trí sao của ta so với iztro (chỉ lệch ở ca lệch lịch; bảng tĩnh ở trên)     348/360  96.67%
+
+=== Ranh giới Lập xuân: ta ranhGioiNam=lap-xuan (theo giờ) vs iztro yearDivide=exact (lunar-typescript so theo ngày) — 240 lá số tháng 1–2 ===
+Hạng mục                                                                            Tất cả  Tỉ lệ     Cùng âm lịch  Tỉ lệ
+Can chi năm                                                                        239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): iztro 庚辰
+Cung Mệnh                                                                          237/240  98.75%         228/228  100.00%
+      vd: 11/2/1985 10h nu (âm VN 22/1/1985, âm iztro 22/12/1984, Ất Sửu): ta Dậu, iztro 申
+      vd: 8/1/1985 0h nam (âm VN 18/12/1984, âm iztro 18/11/1984, Giáp Tý): ta Sửu, iztro 子
+      vd: 13/2/1985 13h nu (âm VN 24/1/1985, âm iztro 24/12/1984, Ất Sửu): ta Mùi, iztro 午
+Cung Thân                                                                          237/240  98.75%         228/228  100.00%
+      vd: 11/2/1985 10h nu (âm VN 22/1/1985, âm iztro 22/12/1984, Ất Sửu): ta Mùi, iztro 午
+      vd: 8/1/1985 0h nam (âm VN 18/12/1984, âm iztro 18/11/1984, Giáp Tý): ta Sửu, iztro 子
+      vd: 13/2/1985 13h nu (âm VN 24/1/1985, âm iztro 24/12/1984, Ất Sửu): ta Dậu, iztro 申
+Cục                                                                                239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): ta Kim tứ cục, iztro 水二局
+14 chính tinh                                                                      232/240  96.67%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): Tử Vi ta Ngọ, iztro Mão; Thiên Cơ ta Tỵ, iztro Dần; Thái Dương ta Mão, iztro Tý; Vũ Khúc ta Dần, iztro Hợi; Thiên Đồng ta Sửu, iztro Tuất; Liêm Trinh ta Tuất, iztro Mùi; Thiên Phủ ta Tuất, iztro Sửu; Thái Âm ta Hợi, iztro Dần; Tham Lang ta Tý, iztro Mão; Cự Môn ta Sửu, iztro Thìn; Thiên Tướng ta Dần, iztro Tỵ; Thiên Lương ta Mão, iztro Ngọ; Thất Sát ta Thìn, iztro Mùi; Phá Quân ta Thân, iztro Hợi
+      vd: 21/2/2007 2h nu (âm VN 5/1/2007, âm iztro 4/1/2007, Đinh Hợi): Tử Vi ta Dần, iztro Tỵ; Thiên Cơ ta Sửu, iztro Thìn; Thái Dương ta Hợi, iztro Dần; Vũ Khúc ta Tuất, iztro Sửu; Thiên Đồng ta Dậu, iztro Tý; Liêm Trinh ta Ngọ, iztro Dậu; Thiên Phủ ta Dần, iztro Hợi; Thái Âm ta Mão, iztro Tý; Tham Lang ta Thìn, iztro Sửu; Cự Môn ta Tỵ, iztro Dần; Thiên Tướng ta Ngọ, iztro Mão; Thiên Lương ta Mùi, iztro Thìn; Thất Sát ta Thân, iztro Tỵ; Phá Quân ta Tý, iztro Dậu
+      vd: 3/2/2030 18h nu (âm VN 2/1/2030, âm iztro 1/1/2030, Kỷ Dậu): Tử Vi ta Sửu, iztro Thìn; Thiên Cơ ta Tý, iztro Mão; Thái Dương ta Tuất, iztro Sửu; Vũ Khúc ta Dậu, iztro Tý; Thiên Đồng ta Thân, iztro Hợi; Liêm Trinh ta Tỵ, iztro Thân; Thiên Phủ ta Mão, iztro Tý; Thái Âm ta Thìn, iztro Sửu; Tham Lang ta Tỵ, iztro Dần; Cự Môn ta Ngọ, iztro Mão; Thiên Tướng ta Mùi, iztro Thìn; Thiên Lương ta Thân, iztro Tỵ; Thất Sát ta Dậu, iztro Ngọ; Phá Quân ta Sửu, iztro Tuất
+Lộc Tồn Kình Đà                                                                    239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): Lộc Tồn ta Ngọ, iztro Thân; Kình Dương ta Mùi, iztro Dậu; Đà La ta Tỵ, iztro Mùi
+Xương Khúc Tả Hữu                                                                  237/240  98.75%         228/228  100.00%
+      vd: 11/2/1985 10h nu (âm VN 22/1/1985, âm iztro 22/12/1984, Ất Sửu): Tả Phụ ta Thìn, iztro Mão; Hữu Bật ta Tuất, iztro Hợi
+      vd: 8/1/1985 0h nam (âm VN 18/12/1984, âm iztro 18/11/1984, Giáp Tý): Tả Phụ ta Mão, iztro Dần; Hữu Bật ta Hợi, iztro Tý
+      vd: 13/2/1985 13h nu (âm VN 24/1/1985, âm iztro 24/12/1984, Ất Sửu): Tả Phụ ta Thìn, iztro Mão; Hữu Bật ta Tuất, iztro Hợi
+Khôi Việt                                                                          239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): Thiên Khôi ta Tý, iztro Sửu; Thiên Việt ta Thân, iztro Mùi
+Hỏa Linh                                                                           239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): Hỏa Tinh ta Dần, iztro Mùi
+Không Kiếp                                                                         240/240  100.00%        228/228  100.00%
+Thiên Mã                                                                           239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): Thiên Mã ta Tỵ, iztro Dần
+Phụ tinh theo năm (Loan Hỷ Đào Cái Cô Quả Trì Các Khốc Hư Quan Phúc Trù Toái Tài Thọ Đức Không Niên Giải)     236/240  98.33%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): Hồng Loan ta Tý, iztro Hợi; Thiên Hỷ ta Ngọ, iztro Tỵ; Đào Hoa ta Tý, iztro Dậu; Hoa Cái ta Mùi, iztro Thìn; Long Trì ta Mùi, iztro Thân; Phượng Các ta Mùi, iztro Ngọ; Thiên Khốc ta Mão, iztro Dần; Thiên Hư ta Dậu, iztro Tuất; Thiên Quan ta Dậu, iztro Hợi; Thiên Phúc ta Dần, iztro Ngọ; Thiên Trù ta Thân, iztro Dần; Phá Toái ta Tỵ, iztro Sửu; Thiên Tài ta Hợi, iztro Tý; Thiên Thọ ta Dậu, iztro Tuất; Thiên Đức ta Tý, iztro Sửu; Nguyệt Đức ta Thân, iztro Dậu; Thiên Không ta Thìn, iztro Tỵ; Niên Giải ta Mùi, iztro Ngọ
+      vd: 11/2/1985 10h nu (âm VN 22/1/1985, âm iztro 22/12/1984, Ất Sửu): Thiên Tài ta Tuất, iztro Dậu; Thiên Thọ ta Thân, iztro Mùi
+      vd: 8/1/1985 0h nam (âm VN 18/12/1984, âm iztro 18/11/1984, Giáp Tý): Thiên Tài ta Sửu, iztro Tý; Thiên Thọ ta Sửu, iztro Tý
+Phụ tinh theo tháng/ngày/giờ (Hình Riêu Giải Thần Thai Tọa Quang Quý Thai Phụ Phong Cáo)     228/240  95.00%         228/228  100.00%
+      vd: 21/2/2007 2h nu (âm VN 5/1/2007, âm iztro 4/1/2007, Đinh Hợi): Tam Thai ta Thân, iztro Mùi; Bát Tọa ta Ngọ, iztro Mùi; Ân Quang ta Tý, iztro Hợi; Thiên Quý ta Thân, iztro Mùi
+      vd: 3/2/2030 18h nu (âm VN 2/1/2030, âm iztro 1/1/2030, Kỷ Dậu): Tam Thai ta Tỵ, iztro Thìn; Bát Tọa ta Dậu, iztro Tuất; Ân Quang ta Sửu, iztro Tý; Thiên Quý ta Sửu, iztro Tý
+      vd: 17/2/1969 1h nu (âm VN 2/1/1969, âm iztro 1/1/1969, Kỷ Dậu): Tam Thai ta Tỵ, iztro Thìn; Bát Tọa ta Dậu, iztro Tuất; Ân Quang ta Dậu, iztro Thân; Thiên Quý ta Tỵ, iztro Thìn
+Thiên Thương Thiên Sứ                                                              237/240  98.75%         228/228  100.00%
+      vd: 11/2/1985 10h nu (âm VN 22/1/1985, âm iztro 22/12/1984, Ất Sửu): Thiên Thương ta Dần, iztro Sửu; Thiên Sứ ta Thìn, iztro Mão
+      vd: 8/1/1985 0h nam (âm VN 18/12/1984, âm iztro 18/11/1984, Giáp Tý): Thiên Thương ta Ngọ, iztro Tỵ; Thiên Sứ ta Thân, iztro Mùi
+      vd: 13/2/1985 13h nu (âm VN 24/1/1985, âm iztro 24/12/1984, Ất Sửu): Thiên Thương ta Tý, iztro Hợi; Thiên Sứ ta Dần, iztro Sửu
+Tứ Hóa                                                                             239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): Vũ Khúc ta Lộc, iztro 权; Tham Lang ta Quyền, iztro không; Thiên Lương ta Khoa, iztro không; Văn Khúc ta Kỵ, iztro không; iztro 太阴 科 ta không; iztro 天同 忌 ta không; iztro 武曲 权 ta không; iztro 太阳 禄 ta không
+Triệt (2 cung)                                                                     239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): ta Thân,Dậu, iztro Ngọ Mùi
+Tuần (iztro 旬空 nằm trong 2 cung Tuần)                                              240/240  100.00%        228/228  100.00%
+Vòng Tràng sinh (12 cung)                                                          239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): ta Tràng Sinh tại Tỵ, iztro 长生 tại 申
+Vòng Bác sĩ (12 cung)                                                              239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): ta Bác Sĩ tại Ngọ, iztro 博士 tại 申
+Vòng Thái Tuế (6 mốc Tuế, Tang, Quan Phù, Long Đức, Bạch Hổ, Điếu Khách)           239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): ta Thái Tuế tại Mão, iztro 岁建 tại 辰
+Đại hạn (12 cung, tuổi khởi và chiều)                                              236/240  98.33%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): ta Mệnh 4-13 kế 14-23, iztro 寅62-71 卯52-61 辰42-51 巳32-41 午22-31 未12-21 申2-11 酉112-121 戌102-111 亥92-101 子82-91 丑72-81
+      vd: 11/2/1985 10h nu (âm VN 22/1/1985, âm iztro 22/12/1984, Ất Sửu): ta Mệnh 2-11 kế 12-21, iztro 寅62-71 卯72-81 辰82-91 巳92-101 午102-111 未112-121 申2-11 酉12-21 戌22-31 亥32-41 子42-51 丑52-61
+      vd: 8/1/1985 0h nam (âm VN 18/12/1984, âm iztro 18/11/1984, Giáp Tý): ta Mệnh 2-11 kế 12-21, iztro 寅22-31 卯32-41 辰42-51 巳52-61 午62-71 未72-81 申82-91 酉92-101 戌102-111 亥112-121 子2-11 丑12-21
+Tiểu hạn (12 cung)                                                                 239/240  99.58%         227/228  99.56%
+      vd: 4/2/2000 10h nu (âm VN 29/12/1999, Kỷ Mão): ta tuổi 1 tại Sửu, iztro 戌
+(thông tin) Độ sáng tại vị trí sao của ta so với iztro (chỉ lệch ở ca lệch lịch; bảng tĩnh ở trên)   4718/4800  98.29%
+Âm lịch VN (+7) khác âm lịch iztro (+8): 12/240 ca; trong đó giữ ngày dương, ghi đè ngày âm của iztro vào lõi ta thì khớp toàn bộ hạng mục: 12/12
+  ca cùng âm lịch nhưng can chi năm khác: 1 — 4/2/2000 10h (kinh độ MT 0h 314.18°, 23h 315.15° → đúng ngày Lập xuân)
+  trong mẫu có 26 ca năm theo Tết khác năm theo Lập xuân (mẫu có ý nghĩa khi > 0)
+
+=== Giờ Tý cùng ngày: ta gioTySangNgaySau=false vs iztro dayDivide=current — 18 ca 23h ===
+Hạng mục                                                                            Tất cả  Tỉ lệ     Cùng âm lịch  Tỉ lệ
+Can chi năm                                                                          18/18  100.00%          18/18  100.00%
+Cung Mệnh                                                                            18/18  100.00%          18/18  100.00%
+Cung Thân                                                                            18/18  100.00%          18/18  100.00%
+Cục                                                                                  18/18  100.00%          18/18  100.00%
+14 chính tinh                                                                        18/18  100.00%          18/18  100.00%
+Lộc Tồn Kình Đà                                                                      18/18  100.00%          18/18  100.00%
+Xương Khúc Tả Hữu                                                                    18/18  100.00%          18/18  100.00%
+Khôi Việt                                                                            18/18  100.00%          18/18  100.00%
+Hỏa Linh                                                                             18/18  100.00%          18/18  100.00%
+Không Kiếp                                                                           18/18  100.00%          18/18  100.00%
+Thiên Mã                                                                             18/18  100.00%          18/18  100.00%
+Phụ tinh theo năm (Loan Hỷ Đào Cái Cô Quả Trì Các Khốc Hư Quan Phúc Trù Toái Tài Thọ Đức Không Niên Giải)       18/18  100.00%          18/18  100.00%
+Phụ tinh theo tháng/ngày/giờ (Hình Riêu Giải Thần Thai Tọa Quang Quý Thai Phụ Phong Cáo)       18/18  100.00%          18/18  100.00%
+Thiên Thương Thiên Sứ                                                                18/18  100.00%          18/18  100.00%
+Tứ Hóa                                                                               18/18  100.00%          18/18  100.00%
+Triệt (2 cung)                                                                       18/18  100.00%          18/18  100.00%
+Tuần (iztro 旬空 nằm trong 2 cung Tuần)                                                18/18  100.00%          18/18  100.00%
+Vòng Tràng sinh (12 cung)                                                            18/18  100.00%          18/18  100.00%
+Vòng Bác sĩ (12 cung)                                                                18/18  100.00%          18/18  100.00%
+Vòng Thái Tuế (6 mốc Tuế, Tang, Quan Phù, Long Đức, Bạch Hổ, Điếu Khách)             18/18  100.00%          18/18  100.00%
+Đại hạn (12 cung, tuổi khởi và chiều)                                                18/18  100.00%          18/18  100.00%
+Tiểu hạn (12 cung)                                                                   18/18  100.00%          18/18  100.00%
+(thông tin) Độ sáng tại vị trí sao của ta so với iztro (chỉ lệch ở ca lệch lịch; bảng tĩnh ở trên)     360/360  100.00%
+
+=== Red-team (120 lá số đầu) ===
+Đổi Tứ Hóa Nhâm sang Khoa Thiên Phủ: Tứ Hóa khớp 120 → 104/120 (mẫu có 16 ca năm Nhâm)
+Đổi Hỏa Linh sang thuận nghịch theo âm dương nam nữ: Hỏa Linh khớp 120 → 74/120
+Đổi Tràng sinh sang nam thuận nữ nghịch (nguyên văn Toàn thư): vòng Tràng sinh khớp 120 → 64/120
+Sửa bảng Lộc Tồn can Giáp (Dần → Mão): Lộc Tồn Kình Đà khớp 120 → 109/120 (mẫu có 11 ca năm Giáp)
+Đổi tháng nhuận sang cả tháng tính tháng trước: cung Mệnh khớp 399 → 394/400 (mẫu có 5 ca nhuận từ ngày 16, cùng âm lịch)
+
+Ba profile chạy 400 lá số: lỗi 0; ca năm Nhâm 39; ca vòng Tràng sinh khác giữa viet và toan-thu 200
+
+Tử vi: đạt (kiểm nguyên văn, bảng Tử Vi, độ sáng, đối chứng iztro, red-team, giao diện)
