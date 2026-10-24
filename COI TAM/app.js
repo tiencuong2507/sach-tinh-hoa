@@ -50,7 +50,8 @@ function baiPage(b) {
   const mp3 = `audio/bai-${String(b.so).padStart(2, "0")}.mp3`;
   let s = `<div class="card"><span class="tag">Bài ${b.so}</span><h2>${esc(b.ten)}</h2>
    <p class="noprint"><audio controls preload="none" src="${mp3}" onerror="this.parentNode.style.display='none'" style="width:100%;max-width:520px"></audio><br>
-   <span class="mute">🎧 Giọng đọc nam (tạo bằng máy, có thể đọc sai vài chữ cổ); nếu không hiện trình phát là bài này chưa có audio.</span></p>
+   <span class="mute">🎧 Giọng đọc của tác giả, dựng lại bằng mô hình nhân bản giọng từ mẫu thu âm; có thể đọc sai vài chữ cổ. Nếu không hiện trình phát là bài này chưa có audio.</span>
+   <details class="mute"><summary>Nghe bản giọng máy</summary><audio controls preload="none" src="${mp3.replace(".mp3", "-may.mp3")}" onerror="this.parentNode.style.display='none'" style="width:100%;max-width:520px"></audio></details></p>
    <div class="dan">${b.dan}</div>`;
   s += `<h3>Ba trích dẫn</h3>`;
   b.trich.forEach((t, j) => s += trichHtml(t, j));
