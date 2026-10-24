@@ -263,3 +263,19 @@ Nguyên tắc: mỗi vòng cộng giá trị lên vòng trước (Value of Loop)
 
 ---
 *Nguồn của bản đồ: ba nhóm tra cứu chạy ngày 24/10/2026, tổng cộng khoảng 115 lượt mở trang và 22 lượt tìm kiếm; mọi địa chỉ ghi `[V]` đã mở được trong ngày đó. Số liệu quy mô (KB, số chương) lấy từ API Wikisource hoặc trang mục lục; số có đánh dấu `[I]` là ước lượng.*
+
+## 12. Đề xuất khai thác Kinh Dịch như cẩm nang sống (viết 24/10/2026, theo định hướng của anh: không phải sách bói)
+
+Căn cứ trong chính kinh văn: Hệ từ thượng dạy cách dùng sách gồm hai nửa, "ở yên thì xem tượng mà ngẫm lời, hành động thì xem biến mà ngẫm chiêm" (君子居則觀其象而玩其辭，動則觀其變而玩其占). Kho mới làm nửa sau (gieo, chiêm). Nửa đầu, **quan tượng ngoạn từ**, mới là cẩm nang: đọc 64 tình thế và 384 bước để biết mình đang ở đâu và nên làm gì, không cần gieo. Đề xuất 7 hướng, xếp theo giá trị trên chi phí:
+
+| # | Hướng | Làm gì | Nguồn, bằng chứng | Chi phí |
+|---|---|---|---|---|
+| 1 | **64 nguyên tắc hành xử** (Đại tượng truyện) | Mỗi quẻ có một câu "quân tử dĩ…" (君子以…): 64 câu là một bộ quy tắc trọn vẹn về tu thân, làm việc, trị gia, quản trị. Dựng thành trang "64 nguyên tắc": nguyên văn, dịch, một tình huống đời nay, một việc nhỏ làm được hôm nay; tool kiểm 64/64 câu dò trong nguyên văn | Đã có đủ trong `nguon/zh`, data đã dịch | thấp, 1–2 buổi |
+| 2 | **Sáu giai đoạn của mọi việc** (cấu trúc hào) | Sơ tiềm, Nhị hiện, Tam nguy, Tứ do dự, Ngũ đỉnh, Thượng quá: mọi quẻ đều kể một việc qua sáu bước. Dựng bảng "mình đang ở bước nào" với dấu hiệu nhận biết và hào từ điển hình; dùng cho dự án, nghề nghiệp, quan hệ | Hệ từ hạ chương về sáu hào (二多譽，四多懼，三多凶，五多功); đã có trong kho | thấp |
+| 3 | **Tra cứu theo tình huống** (không gieo) | Danh mục 40–60 tình huống thường gặp (khởi nghiệp, chờ thời, tranh chấp, hợp tác, rút lui, nuôi dạy con, bệnh, mất mát…) → quẻ và hào tương ứng theo tượng, kèm cách ứng xử. Đây là cách người xưa dùng Dịch làm sách tham mưu | Dựa trên Thoán, Tượng, Tự quái; cần biên soạn và ghi rõ là bản của kho | trung bình |
+| 4 | **Quy trình quyết định theo Dịch** | Danh sách kiểm trước khi hành động: Thời (đúng lúc chưa), Vị (đúng chỗ chưa), Trung Chính (đúng mức, đúng đạo chưa), Ứng (có người hưởng ứng không), Thừa Thừa (trên dưới thuận không), Biến (việc này đang đi về đâu). Dựng thành công cụ hỏi đáp, kết quả là một "quẻ của tình thế" do người dùng tự xác định, không ngẫu nhiên | Dẫn nhập chương 3 đã có nền | trung bình |
+| 5 | **Dịch như khoa học hệ thống** (chương nghiên cứu) | Trình bày trung thực những gì Dịch chạm tới mà khoa học ngày nay gọi tên khác: nhị phân (Leibniz đọc 64 quẻ năm 1703), chu kỳ và pha chuyển (12 quẻ tiêu tức như một chu trình), phản hồi (vật cực tất phản), cân bằng động (trung), tính bất định (chiêm như công cụ ra quyết định khi thiếu thông tin). Ghi rõ đâu là tương đồng về cấu trúc, đâu là gán ghép; dẫn nguồn gốc (thư Leibniz, Jung viết lời tựa bản Wilhelm) | Cần tra nguồn trước khi viết, nhãn từng câu | trung bình |
+| 6 | **Sổ chiêm nghiệm cá nhân** | Mỗi lần gieo hoặc tra theo tình huống, ghi: ngày, việc, quẻ, điều mình quyết, rồi sau 1 tháng, 1 năm ghi kết quả. Kho đã có Lịch sử gieo; thêm cột kết quả và trang thống kê "mình đọc đúng bao nhiêu". Đây là Value of Loop cho người học Dịch, cũng là cách duy nhất biết Dịch có ích với mình hay không | Lịch sử gieo đã có localStorage | thấp |
+| 7 | **Tự quái như câu chuyện một đời** | 64 quẻ nối nhau (Tự quái truyện) là một tự sự: từ Càn Khôn sinh ra, Truân khó khăn, Mông học, Nhu đợi… đến Ký Tế, Vị Tế. Viết thành bài đọc chậm theo đời người và đời tổ chức, nối với loạt Cõi tạm | Tự quái đã có đủ trong kho | thấp |
+
+Thứ tự đề xuất: 1 → 2 → 6 (ba việc rẻ, dùng ngay) → 3 và 4 (cẩm nang thật sự) → 5 → 7. Điều kiện chung: mọi câu Hán dò được trong nguyên văn; mọi "ứng dụng đời nay" ghi là bản soạn của kho, không gán cho người xưa.
