@@ -1,6 +1,7 @@
-// Đổi dương lịch → âm lịch Việt Nam (múi giờ +7).
+// Lõi dùng chung — Lịch: ngày Julius, đổi dương lịch → âm lịch Việt Nam (múi giờ +7), kinh độ Mặt Trời, tháng theo tiết khí.
 // Thuật toán thiên văn của Hồ Ngọc Đức (tính điểm sóc và trung khí theo công thức của Jean Meeus, "Astronomical Algorithms").
 // Dùng được trong trình duyệt và trong Node (qua vm). Phạm vi tin cậy: khoảng 1800–2199.
+// Nạp trước mọi file khác của kho; can chi ngày lấy từ chung/can-chi.js (CanChi.ngay(jd)), không tính ở đây.
 "use strict";
 const LichAm = (() => {
   const INT = Math.floor, PI = Math.PI;

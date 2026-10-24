@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "kinh-dich",
+      "name": "kho-sach",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8731", "--bind", "127.0.0.1", "--directory", "KINH DICH"],
+      "runtimeArgs": ["-m", "http.server", "8731", "--bind", "127.0.0.1"],
       "port": 8731,
       "autoPort": false
     }

@@ -182,23 +182,11 @@ function replay(i){ const x = JSON.parse(localStorage.getItem("kd_hist"))[i]; $(
 
 // ---- Tra năm: can chi, ngũ hành, nạp âm, Tam nguyên cửu vận, niên tinh ----
 // Quy ước: năm can chi/niên tinh tính từ Lập xuân (~4/2 dương lịch); vận 20 năm, Thượng nguyên vận 1 bắt đầu 1864.
-const CAN = ["Giáp","Ất","Bính","Đinh","Mậu","Kỷ","Canh","Tân","Nhâm","Quý"];
-const CHI = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];
-const HANH_CAN = ["Mộc","Mộc","Hỏa","Hỏa","Thổ","Thổ","Kim","Kim","Thủy","Thủy"];
-const HANH_CHI = ["Thủy","Thổ","Mộc","Mộc","Thổ","Hỏa","Hỏa","Thổ","Kim","Kim","Thổ","Thủy"];
-const NAP_AM = ["Hải Trung Kim","Lư Trung Hỏa","Đại Lâm Mộc","Lộ Bàng Thổ","Kiếm Phong Kim","Sơn Đầu Hỏa","Giản Hạ Thủy","Thành Đầu Thổ",
- "Bạch Lạp Kim","Dương Liễu Mộc","Tuyền Trung Thủy","Ốc Thượng Thổ","Tích Lịch Hỏa","Tùng Bách Mộc","Trường Lưu Thủy","Sa Trung Kim",
- "Sơn Hạ Hỏa","Bình Địa Mộc","Bích Thượng Thổ","Kim Bạch Kim","Phú Đăng Hỏa","Thiên Hà Thủy","Đại Trạch Thổ","Thoa Xuyến Kim",
- "Tang Đố Mộc","Đại Khê Thủy","Sa Trung Thổ","Thiên Thượng Hỏa","Thạch Lựu Mộc","Đại Hải Thủy"];
-const SAO = ["","Nhất Bạch (Thủy)","Nhị Hắc (Thổ)","Tam Bích (Mộc)","Tứ Lục (Mộc)","Ngũ Hoàng (Thổ)","Lục Bạch (Kim)","Thất Xích (Kim)","Bát Bạch (Thổ)","Cửu Tử (Hỏa)"];
-const VAN_QUE = ["","Khảm ☵ (29)","Khôn ☷ (2)","Chấn ☳ (51)","Tốn ☴ (57)","trung cung – không quái","Càn ☰ (1)","Đoài ☱ (58)","Cấn ☶ (52)","Ly ☲ (30)"];
-const mod = (a,m) => ((a % m) + m) % m;
+// Bảng can chi, nạp âm, cửu vận nằm ở lõi dùng chung (chung/can-chi.js, chung/cuu-cung.js), không chép lại ở đây.
 function namInfo(y) {
-  const c = mod(y-4,10), z = mod(y-4,12), c60 = mod(y-4,60);
-  const r = mod(y-1864,180), van = Math.floor(r/20)+1, start = y - (r % 20);
-  let sao = mod(1 - mod(y-1864,9), 9); if (sao===0) sao = 9;
-  return {y, canChi:`${CAN[c]} ${CHI[z]}`, hanhCan:HANH_CAN[c], hanhChi:HANH_CHI[z], napAm:NAP_AM[Math.floor(c60/2)],
-    van, nguyen:["Thượng","Trung","Hạ"][Math.floor((van-1)/3)], vanTu:start, vanDen:start+19, vanQue:VAN_QUE[van], sao:`${sao} – ${SAO[sao]}`};
+  const c60 = CanChi.nam(y), c = c60 % 10, z = c60 % 12, v = CuuCung.van(y), sao = CuuCung.nienTinh(y);
+  return {y, canChi:CanChi.ten(c60), hanhCan:HANH_CAN[c], hanhChi:HANH_CHI[z], napAm:CanChi.napAm(c60),
+    van:v.van, nguyen:v.nguyen, vanTu:v.tu, vanDen:v.den, vanQue:v.que, sao:`${sao} – ${SAO[sao]}`};
 }
 function traNam() {
   const y0 = parseInt($("#namY").value,10) || new Date().getFullYear(), n = Math.min(Math.max(parseInt($("#soNam").value,10)||10,1),60);

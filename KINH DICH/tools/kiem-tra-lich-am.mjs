@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
 const ctx = { window: {} }; vm.createContext(ctx);
-vm.runInContext(readFileSync("lich-am.js", "utf8"), ctx);
+vm.runInContext(readFileSync("../chung/lich.js", "utf8"), ctx);
 const L = ctx.window.LichAm;
 // [dương lịch d,m,y] → [âm d,m,y,nhuận]. Mùng 1 Tết các năm và vài ngày rằm, tháng nhuận đã công bố.
 const cases = [

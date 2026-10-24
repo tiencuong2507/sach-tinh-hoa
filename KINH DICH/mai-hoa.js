@@ -1,14 +1,11 @@
 // Mai Hoa Dịch Số (梅花易數) – lập quẻ theo thời gian và theo số.
-// Cần nạp sau lich-am.js và app.js (dùng HEX, BY, hexPage, esc, $, CAN, CHI).
+// Cần nạp sau lõi chung (chung/lich.js, can-chi.js, ngu-hanh.js) và app.js (dùng HEX, BY, hexPage, esc, $, CAN, CHI, SINH, KHAC, HANH_QUAI, CanChi, LichAm).
 // Phép tính theo phần "年月日時起例" của sách Mai Hoa Dịch Số (tương truyền của Thiệu Ung):
 //   (số chi năm + tháng âm + ngày âm) chia 8 lấy dư → thượng quái;
 //   (tổng trên + số chi giờ) chia 8 lấy dư → hạ quái; tổng đó chia 6 lấy dư → hào động (dư 0 tính 8 / 6).
 "use strict";
 const TIEN_THIEN = {1:"111",2:"110",3:"101",4:"100",5:"011",6:"010",7:"001",8:"000"}; // Càn1 Đoài2 Ly3 Chấn4 Tốn5 Khảm6 Cấn7 Khôn8
-const HANH_QUAI = {"111":"Kim","110":"Kim","101":"Hỏa","100":"Mộc","011":"Mộc","010":"Thủy","001":"Thổ","000":"Thổ"};
-const SINH = {Mộc:"Hỏa",Hỏa:"Thổ",Thổ:"Kim",Kim:"Thủy",Thủy:"Mộc"};
-const KHAC = {Mộc:"Thổ",Thổ:"Thủy",Thủy:"Hỏa",Hỏa:"Kim",Kim:"Mộc"};
-const mh_mod = (a,m) => ((a % m) + m) % m;
+const mh_mod = mod;
 const du = (a,m) => mh_mod(a,m) || m;
 
 function quanHe(the, x) {            // quan hệ của một quái (x) đối với quái Thể
@@ -80,10 +77,11 @@ function thongTinThoiGian(dt) {        // dt: Date (giờ địa phương VN)
   if (gio >= 23) d = new Date(d.getTime() + 86400000);   // giờ Tý từ 23h tính sang ngày hôm sau
   const am = LichAm.solar2lunar(d.getDate(), d.getMonth()+1, d.getFullYear());
   const jd = LichAm.jdFromDate(d.getDate(), d.getMonth()+1, d.getFullYear());
-  const cNam = mh_mod(am.nam-4,10), zNam = mh_mod(am.nam-4,12), cNgay = mh_mod(jd+9,10), zNgay = mh_mod(jd+1,12);
+  // Bát tự theo lõi chung: năm theo năm âm lịch, tháng âm thứ N có chi N+1 (tháng Giêng là Dần), ngày theo ngày Julius, giờ theo ngũ thử độn
+  const iNam = CanChi.nam(am.nam), iNgay = CanChi.ngay(jd), zNam = iNam % 12;
   return {am, chiGio, zNam, sang: gio >= 23,
-    ccNam:`${CAN[cNam]} ${CHI[zNam]}`, ccThang:`${CAN[mh_mod(cNam*2+1+am.thang,10)]} ${CHI[mh_mod(am.thang+1,12)]}`,
-    ccNgay:`${CAN[cNgay]} ${CHI[zNgay]}`, ccGio:`${CAN[mh_mod(cNgay*2+chiGio,10)]} ${CHI[chiGio]}`};
+    ccNam:CanChi.ten(iNam), ccThang:CanChi.ten(CanChi.thang(iNam % 10, mh_mod(am.thang+1,12))),
+    ccNgay:CanChi.ten(iNgay), ccGio:CanChi.ten(CanChi.gio(iNgay % 10, chiGio))};
 }
 function docThoiGian() {
   const v = $("#mhDT").value, m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(v || "");

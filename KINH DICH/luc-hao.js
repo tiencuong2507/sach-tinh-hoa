@@ -52,8 +52,8 @@ const LucHao = (() => {
     // Phục thần: lục thân vắng mặt thì lấy ở quẻ bát thuần của cung, cùng vị trí
     const coMat = new Set(hao.map(h => h.than)), thuan = napGiap(c.cung + c.cung, hanhCung);
     const phuc = thuan.map((h,i) => coMat.has(h.than) ? null : Object.assign({viTri:i}, h));
-    const canNgay = ngayIdx % 10, chiNgay = ngayIdx % 12, s = ngayIdx - ngayIdx % 10;
-    const khong = [(s % 12 + 10) % 12, (s % 12 + 11) % 12];
+    const canNgay = ngayIdx % 10, chiNgay = ngayIdx % 12;
+    const khong = CanChi.tuanKhong(ngayIdx);
     const thu = [0,1,2,3,4,5].map(i => THU[(THU_KHOI[canNgay] + i) % 6]);
     return {vals, lines, bienL, dong, cung:c, hanhCung, hao, bien, phuc, thu, khong, canNgay, chiNgay, thangChi,
       chu: BY[lines], queBien: dong.length ? BY[bienL] : null};
@@ -94,7 +94,7 @@ function lhThoiDiem() {
   const dt = m ? new Date(+m[1], +m[2]-1, +m[3], +m[4], +m[5]) : new Date();
   let d = new Date(dt.getTime()); if (dt.getHours() >= 23) d = new Date(d.getTime() + 86400000);  // giờ Tý sau 23h sang ngày mới
   const jd = LichAm.jdFromDate(d.getDate(), d.getMonth()+1, d.getFullYear());
-  const ngayIdx = ((jd + 49) % 60 + 60) % 60;
+  const ngayIdx = CanChi.ngay(jd);
   const thangChi = LichAm.chiThangTiet(dt.getDate(), dt.getMonth()+1, dt.getFullYear(), dt.getHours(), dt.getMinutes());
   return {dt, ngayIdx, thangChi};
 }
