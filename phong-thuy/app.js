@@ -54,7 +54,7 @@ function lapPhiTinh() {
    Tháng này Ngũ Hoàng ở <b>${L.nguHoangThang.huong}</b>, Nhị Hắc ở <b>${L.nhiHacThang.huong}</b>${L.nguHoangThang.so === L.nguHoangNam.so || L.nguHoangThang.so === L.nhiHacNam.so || L.nhiHacThang.so === L.nguHoangNam.so ? ` <span class="xau">— sao xấu năm và tháng chồng nhau, càng nên giữ yên</span>` : ""}.</p></div>`;
   s += `<div class="card"><h3>Ý nghĩa 9 sao trong vận 9 (2024–2043)</h3><table class="tb"><tr><th>Sao</th><th>Hành</th><th>Vận 9</th><th>Luận</th></tr>`;
   for (let i = 1; i <= 9; i++) s += `<tr><td><b>${i}</b> ${Y[i].ten}</td><td>${SAO[i].replace(/.*\((.*)\)/, "$1")}</td><td class="${cls(Y[i].loai)}">${Y[i].loai}</td><td class="mute">${Y[i].y}</td></tr>`;
-  s += `</table><p class="rule">Đây là cách luận phổ biến của Huyền không phi tinh [I]: sao đương vận và sinh khí (9, 1) tốt, sao thoái khí (8, 6, 7) giảm dần, 5 và 2 là sát tinh của mọi vận. Bản này chỉ bay niên tinh và nguyệt tinh, <b>chưa</b> lập sơn tinh, hướng tinh theo tọa hướng nhà, chưa xét kiêm hướng, thế quái.</p></div>`;
+  s += `</table><p class="rule">Đây là cách luận phổ biến của Huyền không phi tinh [I]: sao đương vận và sinh khí (9, 1) tốt, sao thoái khí (8, 6, 7) giảm dần, 5 và 2 là sát tinh của mọi vận. Thẻ này chỉ bay sao năm, sao tháng; sơn tinh, hướng tinh theo tọa hướng của một căn nhà xem thẻ <b>Huyền không nhà ở</b>.</p></div>`;
   $("#kqPhiTinh").innerHTML = s;
 }
 
@@ -74,6 +74,38 @@ function traLaBan() {
   $("#kqLaBan").innerHTML = s;
 }
 
+// ---------- Huyền không nhà ở ----------
+const HK_LOP = { "tốt": "tot", "xấu": "xau", "lẫn": "lan", "bình": "" };
+function lapHuyenKhong() {
+  let deg = parseFloat($("#hkDo").value); if (!isFinite(deg)) deg = 0;
+  const nay = new Date(), ngayNay = [nay.getDate(), nay.getMonth() + 1, nay.getFullYear()];
+  const nhap = docNgay("#hkNgayNhap", ngayNay), xet = docNgay("#hkNgayXet", ngayNay), kiem = $("#hkKiem").checked !== false;
+  KHO.ghi("pt_hk", { deg, nhap: $("#hkNgayNhap").value, xet: $("#hkNgayXet").value, kiem });
+  const namNhap = PhongThuy.namTheoLapXuan(nhap[0], nhap[1], nhap[2]).nam, namXet = PhongThuy.namTheoLapXuan(xet[0], xet[1], xet[2]).nam, van = CuuCung.van(namNhap);
+  const k = PhongThuy.huyenKhong(deg, van, { kiem, namXet }), Y = PhongThuy.Y_SAO;
+  const ten = c => `${c.huong} · ${c.quai} ${c.kyHieu}`;
+  let s = `<div class="card"><h2>Tọa <b>${k.toa.ten}</b> hướng <b>${k.huong.ten}</b> <span class="zh">${k.toa.zh}山${k.huong.zh}向</span> · ${k.do.toFixed(1)}° (${k.huong.huong}) · vận <b>${k.van}</b> (${van.tu}–${van.den}, nhập trạch năm ${namNhap})</h2>
+   <p>${k.huong.nguyen}, sơn hướng ${k.huong.amDuong}. Lệch tâm sơn ${Math.abs(k.kiem.lech)}°${k.kiem.co ? ` → <b>kiêm ${k.kiem.sonKiem}</b>${k.kiem.apDung ? " — đã dùng thế quái [I]" : " — đang tắt kiêm hướng, tính như chính hướng"}` : " → chính hướng (trong ±" + k.kiem.nguong + "°)"}.
+   Cục: <b class="${cls(k.cuc.loai)}">${k.cuc.ten}</b> — ${k.cuc.y}</p>
+   <p class="mute">Vận bàn: ${k.van} vào giữa, bay thuận. Hướng tinh: lấy ${k.huongBan.saoGoc} ở cung hướng vào giữa${k.huongBan.theQuai && k.huongBan.theQuai.thay ? `, thế quái ${k.huongBan.sonQuyetDinh} → ${k.huongBan.saoTrung} (${k.huongBan.theQuai.ten}) [${k.huongBan.theQuai.nhan}]` : ""}, sơn quyết định ${k.huongBan.sonQuyetDinh} (${k.huongBan.amDuong}) → bay ${k.huongBan.thuan ? "thuận" : "nghịch"}.
+   Sơn tinh: lấy ${k.sonBan.saoGoc} ở cung tọa vào giữa${k.sonBan.theQuai && k.sonBan.theQuai.thay ? `, thế quái ${k.sonBan.sonQuyetDinh} → ${k.sonBan.saoTrung} (${k.sonBan.theQuai.ten}) [${k.sonBan.theQuai.nhan}]` : ""}, sơn quyết định ${k.sonBan.sonQuyetDinh} (${k.sonBan.amDuong}) → bay ${k.sonBan.thuan ? "thuận" : "nghịch"}.
+   ${k.ngam.son || k.ngam.huong ? `<span class="xau">${[k.ngam.son && "sơn bàn " + k.ngam.son, k.ngam.huong && "hướng bàn " + k.ngam.huong].filter(Boolean).join(", ")}</span> (sao 5 vào giữa).` : ""}</p>
+   <div class="luoi">`;
+  for (const hang of k.luoi) for (const c of hang) {
+    s += `<div class="o ${c.so === 5 ? "trung" : ""} ${HK_LOP[c.danhGia]} ${c.laHuong ? "hkhuong" : ""} ${c.laToa ? "hktoa" : ""}"><div class="h">${c.so === 5 ? "Trung cung" : ten(c)} <span class="mute">(${c.so})</span>${c.laHuong ? " <b>HƯỚNG</b>" : c.laToa ? " <b>TỌA</b>" : ""}</div>
+      <div class="hk3"><span class="st ${cls(c.khiSon.muc >= 2 ? "tốt" : c.khiSon.muc <= -2 ? "xấu" : "bình")}" title="sơn tinh">${c.sonTinh}</span><span class="vt" title="vận tinh">${c.vanTinh}</span><span class="ht ${cls(c.khiHuong.muc >= 2 ? "tốt" : c.khiHuong.muc <= -2 ? "xấu" : "bình")}" title="hướng tinh">${c.huongTinh}</span></div>
+      <div class="t mute">sơn ${c.khiSon.ten} · hướng ${c.khiHuong.ten}${c.toHop.length ? `<br><b class="${cls(c.toHop[0].loai)}">${c.toHop.map(t => t.ten).join(", ")}</b>` : ""}</div>
+      ${c.saoNam ? `<div class="nam n${c.saoNam}">năm ${k.nam.namXet}: ${c.saoNam} ${Y[c.saoNam].ten}</div>` : ""}</div>`;
+  }
+  s += `</div><p class="chugiai mute"><span><b>Số trái</b> sơn tinh (người, sức khỏe)</span><span><b>Số giữa</b> vận tinh</span><span><b>Số phải</b> hướng tinh (tiền của)</span><span>Viền đỏ: cung hướng · viền xám: cung tọa</span><span>Xanh: tốt · đỏ: xấu · hai màu: vừa tốt vừa xấu</span></p></div>`;
+  s += `<div class="card"><h3>Nói ngắn</h3><ul class="noingan">${k.noiNgan.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`;
+  s += `<div class="card"><h3>Chi tiết từng cung</h3><table class="tb"><tr><th>Cung</th><th>Sơn – vận – hướng</th><th>Sơn tinh</th><th>Hướng tinh</th><th>Sao năm ${k.nam.namXet}</th><th>Nhận xét</th></tr>`;
+  for (const c of [9, 4, 3, 8, 1, 6, 7, 2, 5].map(n => k.cung[n])) s += `<tr><td><b>${c.so === 5 ? "Trung cung" : c.huong}</b> ${c.so === 5 ? "" : c.quai + " " + c.kyHieu}${c.laHuong ? "<br><span class='tag'>hướng</span>" : c.laToa ? "<br><span class='tag'>tọa</span>" : ""}</td><td class="${cls(c.danhGia === "lẫn" ? "bình" : c.danhGia)}">${c.sonTinh} – ${c.vanTinh} – ${c.huongTinh}</td>
+    <td>${c.sonTinh} ${Y[c.sonTinh].ten}: <span class="mute">${c.khiSon.y}</span></td><td>${c.huongTinh} ${Y[c.huongTinh].ten}: <span class="mute">${c.khiHuong.y}</span></td><td class="${c.saoNam === 5 || c.saoNam === 2 ? "xau" : ""}">${c.saoNam} ${Y[c.saoNam].ten}</td><td class="mute">${c.ghiChu.map(esc).join("<br>") || "—"}</td></tr>`;
+  s += `</table><p class="rule">Toàn bộ quy tắc Huyền không ở đây là <b>quy ước phổ biến [I]</b> (Thẩm thị huyền không học chưa có bản công cộng để đối chiếu); ca quyết thế quái 12 sơn là [V] theo Thanh nang áo ngữ. Huyền không có nhiều phái, cùng một nhà có thể ra lưới khác nhau — kết quả để tham khảo, không thay việc xem xét tại chỗ; muốn chắc hãy xem thêm thẻ Cách tính và nguồn.</p></div>`;
+  $("#kqHuyenKhong").innerHTML = s;
+}
+
 // ---------- Cách tính và nguồn ----------
 function trangCach() {
   const v = "[V] đối chiếu được nguyên văn đã tải (PHONG THUY/nguon/)", i = "[I] quy ước phổ biến của phái, chưa đối chiếu sách gốc", u = "[U] chưa có nguồn mở";
@@ -90,24 +122,40 @@ function trangCach() {
   <tr><td>Ý nghĩa 9 sao vận 9</td><td>9 đương vận, 1 sinh khí, 8 thoái còn tốt, 2 bệnh phù, 5 đại sát, 3 thị phi, 7 phá tài, 4 văn xương, 6 quan tinh</td><td>${i} — Thẩm thị huyền không học ${u}</td></tr>
   <tr><td>24 sơn</td><td>Mỗi 15°, Tý ở tâm 0° (352,5°–7,5°), thuận kim đồng hồ: Tý Quý Sửu Cấn Dần Giáp Mão Ất Thìn Tốn Tỵ Bính Ngọ Đinh Mùi Khôn Thân Canh Dậu Tân Tuất Càn Hợi Nhâm; quái 45°; tọa = hướng + 180°</td><td>Quy ước la bàn chung của mọi phái, ${i} về cách chia</td></tr>
   <tr><td>Tam nguyên long, âm dương sơn</td><td>Thiên nguyên: Tý Ngọ Mão Dậu (âm), Càn Khôn Cấn Tốn (dương); Địa nguyên: Nhâm Bính Giáp Canh (dương), Thìn Tuất Sửu Mùi (âm); Nhân nguyên: Quý Đinh Ất Tân (âm), Dần Thân Tỵ Hợi (dương)</td><td>${i} (Huyền không), chưa có sách gốc mở</td></tr>
-  <tr><td>Độ lệch từ</td><td>Việt Nam nhỏ, cỡ dưới 1° tùy vùng; đo xa kim loại</td><td>${i} — muốn chính xác tra mô hình từ trường thế giới (WMM) cho nơi đo</td></tr></table>
+  <tr><td>Độ lệch từ</td><td>Việt Nam nhỏ, cỡ dưới 1° tùy vùng; đo xa kim loại</td><td>${i} — muốn chính xác tra mô hình từ trường thế giới (WMM) cho nơi đo</td></tr>
+  <tr><th colspan="3">Huyền không phi tinh nhà ở (thẻ "Huyền không nhà ở")</th></tr>
+  <tr><td>Vận nhập trạch</td><td>CuuCung.van của năm nhập trạch hoặc xây xong (năm theo Lập xuân); vận 8: 2004–2023, vận 9: 2024–2043</td><td>Lõi chung, mốc 1864 vận 1</td></tr>
+  <tr><td>Vận bàn</td><td>Sao vận vào trung cung, bay thuận 5→6→7→8→9→1→2→3→4</td><td>${i}, tin cao</td></tr>
+  <tr><td>Sơn tinh, hướng tinh</td><td>Lấy sao vận bàn ở cung tọa (sơn tinh) và cung hướng (hướng tinh) đưa vào trung cung. Chiều bay: xét cung Lạc thư của chính số ấy, lấy sơn cùng nguyên long với hướng nhà trong cung đó (hướng Ngọ Thiên nguyên, số 3 là Chấn → Mão); sơn dương bay thuận, âm bay nghịch. Số 5 không có cung riêng → lấy sơn cùng nguyên ngay trong cung tọa/hướng gốc</td><td>${i} — quy ước của phái Thẩm thị, Thẩm thị huyền không học ${u}. Mốc tự tính tay và kiểm bằng tool: vận 8 tọa Tý hướng Ngọ ra lưới quen thuộc (Nam 8–3–8, Bắc 9–4–7), vận 8 chỉ có sáu cặp vượng sơn vượng hướng (Càn–Tốn, Tốn–Càn, Hợi–Tỵ, Tỵ–Hợi, Sửu–Mùi, Mùi–Sửu), vận 1 và vận 9 không có cặp nào — khớp lời truyền "nhất cửu vận vô vượng sơn vượng hướng"</td></tr>
+  <tr><td>Kiêm hướng, thế quái</td><td>Lệch tâm sơn quá ${PhongThuy.HK_CONFIG.nguongKiem}° (CONFIG) → thay sao vào trung cung bằng thế quái của sơn quyết định (Tham Lang 1, Cự Môn 2, Vũ Khúc 6, Phá Quân 7, Hữu Bật 9); chiều bay vẫn theo âm dương sơn ấy; thế quái bằng sao gốc thì không thay. Tắt được</td><td>12 sơn [V] Thanh nang áo ngữ (<span class="zh">坤壬乙巨門從頭出，艮丙辛位位是破星，巽辰亥儘是武曲位，甲癸申貪狼一路行</span>, <code>nguon/thanh-nang-ao-ngu.txt</code>; bản lưu hành chép 破軍); 12 sơn còn lại ${i} theo Thế quái ca phái Thẩm thị (<code>data/the-quai.js</code>). Ngưỡng 3° ${i}; thế quái khác nhau giữa các phái</td></tr>
+  <tr><td>Bốn cục</td><td>Hướng tinh đương vận ở cung hướng + sơn tinh đương vận ở cung tọa → vượng sơn vượng hướng; đổi chỗ → thượng sơn hạ thủy; cả hai ở cung hướng → song tinh đáo hướng; cả hai ở cung tọa → song tinh đáo tọa. Hệ quả toán học: hướng bàn bay nghịch ⇔ vượng hướng, sơn bàn bay nghịch ⇔ vượng sơn</td><td>${i}; cách gọi tên và lời khuyên địa hình (trước thoáng sau cao…) là lời phổ biến</td></tr>
+  <tr><td>Phản ngâm, phục ngâm</td><td>Sao 5 vào trung cung sơn bàn hoặc hướng bàn: bay thuận cả bàn trùng Lạc thư (phục ngâm), bay nghịch cả bàn cộng Lạc thư bằng 10 (phản ngâm)</td><td>${i}</td></tr>
+  <tr><td>Khí của sao</td><td>Bằng vận: vượng; vận + 1: sinh; vận + 2: tiến; vận − 1: thoái; còn lại suy; 5 và 2 luôn là sát, bệnh</td><td>${i}</td></tr>
+  <tr><td>Tổ hợp sơn – hướng</td><td>2–5 Nhị Ngũ, 2–3 Đấu ngưu, 3–7, 6–7 Giao kiếm, 7–9 Cửu Thất xấu; 1–4 Văn xương, 1–6, 6–8, 8–9 (vận 8, 9) tốt</td><td>${i} — lời luận phổ biến, chưa đối chiếu sách gốc</td></tr>
+  <tr><td>Sao năm cộng vào</td><td>Niên tinh năm đang xét (Lập xuân) bay thuận, ghi vào từng cung; cung có 5 Ngũ Hoàng, 2 Nhị Hắc → không động thổ, sửa chữa năm đó; chồng với sao xấu của nhà càng phải giữ yên</td><td>Lõi chung; ${i} về lời luận. Chưa làm: Thái Tuế, Tam Sát theo chi năm</td></tr></table>
+  <p class="rule"><b>Nhắc:</b> Huyền không có nhiều phái (Thẩm thị, Trung Châu, Đàm thị…), cùng một nhà có thể cho lưới khác nhau, nhất là khi kiêm hướng. Mọi lời luận ở đây là tham khảo, không thay quyết định của người xem.</p>
   <h3>Hai câu gốc về khí và thủy</h3>
   <p>Thanh nang kinh (<span class="zh">青囊經</span>, hạ quyển Hóa thành): <span class="zh">外氣行形，內氣止生，乘風則散，界水則止</span> — ngoại khí chạy theo hình, nội khí dừng mà sinh; gặp gió thì tán, gặp nước thì dừng. ${v}: <code>nguon/thanh-nang-kinh.txt</code>, nguồn https://zh.wikisource.org/wiki/青囊經</p>
   <p>Thanh nang kinh, trung quyển Hóa cơ: <span class="zh">形止氣蓄，萬物化生</span> — hình dừng thì khí tụ, muôn vật hóa sinh. ${v}</p>
   <p>Táng thư (<span class="zh">葬書</span>, Quách Phác): trang Wikisource https://zh.wikisource.org/wiki/葬書 chỉ có đề yếu Tứ khố và ảnh quét, chưa có chính văn dạng chữ; đề yếu dẫn câu <span class="zh">乘風則散，界水則止</span> và khen thuyết <span class="zh">乘生氣</span>. Nguyên văn Táng thư: ${u}; câu dẫn qua đề yếu: [V đề yếu] <code>nguon/tang-thu.txt</code></p>
-  <p class="mute">Chưa làm: sơn tinh, hướng tinh theo tọa hướng (Huyền không đầy đủ), kiêm hướng, thế quái, Dương trạch tam yếu (Môn – Chủ – Táo theo cung của nhà), hình thế (long huyệt sa thủy). Mọi thuật số chỉ để chiêm nghiệm, không thay quyết định của người xem.</p></div>`;
+  <p>Thanh nang áo ngữ (<span class="zh">青囊奧語</span>, truyền là của Dương Quân Tùng): bốn câu mở đầu là ca quyết thế quái 12 sơn. ${v}: <code>nguon/thanh-nang-ao-ngu.txt</code>, nguồn https://zh.wikisource.org/wiki/青囊奧語</p>
+  <p class="mute">Chưa làm: Dương trạch tam yếu (Môn – Chủ – Táo theo cung của nhà), hình thế (long huyệt sa thủy), Thái Tuế, Tam Sát, thành môn quyết, linh thần chính thần. Mọi thuật số chỉ để chiêm nghiệm, không thay quyết định của người xem.</p></div>`;
 }
 
 // ---------- Khởi động ----------
-function tab(id) { ["battrach", "phitinh", "laban", "cach"].forEach(x => $("#" + x).classList.toggle("hidden", x !== id)); document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id)); KHO.ghi("pt_tab", id); }
+const TABS = ["battrach", "phitinh", "laban", "huyenkhong", "cach"];
+function tab(id) { TABS.forEach(x => $("#" + x).classList.toggle("hidden", x !== id)); document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id)); KHO.ghi("pt_tab", id); }
 document.querySelectorAll("nav button").forEach(b => b.onclick = () => tab(b.dataset.t));
 napHuong();
 { const v = KHO.doc("pt_bt", null);
   if (v) { $("#btNgay").value = v.ngay || ""; $("#btGioi").value = v.gioi || "nam"; $("#btNha").value = v.nha || ""; $("#btCua").value = v.cua || ""; $("#btBepVt").value = v.bepViTri || ""; $("#btBepH").value = v.bepHuong || ""; $("#btGiuong").value = v.giuong || ""; $("#btBan").value = v.ban || ""; }
   const p = KHO.doc("pt_pt", ""); if (p) $("#ptNgay").value = p; else datNgay("#ptNgay", new Date());
-  const d = KHO.doc("pt_lb", null); if (d !== null) { $("#lbDo").value = d; $("#lbTruot").value = d; } }
+  const d = KHO.doc("pt_lb", null); if (d !== null) { $("#lbDo").value = d; $("#lbTruot").value = d; }
+  const h = KHO.doc("pt_hk", null); if (h) { $("#hkDo").value = h.deg; $("#hkNgayNhap").value = h.nhap || ""; $("#hkNgayXet").value = h.xet || ""; $("#hkKiem").checked = h.kiem !== false; }
+  if (!$("#hkNgayNhap").value) datNgay("#hkNgayNhap", new Date()); if (!$("#hkNgayXet").value) datNgay("#hkNgayXet", new Date()); }
 $("#btnBatTrach").onclick = xemBatTrach;
 $("#btnPhiTinh").onclick = lapPhiTinh; $("#btnPtNay").onclick = () => { datNgay("#ptNgay", new Date()); lapPhiTinh(); };
 $("#btnLaBan").onclick = traLaBan; $("#lbDo").onchange = () => { $("#lbTruot").value = $("#lbDo").value; traLaBan(); }; $("#lbTruot").oninput = () => { $("#lbDo").value = $("#lbTruot").value; traLaBan(); };
-trangCach(); xemBatTrach(); lapPhiTinh(); traLaBan();
-{ const t = KHO.doc("pt_tab", "battrach"); if (["battrach", "phitinh", "laban", "cach"].includes(t)) tab(t); }
+$("#btnHuyenKhong").onclick = lapHuyenKhong; $("#hkDo").onchange = lapHuyenKhong; $("#hkKiem").onchange = lapHuyenKhong;
+trangCach(); xemBatTrach(); lapPhiTinh(); traLaBan(); lapHuyenKhong();
+{ const t = KHO.doc("pt_tab", "battrach"); if (TABS.includes(t)) tab(t); }
