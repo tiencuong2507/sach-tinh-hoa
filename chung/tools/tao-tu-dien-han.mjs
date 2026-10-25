@@ -47,7 +47,17 @@ function gomBangMa() {
   for (const m of doc("xem-ngay/xem-ngay.js").matchAll(/\["([^"\]]+)","([一-鿿])",/g)) BANG_MA.push([m[2], m[1]]);
   for (const m of doc("tu-vi/tu-vi.js").matchAll(/"([^"]+)":"([一-鿿]{2,4})"/g)) BANG_MA.push([m[2], m[1]]);
   for (const [z, v] of BANG_MA) demAm(z, v, 5);
+  // nghĩa cho chữ đứng riêng trong công cụ, lấy đúng các cột của bảng trong mã (không thêm gì ngoài)
+  const cc = {}; cc.window = cc; vm.createContext(cc); vm.runInContext(doc("chung/can-chi.js"), cc);
+  const { CAN, CHI, CAN_ZH, CHI_ZH, HANH_CAN, HANH_CHI } = cc;
+  [...CAN_ZH].forEach((z, i) => NGHIA_CHUNG.push([z, CAN[i], `Can ${CAN[i]}, thứ ${i + 1} trong 10 thiên can; hành ${HANH_CAN[i]}.`, null]));
+  [...CHI_ZH].forEach((z, i) => NGHIA_CHUNG.push([z, CHI[i], `Chi ${CHI[i]}, thứ ${i + 1} trong 12 địa chi; hành ${HANH_CHI[i]}.`, null]));
+  for (const m of doc("xem-ngay/xem-ngay.js").matchAll(/\["([^"\]]+)","([一-鿿])","([^"]+)","([^"]+)","([^"]+)"\]/g))
+    NGHIA_CHUNG.push([m[2], m[1], `Sao ${m[1]}, một trong 28 sao (nhị thập bát tú); ứng ${m[3]}, ${m[4]}; Ngọc hạp ký xếp ${m[5]}.`, ["xem-ngay"]]);
+  const pt = doc("phong-thuy/phong-thuy.js"), s24 = pt.match(/const SON24\s*=\s*\[([^\]]+)\]/), sz = pt.match(/const SON_ZH\s*=\s*"([^"]+)"/);
+  if (s24 && sz) { const ten = [...s24[1].matchAll(/"([^"]+)"/g)].map(x => x[1]); [...sz[1]].forEach((z, i) => NGHIA_CHUNG.push([z, ten[i], `Sơn ${ten[i]}, một trong 24 sơn của la bàn (mỗi sơn 15°).`, ["phong-thuy"]])); }
 }
+const NGHIA_CHUNG = [];   // [chữ, âm, nghĩa, chuyên mục (null = mọi chuyên mục)] — chỉ điền vào mục còn trống
 gomBangMa();
 
 function nap(muc) {
@@ -137,6 +147,9 @@ function gom(muc) {
     const truoc = sach(m[1]).split(/[.!?:;]\s+/).pop().replace(/^[,\s]+|[,\s]+$/g, "");
     if (truoc.length >= 6 && !CJK.test(truoc)) them(m[2], "", truoc.length > 200 ? "…" + truoc.slice(-200) : truoc);
   }
+  // chỉ điền chỗ trống (quẻ 坎 ở Phong thủy vẫn là "Quẻ Khảm"); nghĩa riêng của chuyên mục (24 sơn, 28 sao) đi trước nghĩa chung (can, chi)
+  for (const [z, a, n, ds] of NGHIA_CHUNG) if (ds && ds.includes(muc)) them(z, a, n);
+  for (const [z, a, n, ds] of NGHIA_CHUNG) if (!ds) them(z, a, n);
   return cau;
 }
 

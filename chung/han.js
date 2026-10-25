@@ -7,7 +7,7 @@
   if (typeof document === "undefined" || typeof location === "undefined" || typeof MutationObserver === "undefined" ||
       typeof NodeFilter === "undefined" || typeof document.createTreeWalker !== "function" || typeof matchMedia !== "function" || window.HAN_DA_GAN) return;
   window.HAN_DA_GAN = true;
-  const PHIEN_BAN = "9aa12003518b";
+  const PHIEN_BAN = "94f481380817";
   const me = document.currentScript;
   const goc = me && me.src ? me.src.replace(/[?#].*$/, "").replace(/[^/]*$/, "") : "../chung/";
   const MUC = ["kinh-dich", "sach-ngan", "coi-tam", "le-cung", "xem-ngay", "tu-vi", "phong-thuy"];
@@ -17,7 +17,7 @@
   const CUM = new RegExp(`[${H}](?:[${H}${D}]*[${H}])?`, "g");
   const CO_HAN = new RegExp(`[${H}]`);
   const chiHan = s => s.replace(new RegExp(`[^${H}]`, "g"), "");
-  const BO_QUA = "script,style,textarea,input,select,option,title,code,pre,svg,.hn,#han-bong,[data-han=khong]";
+  const BO_QUA = "script,style,textarea,input,select,option,title,code,pre,svg,header,nav,footer,.hn,#han-bong,[data-han=khong]";   // không bọc khung trang (logo, menu, chân trang)
 
   // ---- bọc chữ Hán ----
   function boc(goc0) {
@@ -70,6 +70,7 @@
   const st = document.createElement("style");
   st.textContent = `.hn{cursor:help;border-radius:3px}.hn.ngan{text-decoration:underline dotted rgba(139,46,31,.45);text-underline-offset:3px}
 .hn:hover,.hn.dang{background:rgba(139,46,31,.09)}
+[data-han-nghia] .hn,[data-han-am] .hn{text-decoration:none;background:none}
 #han-bong{position:absolute;z-index:9999;box-sizing:border-box;max-width:min(420px,calc(100vw - 32px));max-height:50vh;overflow:auto;background:#fffdf8;color:#2a241c;
 border:1px solid #d9cdb8;border-radius:8px;box-shadow:0 6px 24px rgba(40,30,10,.18);padding:8px 12px;font:15px/1.5 "Segoe UI",system-ui,sans-serif;text-align:left}
 #han-bong .hb-am{font-weight:600;color:#8b2e1f}#han-bong .hb-ng{margin-top:2px}#han-bong .hb-tr{margin-top:6px;padding-top:6px;border-top:1px dashed #e2d8c6;font-size:13.5px;color:#5c5243}
