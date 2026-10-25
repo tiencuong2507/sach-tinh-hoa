@@ -1,4 +1,4 @@
-// Tải wikitext các nguồn công cộng dùng trong loạt bài "Cõi tạm" từ Wikisource (zh, vi) qua MediaWiki API.
+// Tải wikitext các nguồn công cộng dùng trong loạt bài "Quán trọ" từ Wikisource (zh, vi) qua MediaWiki API.
 // Lưu vào nguon/<slug>.txt, dòng đầu ghi URL. Gom nhiều trang vào một yêu cầu cho mỗi wiki, nghỉ giữa hai yêu cầu
 // để không bị giới hạn (HTTP 429). Chạy: node tools/tai-nguon.mjs            (tải toàn bộ danh sách)
 //                                   node tools/tai-nguon.mjs "vi:Thị đệ tử"  (tải vài trang chỉ định, wiki:tên trang)

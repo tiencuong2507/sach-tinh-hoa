@@ -1,4 +1,4 @@
-// Cõi tạm — logic giao diện. Dữ liệu: window.CT_BAI (mảng bài đã viết, nạp từ data/bai-NN.js).
+// Quán trọ (tên cũ: Cõi tạm) — logic giao diện. Dữ liệu: window.CT_BAI (mảng bài đã viết, nạp từ data/bai-NN.js).
 "use strict";
 const BAI = (window.CT_BAI || []).slice().sort((a, b) => a.so - b.so);
 // Dàn ý 12 bài theo NGHIEN-CUU/00-ban-do-kho-sach.md mục 6

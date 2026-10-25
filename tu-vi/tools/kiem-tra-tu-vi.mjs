@@ -14,7 +14,7 @@ const SO_LA_SO = +(process.env.SO_LA_SO || 400);
 
 // ---------- nạp như trình duyệt
 const html = readFileSync("tu-vi.html", "utf8"), srcs = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]);
-ok(srcs.length === 9 && srcs[3] === "../chung/lich-chon.js" && srcs[4] === "tu-vi.js" && srcs[7] === "luan.js" && srcs[8] === "app.js", "tu-vi.html phải nạp 4 file chung + tu-vi.js + 2 data + luan.js + app.js, thấy: " + srcs.join(", "));
+ok(srcs.length === 10 && srcs[3] === "../chung/lich-chon.js" && srcs[4] === "tu-vi.js" && srcs[7] === "luan.js" && srcs[8] === "app.js" && srcs[9] === "../chung/han.js", "tu-vi.html phải nạp 4 file chung + tu-vi.js + 2 data + luan.js + app.js + ../chung/han.js, thấy: " + srcs.join(", "));
 function taoCtx() {
   const els = {}, kho = {};
   const mk = id => els[id] || (els[id] = { id, innerHTML: "", value: "", checked: false, dataset: { t: id }, classList: { toggle() {}, contains() { return false; } }, onclick: null, onchange: null });

@@ -1,4 +1,4 @@
-// Kiểm tra loạt bài "Cõi tạm": node tools/kiem-tra.mjs
+// Kiểm tra loạt bài "Quán trọ": node tools/kiem-tra.mjs
 // 1. Mọi trích dẫn (zh / viet / nom) phải là chuỗi con liên tục của một file trong nguon/ sau khi chuẩn hoá
 //    (bỏ khoảng trắng, dấu câu Hán và Việt, mã wikitext, thẻ HTML, chú thích <ref>).
 // 2. Số âm tiết Hán Việt (hv) bằng số chữ Hán (zh).
@@ -97,6 +97,6 @@ for (const p of P.filter(x => x !== "toc")) {
 }
 if (ctx.localStorage.getItem("ct_bai") !== P[P.length - 1]) loi.push("localStorage không nhớ bài đang đọc");
 
-console.log(`Cõi tạm: đạt ${datTrich}/${tongTrich} trích dẫn, ${BAI.length - new Set(loi.map(l => l.match(/^Bài (\d+)/)?.[1]).filter(Boolean)).size}/${BAI.length} bài`);
+console.log(`Quán trọ: đạt ${datTrich}/${tongTrich} trích dẫn, ${BAI.length - new Set(loi.map(l => l.match(/^Bài (\d+)/)?.[1]).filter(Boolean)).size}/${BAI.length} bài`);
 if (loi.length) { console.log("Lỗi:\n  " + loi.join("\n  ")); process.exit(1); }
 console.log("OK");

@@ -1,4 +1,4 @@
-// Cõi tạm — Bài 9: Sắc tức thị không.
+// Quán trọ — Bài 9: Sắc tức thị không.
 // Nguyên văn: Wikisource (phạm vi công cộng), đối chiếu bằng tools/kiem-tra.mjs với nguon/*.txt.
 // Dịch nghĩa, lời bình, đoạn dẫn, suy ngẫm: bản tự biên soạn của kho Sách Tinh Hoa, không chép bản dịch hiện đại nào.
 window.CT_BAI = window.CT_BAI || [];

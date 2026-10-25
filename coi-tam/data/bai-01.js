@@ -1,4 +1,4 @@
-// Cõi tạm — Bài 1: Quán trọ của muôn loài.
+// Quán trọ — Bài 1: Quán trọ của muôn loài.
 // Nguyên văn: Wikisource (phạm vi công cộng), đối chiếu bằng tools/kiem-tra.mjs với nguon/*.txt.
 // Dịch nghĩa, lời bình, đoạn dẫn, suy ngẫm: bản tự biên soạn của kho Sách Tinh Hoa, không chép bản dịch hiện đại nào.
 window.CT_BAI = window.CT_BAI || [];

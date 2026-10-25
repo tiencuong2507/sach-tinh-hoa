@@ -1,4 +1,4 @@
-// Cõi tạm — Bài 2: Trăm năm trong cõi người ta.
+// Quán trọ — Bài 2: Trăm năm trong cõi người ta.
 // Nguyên văn: Wikisource (phạm vi công cộng), đối chiếu bằng tools/kiem-tra.mjs với nguon/*.txt.
 // Dịch nghĩa, lời bình, đoạn dẫn, suy ngẫm: bản tự biên soạn của kho Sách Tinh Hoa, không chép bản dịch hiện đại nào.
 // Thay đổi so với dàn ý: trang Tác gia:Nguyễn Công Trứ trên Wikisource không có bài "Vịnh nhân sinh" (kiểm 24/10/2026),

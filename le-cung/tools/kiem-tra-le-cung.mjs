@@ -41,7 +41,7 @@ const ctx = {
 ctx.window = ctx; vm.createContext(ctx);
 const html = readFileSync(join(ROOT, "le-cung.html"), "utf8");
 const scripts = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]);
-ok(scripts.length === 7, `le-cung.html phải nạp 7 script, thấy ${scripts.length}`);
+ok(scripts.length === 8 && scripts[7] === "../chung/han.js", `le-cung.html phải nạp 7 script + ../chung/han.js (lớp nghĩa chữ Hán) cuối trang, thấy ${scripts.length}: ${scripts.join(", ")}`);
 for (const s of scripts) vm.runInContext(readFileSync(join(ROOT, s), "utf8"), ctx, { filename: s });
 const run = s => vm.runInContext(s, ctx);
 const { LC_LE: D, LichAm } = ctx;

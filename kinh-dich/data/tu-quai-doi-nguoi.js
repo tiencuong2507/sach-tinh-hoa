@@ -154,5 +154,5 @@ phan: [
    ke: "Sách Dịch kết bằng chữ chưa xong. Con mình lại bắt đầu đời của nó. Công ty mình lại có việc mới. Mọi việc xong đều mở ra một việc chưa xong. Đó không phải là buồn. Đó là lý do ngày mai đáng để dậy."}]}
 ]}
 ],
-ket: "Đọc hết một vòng, mình thấy đời không đi thẳng. Thông rồi tắc, lớn rồi nhún, lên rồi bí, xong rồi chưa xong. Dịch không hứa một kết thúc đẹp. Dịch chỉ bảo: biết mình đang ở bước nào thì biết việc tiếp theo là gì. Và bước cuối bao giờ cũng là Vị Tế: còn việc chưa xong, nên còn ngày mai. Bài này nối với loạt Cõi tạm của kho: đời là chỗ trọ, việc là thứ mình để lại cho người đến sau."
+ket: "Đọc hết một vòng, mình thấy đời không đi thẳng. Thông rồi tắc, lớn rồi nhún, lên rồi bí, xong rồi chưa xong. Dịch không hứa một kết thúc đẹp. Dịch chỉ bảo: biết mình đang ở bước nào thì biết việc tiếp theo là gì. Và bước cuối bao giờ cũng là Vị Tế: còn việc chưa xong, nên còn ngày mai. Bài này nối với loạt Quán trọ của kho: đời là chỗ trọ, việc là thứ mình để lại cho người đến sau."
 };

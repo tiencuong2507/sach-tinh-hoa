@@ -4,7 +4,7 @@ import { readFileSync, existsSync } from "node:fs";
 import vm from "node:vm";
 const errs = [], ok = (c, m) => { if (!c) errs.push(m); };
 const html = readFileSync("phong-thuy.html", "utf8"), srcs = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]);
-ok(srcs.length === 8 && srcs[4] === "../chung/lich-chon.js" && srcs[5] === "data/the-quai.js" && srcs[6] === "phong-thuy.js" && srcs[7] === "app.js", "phong-thuy.html phải nạp 5 file chung (kể cả lich-chon.js) + data/the-quai.js + phong-thuy.js + app.js, thấy: " + srcs.join(", "));
+ok(srcs.length === 9 && srcs[4] === "../chung/lich-chon.js" && srcs[5] === "data/the-quai.js" && srcs[6] === "phong-thuy.js" && srcs[7] === "app.js" && srcs[8] === "../chung/han.js", "phong-thuy.html phải nạp 5 file chung (kể cả lich-chon.js) + data/the-quai.js + phong-thuy.js + app.js + ../chung/han.js, thấy: " + srcs.join(", "));
 
 function taoCtx() {
   const els = {}, mk = id => els[id] || (els[id] = { id, innerHTML: "", value: "", checked: false, dataset: {}, classList: { toggle() {}, contains() { return false; } }, onclick: null, onchange: null, oninput: null });

@@ -1,4 +1,4 @@
-// Cõi tạm — Bài 3: Thân như điện ảnh.
+// Quán trọ — Bài 3: Thân như điện ảnh.
 // Nguyên văn: Wikisource (phạm vi công cộng), đối chiếu bằng tools/kiem-tra.mjs với nguon/*.txt.
 // Dịch nghĩa, lời bình, đoạn dẫn, suy ngẫm: bản tự biên soạn của kho Sách Tinh Hoa, không chép bản dịch hiện đại nào.
 window.CT_BAI = window.CT_BAI || [];
