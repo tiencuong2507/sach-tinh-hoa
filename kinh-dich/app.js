@@ -9,6 +9,8 @@ const NT_TUAN_GOC = Date.UTC(2026, 0, 5); // thứ Hai 5/1/2026: mốc đếm tu
 const NT_MS_TUAN = 7 * 24 * 3600 * 1000;
 // Cẩm nang: sáu giai đoạn của mọi việc (data/sau-giai-doan.js, trang "gd") và Tự quái như đời một người (data/tu-quai-doi-nguoi.js, trang "tq")
 const GD = window.KD_SAU_GIAI_DOAN || null, TQD = window.KD_TU_QUAI_DOI || null;
+// Cẩm nang: tra cứu theo tình huống (data/tinh-huong.js, trang "th") và quy trình quyết định sáu bước (data/quyet-dinh.js, trang "qd")
+const TH = window.KD_TINH_HUONG || null, QD = window.KD_QUYET_DINH || null;
 // Sổ chiêm nghiệm (localStorage kd_hist): mỗi lần gieo lưu {t, hoi, vals, quyet}; sau này chấm kq:{muc, ghi, ngay}. Mục cũ không có quyet/kq vẫn hiện.
 const HIST_KEY = "kd_hist", HIST_MAX = 100, HIST_MUC = {dung: "Đúng hướng", nua: "Nửa đúng", sai: "Sai hướng"};
 HT.thuong = Array.from(HT.thuong || []).filter(Boolean); HT.ha = Array.from(HT.ha || []).filter(Boolean);
@@ -88,10 +90,12 @@ function hexPage(n, opt={}) {
 function bookToc() {
   let s = `<div class="card"><h2>Mục lục</h2><div class="row"><div class="toc"><h3>Dẫn nhập</h3>`;
   INTRO.forEach((c,i)=> s += `<a onclick="go('i${i}')">${c.title}</a>`);
-  if (NT.length || GD || TQD) s += `<h3>Cẩm nang</h3>`;
+  if (NT.length || GD || TQD || TH || QD) s += `<h3>Cẩm nang</h3>`;
   if (NT.length) s += `<a onclick="go('nt')">64 nguyên tắc hành xử (Đại tượng truyện)</a>`;
   if (GD) s += `<a onclick="go('gd')">Sáu giai đoạn của mọi việc (cấu trúc hào)</a>`;
   if (TQD) s += `<a onclick="go('tq')">Tự quái như câu chuyện một đời</a>`;
+  if (TH) s += `<a onclick="go('th')">Tra cứu theo tình huống (không gieo)</a>`;
+  if (QD) s += `<a onclick="go('qd')">Quyết định theo Dịch: sáu bước</a>`;
   s += `</div><div class="toc"><h3>Thượng kinh (1–30)</h3>`;
   for (let n=1;n<=64;n++) {
     if (n===31) s += `</div><div class="toc"><h3>Hạ kinh (31–64)</h3>`;
@@ -109,7 +113,7 @@ function bookToc() {
     STUDY.forEach((c,i)=> s += `<a onclick="go('s${i}')">${c.title}</a>`); s += `</div>`; }
   return s + `</div>`;
 }
-const PAGES = () => ["toc", ...INTRO.map((_,i)=>"i"+i), ...(NT.length ? ["nt"] : []), ...(GD ? ["gd"] : []), ...(TQD ? ["tq"] : []), ...Array.from({length:64},(_,i)=>"q"+(i+1)),
+const PAGES = () => ["toc", ...INTRO.map((_,i)=>"i"+i), ...(NT.length ? ["nt"] : []), ...(GD ? ["gd"] : []), ...(TQD ? ["tq"] : []), ...(TH ? ["th"] : []), ...(QD ? ["qd"] : []), ...Array.from({length:64},(_,i)=>"q"+(i+1)),
   ...tdPages(true), ...HT.thuong.map((_,i)=>"a"+i), ...HT.ha.map((_,i)=>"b"+i), ...tdPages(false), ...STUDY.map((_,i)=>"s"+i)];
 // Trang một chương Thập dực (Văn ngôn, Thuyết quái, Tự quái, Tạp quái): cùng bố cục với Hệ từ
 function tdPage(id) {
@@ -218,19 +222,90 @@ function tqPage() {
   return s + `<div class="card"><h3>Kết: việc không bao giờ xong hẳn</h3><p>${TQD.ket}</p>
     <p class="mute">Nguyên văn: Wikisource 易傳/序卦 (phạm vi công cộng). Phần biên soạn là của kho, để tham khảo.</p></div>`;
 }
-function go(id) {
+// ---- Trang "th": tra cứu theo tình huống, không gieo ----
+let thQ = "";
+const thTen = ma => { const x = TH && TH.th.find(t => t.ma === ma); return x ? x.ten : ma; };
+// link vào quẻ đúng hào: go('qN', {focus:['h<i>']}) tô đỏ hào ấy và cuộn tới
+const thHaoLink = (n, h) => `<a onclick="go('q${n}',{focus:['h${h - 1}']})" style="cursor:pointer">hào ${h} (${haoLabel(h - 1, HEX[n].lines[h - 1] === "1")})</a>`;
+function thKhoi(x) {
+  const li = a => `<ul style="margin:.3em 0 .3em 1.2em;padding:0">${a.map(s => `<li>${s}</li>`).join("")}</ul>`;
+  const que = x.que.map(q => gdQueLink(q.n) + (q.hao ? ", " + thHaoLink(q.n, q.hao) : "")).join(" · ");
+  const tr = x.trich, trNguon = tr.hao ? `Hào ${tr.hao} quẻ ${tr.n}` : `Lời quẻ ${tr.n}`;
+  return `<div class="hao thk" id="th-${x.ma}"><div class="t">${x.ten} <span class="tag">${x.ma}</span></div>
+    <p style="margin:.3em 0"><b>Quẻ:</b> ${que}</p>
+    <div class="giai"><b>Vì sao:</b> ${x.viSao}</div>
+    <div style="margin:.4em 0"><span class="tag">${trNguon}</span>${zh(tr.zh)}<div class="hv">${tr.hv}</div><div class="dich">→ ${tr.dich}</div></div>
+    <div class="row"><div style="flex:1;min-width:240px"><b>Nên</b>${li(x.ungXu.nen)}</div><div style="flex:1;min-width:240px"><b>Tránh</b>${li(x.ungXu.tranh)}</div></div>
+    <p class="mute" style="margin:.3em 0 0">⚠ ${x.canhBao.y} <a href="#th-${x.canhBao.ma}">${thTen(x.canhBao.ma)}</a>.</p></div>`;
+}
+function thList() {
+  const q = norm(thQ.trim()), raw = thQ.trim();
+  let s = "", tong = 0;
+  for (const g of TH.nhom) {
+    const tat = TH.th.filter(x => x.nhom === g.ma);
+    const ds = tat.filter(x => !q || norm(x.ten + " " + x.viSao + " " + x.ungXu.nen.join(" ") + " " + x.ungXu.tranh.join(" ") + " " + x.que.map(k => HEX[k.n].name + " " + k.n).join(" ")).includes(q) || x.trich.zh.includes(raw));
+    tong += ds.length;
+    if (q && !ds.length) continue;
+    s += `<details class="thn" open><summary><b>${g.ten}</b> <span class="mute">(${ds.length}${q ? "/" + tat.length : ""} tình huống)</span></summary>${ds.map(thKhoi).join("")}</details>`;
+  }
+  return `<p class="mute">Hiện ${tong}/${TH.th.length} tình huống${q ? ` · tìm “${esc(raw)}”` : ""}</p>` + (tong ? s : `<p class="mute"><i>Không có tình huống nào khớp.</i></p>`);
+}
+function thTim(v) { thQ = v || ""; $("#thList").innerHTML = thList(); }
+function thPage() {
+  return `<div class="card"><span class="tag">Cẩm nang</span><h2>Tra cứu theo tình huống</h2><p>${TH.moDau}</p>
+    <p class="mute">Câu Hán chép đúng lời quẻ, hào từ (Wikisource 周易, phạm vi công cộng). Phần <b>tên tình huống</b>, <b>vì sao</b>, <b>nên / tránh</b>, <b>cảnh báo</b> là bản biên soạn của kho để soi lời quẻ vào việc đời nay, không phải lời người xưa. Bấm tên quẻ để đọc kỹ; bấm hào để mở quẻ đúng hào ấy.</p>
+    <input id="thQ" placeholder="Tìm nhanh, gõ không dấu cũng được: kien, nghi viec, mat tien, cuoi hoi, tên quẻ…" style="width:100%;box-sizing:border-box" oninput="thTim(this.value)" value="${esc(thQ)}">
+    <p style="margin:.6em 0 0">${TH.nhom.map(g => `<a href="#th-${TH.th.find(x => x.nhom === g.ma).ma}" class="btn" style="display:inline-block;margin:2px;text-decoration:none">${g.ten} (${TH.th.filter(x => x.nhom === g.ma).length})</a>`).join(" ")}</p></div>
+    <div class="card" id="thList">${thList()}</div>
+    <div class="card"><h3>Cách dùng</h3><p>Tìm tình thế giống việc mình đang gặp. Đọc câu Hán gốc một lần, rồi đọc vì sao. Chọn một việc trong mục nên và làm trong tuần. Khi tình thế đổi, theo lời cảnh báo cuối mục sang mục kế tiếp. Nếu không mục nào giống, dùng trang <a onclick="go('qd')" style="cursor:pointer">Quyết định theo Dịch</a> hoặc gieo quẻ.</p>
+    <p class="mute">Nguyên văn: Wikisource 周易 (phạm vi công cộng). Phần biên soạn là của kho, để tham khảo.</p></div>`;
+}
+// ---- Trang "qd": quy trình quyết định sáu bước ----
+function qdXem() {
+  const tl = {};
+  for (const b of QD.buoc) { const v = $("#qd_" + b.ma).value; if (v !== "0" && v !== "1" && v !== "2") { $("#qdKQ").innerHTML = `<p class="mute"><i>Anh trả lời đủ sáu bước rồi bấm lại.</i></p>`; return; } tl[b.ma] = +v; }
+  const r = QD.xacDinh(tl); if (!r) { $("#qdKQ").innerHTML = `<p class="mute"><i>Câu trả lời không hợp lệ.</i></p>`; return; }
+  const h = HEX[r.que], v = VI[r.que] || {};
+  $("#qdKQ").innerHTML = `<div class="rule">📌 <b>Kết luận: ${r.ten}.</b> ${r.cau}<br><span class="mute">Vì: ${r.lyDo}</span></div>
+    <div class="hao on"><div class="t">Quẻ của tình thế: ${gdQueLink(r.que)} – ${h.name}</div>
+    <p style="margin:.3em 0" class="mute">${r.viQue} <i>(xếp theo bảng của kho, không phải bói)</i></p>
+    ${v.tk ? `<p style="margin:.3em 0"><span class="tag">Ý chính</span> ${v.tk}</p>` : ""}
+    ${v.tu ? `<p style="margin:.3em 0"><span class="tag">Lời quẻ</span> ${v.tu.dich}</p>` : ""}
+    ${v.tuong ? `<p style="margin:.3em 0"><span class="tag">Đại tượng</span> ${v.tuong.dich}</p>` : ""}</div>
+    <p style="margin:.5em 0 .2em"><b>Ba việc nên làm</b></p><ol style="margin:.2em 0 .2em 1.4em;padding:0">${r.viec.map(x => `<li>${x}</li>`).join("")}</ol>
+    <p class="mute">Đọc kỹ quẻ: ${gdQueLink(r.que)}. Ghi điều mình quyết vào <a onclick="tab('ls')" style="cursor:pointer">Sổ chiêm nghiệm</a> qua thẻ Gieo quẻ hoặc Tự nhập quẻ, để sau này chấm.</p>`;
+}
+function qdPage() {
+  const sel = b => `<select id="qd_${b.ma}"><option value="">— chọn —</option>${b.chon.map(c => `<option value="${c.v}">${c.ten} – ${c.ghi}</option>`).join("")}</select>`;
+  const chuong = t => `${t[0] === "a" ? "thượng" : "hạ"} chương ${+t.slice(1) + 1}`;
+  return `<div class="card"><span class="tag">Cẩm nang</span><h2>Quyết định theo Dịch: sáu bước</h2><p>${QD.moDau}</p><p class="mute">${QD.luuY}</p>
+    <table class="tb"><tr><th>Bước</th><th>Hỏi gì</th><th>Hệ từ nói</th></tr>${QD.buoc.map((b, i) => `<tr><td>${i + 1}. ${b.ten}<br><span class="mute">${b.doi}</span></td><td>${b.hoi}</td><td class="zh">${esc(b.hetu.zh)}</td></tr>`).join("")}</table></div>
+    <div class="card"><h3>Sáu câu hỏi</h3><p class="mute">Nghĩ về một việc cụ thể đang phải quyết. Mỗi bước chọn một câu trả lời. Kết quả tính theo luật cố định, không ngẫu nhiên.</p>
+    ${QD.buoc.map((b, i) => `<div class="hao qdb"><div class="t">Bước ${i + 1} – ${b.ten} (${b.doi})</div><p style="margin:.3em 0"><b>${b.hoi}</b></p><div class="giai">${b.giai}</div>
+      <p style="margin:.3em 0"><span class="tag">Hệ từ</span> <a onclick="go('${b.hetu.trang}')" style="cursor:pointer">${chuong(b.hetu.trang)}</a></p>${zh(b.hetu.zh)}<div class="hv">${b.hetu.hv}</div><div class="dich">→ ${b.hetu.dich}</div>
+      <p style="margin:.4em 0 0">${sel(b)}</p></div>`).join("")}
+    <button class="btn" onclick="qdXem()">Xem kết luận</button><div id="qdKQ"></div></div>
+    <div class="card"><h3>Luật kết luận</h3><ol style="margin:.2em 0 .2em 1.4em;padding:0">
+    <li>Có chỗ không ngay thẳng, hoặc sai vai → <b>sửa cách</b> trước.</li><li>Thời sớm → <b>đợi</b>.</li><li>Thời muộn → việc vẫn lên thì <b>tiến</b> gọn, không thì <b>lùi</b>.</li>
+    <li>Thời đúng: không ai theo hoặc người quanh nghịch → đang xuống thì <b>lùi</b>, không thì <b>đợi</b>. Còn lại tính điểm (+1 thuận, −1 nghịch): từ 2 trở lên <b>tiến</b>, âm thì <b>lùi</b>, khác thì <b>đợi</b>.</li></ol>
+    <p class="mute">Quẻ của tình thế lấy theo bảng ${QD.anhXa.length} dòng trong <code>data/quyet-dinh.js</code>: xét lần lượt, dòng đầu khớp thì lấy. Đây là bản soạn của kho [I], không phải kinh văn, không phải bói. Nguyên văn Hệ từ: Wikisource 易傳/繫辭 (phạm vi công cộng).</p></div>`;
+}
+function go(id, opt) {
   const P = PAGES(), k = P.indexOf(id), pv = P[k-1], nx = P[k+1];
-  const title = p => p==="toc" ? "Mục lục" : p==="nt" ? "64 nguyên tắc hành xử" : p==="gd" ? "Sáu giai đoạn" : p==="tq" ? "Tự quái một đời" : p[0]==="i" ? INTRO[+p.slice(1)].title : p[0]==="s" ? STUDY[+p.slice(1)].title
+  const title = p => p==="toc" ? "Mục lục" : p==="nt" ? "64 nguyên tắc hành xử" : p==="gd" ? "Sáu giai đoạn" : p==="tq" ? "Tự quái một đời" : p==="th" ? "Tra theo tình huống" : p==="qd" ? "Quyết định theo Dịch" : p[0]==="i" ? INTRO[+p.slice(1)].title : p[0]==="s" ? STUDY[+p.slice(1)].title
     : p[0]==="a" ? `Hệ từ thượng ${+p.slice(1)+1}` : p[0]==="b" ? `Hệ từ hạ ${+p.slice(1)+1}`
     : p[0]==="t" ? `${tdThien(p[1]).ten.replace(" truyện","")}${TD[tdThien(p[1]).key].length>1?" "+(+p.slice(2)+1):""}` : `Quẻ ${p.slice(1)}. ${HEX[+p.slice(1)].short}`;
   const pager = `<div class="pager">${pv?`<button class="btn" onclick="go('${pv}')">← ${title(pv)}</button>`:"<span></span>"}
     <button class="btn" onclick="go('toc')">Mục lục</button>${nx?`<button class="btn" onclick="go('${nx}')">${title(nx)} →</button>`:"<span></span>"}</div>`;
   const chap = c => `<div class="card"><h2>${c.title}</h2>${c.html}</div>`;
-  let body = id==="toc" ? bookToc() : id==="nt" ? ntPage() : id==="gd" ? gdPage() : id==="tq" ? tqPage() : id[0]==="i" ? chap(INTRO[+id.slice(1)]) : id[0]==="s" ? chap(STUDY[+id.slice(1)])
+  let body = id==="toc" ? bookToc() : id==="nt" ? ntPage() : id==="gd" ? gdPage() : id==="tq" ? tqPage() : id==="th" ? thPage() : id==="qd" ? qdPage() : id[0]==="i" ? chap(INTRO[+id.slice(1)]) : id[0]==="s" ? chap(STUDY[+id.slice(1)])
     : id[0]==="a" ? heTuPage("thuong", +id.slice(1)) : id[0]==="b" ? heTuPage("ha", +id.slice(1))
-    : id[0]==="t" ? tdPage(id) : hexPage(+id.slice(1));
+    : id[0]==="t" ? tdPage(id) : hexPage(+id.slice(1), opt || {});
   $("#book").innerHTML = pager + body + pager;
-  localStorage.setItem("kd_page", id); tab("sach"); window.scrollTo(0,0);
+  localStorage.setItem("kd_page", id); tab("sach");
+  // mở quẻ đúng hào (từ trang tình huống): cuộn tới đoạn đã tô; không thì về đầu trang
+  const tieu = opt && opt.focus && document.querySelector("#book .hao.on");
+  if (tieu) tieu.scrollIntoView(); else window.scrollTo(0,0);
 }
 
 // ---- Tra quẻ ----
