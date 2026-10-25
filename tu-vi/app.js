@@ -105,6 +105,22 @@ function khoiTao() {
   $("#hienHan").onchange = anHan; anHan();
   $$("nav button").forEach(b => { b.onclick = () => { $$("nav button").forEach(x => x.classList.toggle("on", x === b)); ["laso", "cach"].forEach(id => $("#" + id).classList.toggle("hidden", id !== b.dataset.t)); if (b.dataset.t === "cach") trangCach(); }; });
   trangCach();
+  ganLichAm();
   if (localStorage.getItem("tv_nhap")) lapLaSo();
+}
+// Bộ chọn ngày có lịch âm (chung/lich-chon.js) cho ba ô ngày tháng năm: chọn trên lưới → điền ngày dương,
+// hoặc nếu đang chọn "lịch âm" thì đổi sang ngày âm (kèm cờ nhuận) rồi điền.
+function ganLichAm() {
+  if (!window.LichChon || !document.createElement) return;
+  const an = document.createElement("input"); an.type = "date"; an.id = "ngayLich"; an.style.display = "none";
+  const oNgay = $("#ngay"); oNgay.parentNode.insertAdjacentElement("afterend", an);
+  LichChon.ganTatCa(); LichChon.gan(an);
+  an.onchange = () => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(an.value || ""); if (!m) return;
+    const y = +m[1], mo = +m[2], d = +m[3];
+    if ($("#loaiLich").value === "am") { const am = LichAm.solar2lunar(d, mo, y); $("#ngay").value = am.ngay; $("#thang").value = am.thang; $("#nam").value = am.nam; $("#nhuan").checked = !!am.nhuan; }
+    else { $("#ngay").value = d; $("#thang").value = mo; $("#nam").value = y; }
+    luuNhap();
+  };
 }
 try { khoiTao(); } catch (e) { console.error(e); }
