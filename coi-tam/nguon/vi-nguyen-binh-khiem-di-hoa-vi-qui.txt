@@ -1,0 +1,29 @@
+# Dĩ hòa vi quí — nguồn: https://vi.wikisource.org/wiki/D%C4%A9_h%C3%B2a_vi_qu%C3%AD
+{{đầu đề
+ | tựa đề     = Dĩ hòa vi quí
+ | tác giả    = Nguyễn Bỉnh Khiêm
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | ghi chú    = Bài trong '''Bạch Vân quốc ngữ thi''', vốn không có đầu đề. Thâm ý bài thơ nhằm phê phán, răn đe các tập đoàn phong kiến đương thời (Mạc-Lê-Trịnh-Nguyễn) tranh giành quyền bá chủ, làm trái đạo trời.
+}}
+
+<poem>
+Ở thế, đừng tranh {{khác|tiếng|đấng}} trượng phu,
+Làm chi cho có sự đôi-co.
+Đây cậy đây khôn, đây chẳng {{khác|nhịn|chịu}} ;
+Đấy rằng đấy phải, đấy không thua.
+Duật nọ {{khác|hãy|chớ hoặc mựa}} còn đua {{khác|đến|với}} bạng<ref>Duật là con dẽ giun ; bạng là con trai. Câu này nhắc đến câu chuyện chép khác trong ''Chiến-quốc sách'': Một con trai đang há miệng phơi mình ; con dẽ mổ vào thịt trai ; trai liền ngậm miệng cặp chặt lấy mổ dẽ. Hai con cứ thế găng nhau ; bỗng có người đánh cá, trông thấy, bắt cả hai con. Bởi câu chuyện này chữ nho mới có câu: «Bạng duật tương trì, ngư ông đắc lợi 蚌 鷸 相 持 , 漁 翁 得 利». «Trai và dẽ cặp lấy nhau, thành ra ông lão đánh cá được lợi». Có bản chép «quạ nọ» có nhẽ sai</ref>
+Lươn kia hầu đễ kém chi cò<ref>Lươn cậy mình dài, cò cậy mỏ dài, chắc kém gì nhau ?</ref>.
+Chữ rằng : «nhân dĩ hòa vi quí<ref>Người lấy hòa bình làm quí</ref>»,
+Vô sự thì hơn, kẻo phải lo.
+</poem>
+
+{{chú thích cuối trang}}
+
+{{PD-old}}
+
+[[Thể loại:Thơ Nôm]]

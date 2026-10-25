@@ -1,0 +1,61 @@
+# Tác gia:Trần Nhân Tông — nguồn: https://vi.wikisource.org/wiki/T%C3%A1c_gia:Tr%E1%BA%A7n_Nh%C3%A2n_T%C3%B4ng
+{{tác gia
+ | tên-họ         = 
+ | họ             = Trần
+ | tên            = Nhân Tông
+ | chữ đầu tên    = T
+ | năm sinh       = 
+ | năm mất =
+ | mô tả          = '''Trần Nhân Tông''' (chữ Hán: 陳仁宗), tên thật là '''Trần Khâm''' (陳昑) là vị vua thứ ba của nhà Trần (sau vua cha Trần Thánh Tông và trước Trần Anh Tông), ở ngôi 15 năm (1278 – 1293) và làm Thái Thượng Hoàng 15 năm. Ông được sử sách ca ngợi là một trong những vị vua anh minh nhất trong lịch sử Việt Nam.
+ | hình           = 
+ | lk wikipedia   = 
+ | lk wikiquote   =
+ | lk commons     =
+}}
+
+==Tác phẩm==
+* [[Cư trần lạc đạo phú]]
+* [[Đại Lãm Thần Quang tự]]
+* [[Đắc thú lâm tuyền thành đạo ca]]
+* [[Đăng Bảo Đài sơn]]
+* [[Đề Cổ Châu hương thôn tự]]
+* [[Đề Phổ Minh tự thủy tạ]]
+* [[Động Thiên hồ thượng]]
+* [[Họa Kiều Nguyên Lãng vận]]
+* [[Hữu cú vô cú]]
+* [[Khuê oán (Trần Nhân Tông)|Khuê oán]]
+* [[Lạng Châu vãn cảnh]]
+* [[Mai]]
+* [[Nguyệt]]
+* [[Nhị nguyệt thập nhất nhật dạ]]
+* [[Quỹ Trương Hiển Khanh xuân bính]]
+* [[Sơn phòng mạn hứng]]
+** [[Sơn phòng mạn hứng/I|I]]
+** [[Sơn phòng mạn hứng/II|II]]
+* [[Sư đệ vấn đáp]]
+* [[Tán Tuệ Trung thượng sĩ]]
+* [[Tảo mai]]
+** [[Tảo mai/I|I]]
+** [[Tảo mai/II|II]]
+* [[Tặng Bắc sứ Lý Tư Diễn]]
+* [[Tây chinh đạo trung (tái chinh Ai Lao)]]
+* [[Thiên Trường phủ]]
+* [[Thiên Trường vãn vọng]]
+* [[Tống Bắc sứ Lý Trọng Tân, Tiêu Phương Nhai]]
+* [[Tống Bắc sứ Ma Hợp, Kiều Nguyên Lãng]]
+* [[Trúc nô minh]]
+* [[Tức sự (Trần Nhân Tông)|Tức sự]]
+** [[Tức sự (Trần Nhân Tông)/I|I]]
+** [[Tức sự (Trần Nhân Tông)/II|II]]
+* [[Vũ Lâm thu vãn]]
+* [[Xuân cảnh]]
+* [[Xuân hiểu (Trần Nhân Tông)|Xuân hiểu]]
+* [[Xuân nhật yết Chiêu Lăng]]
+* [[Xuân vãn]]
+
+{{PD-old}}
+{{authority control}}
+
+[[Thể loại:Nhà thơ Việt Nam]]
+[[Thể loại:Vua Việt Nam]]
+[[Thể loại:Thiền sư Việt Nam]]

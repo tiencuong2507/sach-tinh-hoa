@@ -1,0 +1,22 @@
+# 終南別業 — nguồn: https://zh.wikisource.org/wiki/%E7%B5%82%E5%8D%97%E5%88%A5%E6%A5%AD
+{{header
+| title    = 終南別業{{*|一作初至山中，一作入山寄城中故人}}
+| section  =
+| author   = 王維
+| previous =
+| next     =
+| notes    = {{Textquality|100%}}↑ [[全唐詩/卷126#終南別業|全唐詩·卷126]]
+}}{{唐詩三百首}}
+<onlyinclude>
+<poem>
+中歲頗好道，晚家南山陲。
+興來每獨往，勝事{{另|空|祗}}自知。
+行到水窮處，坐看雲起時。
+偶然{{另|值|見}}{{另|林|鄰}}叟，談笑{{另|無|滯}}還期。 
+</poem>
+</onlyinclude>
+
+{{唐朝作品}}
+
+[[Category:唐詩]]
+[[Category:五言律詩]]

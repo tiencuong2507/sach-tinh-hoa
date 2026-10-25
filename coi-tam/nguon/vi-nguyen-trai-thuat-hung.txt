@@ -1,0 +1,42 @@
+# Thuật hứng — nguồn: https://vi.wikisource.org/wiki/Thu%E1%BA%ADt_h%E1%BB%A9ng
+{{đầu đề
+ | tựa đề     = Thuật hứng
+ | tác giả    = Nguyễn Trãi
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | ghi chú    = 
+}}
+
+* [[/I|I]]
+* [[/II|II]]
+* [[/III|III]]
+* [[/IV|IV]]
+* [[/V|V]]
+* [[/VI|VI]]
+* [[/VII|VII]]
+* [[/VIII|VIII]]
+* [[/IX|IX]]
+* [[/X|X]]
+* [[/XI|XI]]
+* [[/XII|XII]]
+* [[/XIII|XIII]]
+* [[/XIV|XIV]]
+* [[/XV|XV]]
+* [[/XVI|XVI]]
+* [[/XVII|XVII]]
+* [[/XVIII|XVIII]]
+* [[/XIX|XIX]]
+* [[/XX|XX]]
+* [[/XXI|XXI]]
+* [[/XXII|XXII]]
+* [[/XXIII|XXIII]]
+* [[/XXIV|XXIV]]
+* [[/XXV|XXV]]
+
+{{PD-old}}
+
+[[Thể loại:Thơ Nôm]]

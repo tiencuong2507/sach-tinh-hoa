@@ -1,0 +1,55 @@
+# Cư trần lạc đạo phú/Đệ nhị hội — nguồn: https://vi.wikisource.org/wiki/C%C6%B0_tr%E1%BA%A7n_l%E1%BA%A1c_%C4%91%E1%BA%A1o_ph%C3%BA/%C4%90%E1%BB%87_nh%E1%BB%8B_h%E1%BB%99i
+{{đầu đề
+ | tựa đề     = [[../]]
+ | tác giả    = Trần Nhân Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = Đệ nhị hội - 第二會 
+ | trước      = [[../Đệ nhất hội|Đệ nhất hội]]
+ | sau        = [[../Đệ tam hội|Đệ tam hội]]
+ | ghi chú    = 
+}}
+
+{| align="center"
+! Chữ Nôm
+! Tiếng Việt
+|-
+|
+<poem>
+別丕
+免特峼耒
+庄群法恪
+廛性瞆性買侯安
+裵念妄念停庄錯
+悉除人我時歯相實金剛
+停歇貪嗔買老峼牟圓覺
+淨土羅峼瑇瀝渚群疑坙典西方
+彌陀羅性瞆芁罵沛辱寻衛極樂
+察身心煉性識呵浪蒙果報舖誇
+倿戒行敵無常儍固詫求名半角
+吿蔞吿迀業凩庄嫌所縙枾
+運紙運檑身根固礙之顛白
+若㐱戞皮道德姅間痆貴姅天宮
+油能勉所仁義巴片瓦腰欣樓閣
+</poem>
+|
+<poem>
+Biết vậy!
+Miễn được lòng rồi;
+Chẳng còn phép khác.
+Gìn tính sáng tính mới hầu an;
+Nén niềm vọng niềm dừng chẳng thác.
+Dứt trừ nhân ngã thời ra tướng báu kim cương;
+Dừng hết tham sân mới lảu lòng màu viên giác.
+Tịnh độ là lòng trong sạch, chớ còn ngờ hỏi đến Tây phương;
+Di Đà là tính sáng soi, mựa phải nhọc tìm về Cực lạc.
+Xét thân tâm, rèn tính thức, há rằng mong quả báo phô khoe;
+Cầm giới hạnh, địch vô thường, nào có sá cầu danh bán chác.
+Ăn rau ăn trái, nghiệp miệng chẳng hiềm thửa đắng cay;
+Vận giấy vận sồi, thân căn có ngại chi đen bạc.
+Nhược chỉn vui bề đạo đức, nửa gian lều quý nửa thiên cung;
+Dầu năng miễn thửa nhân nghì, ba phiến ngói yêu hơn lầu gác.
+</poem>
+|}
+
+[[Thể loại:Phú]]

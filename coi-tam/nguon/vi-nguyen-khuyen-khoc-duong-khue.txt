@@ -1,0 +1,54 @@
+# Khóc Dương Khuê — nguồn: https://vi.wikisource.org/wiki/Kh%C3%B3c_D%C6%B0%C6%A1ng_Khu%C3%AA
+{{đầu đề
+ | tựa đề     = Khóc Dương Khuê
+ | tác giả    = Nguyễn Khuyến
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = Tác giả tự dịch bài [[Vãn đồng niên Vân Đình tiến sĩ Dương thượng thư]].
+}}
+<poem>
+Bác Dương thôi đã thôi rồi,
+Nước mây man mác ngậm ngùi lòng ta.
+Nhớ từ thuở đăng khoa<ref>Đi thi đỗ</ref> ngày trước,
+Vẫn sớm hôm tôi bác cùng nhau;
+Kính yêu từ trước đến sau,
+Trong khi gặp gỡ khác đâu duyên trời?
+Cũng có lúc chơi nơi dặm khách,
+Tiếng suối nghe róc rách lưng đèo;
+Có khi {{khác|từng|tầng}} gác cheo leo,
+Thú vui con hát lựa chiều cầm xoang;
+Cũng có lúc rượu ngon cùng nhắp,
+Chén quỳnh tương ăm ắp bầu xuân,
+Có khi bàn soạn câu văn,
+Biết bao đông bích, điển phần<ref>Đọc sách, tra cứu</ref> trước sau,
+Buổi dương cửu<ref>Ý nói thời gian nan</ref> cùng nhau hoạn nạn,
+Phận đấu thăng<ref>Cái đấu, cái thăng, đơn vị đo lường ngày xưa. Câu này ý nói: trước cảnh đời đổi thay phải từ quan về, nhà thơ không dám tham công danh bổng lộc nữa</ref> chẳng dám tham trời;
+Bác già, tôi cũng già rồi,
+Biết thôi, thôi thế thì thôi mới là!
+Muốn đi lại tuổi già thêm nhác,
+Trước ba năm gặp bác một lần;
+Cầm tay hỏi hết xa gần,
+Mừng rằng bác {{khác|hãy|vẫn}} tinh thần chưa can,
+Kể tuổi tôi còn hơn tuổi bác,
+Tôi lại đau trước bác mấy ngày;
+Làm sao bác vội về ngay,
+{{khác|Nghe tin|Chợt nghe}}, tôi bỗng chân tay rụng rời.
+Ai chẳng biết chán đời là phải,
+{{khác|Sao vội vàng|Vội vàng sao}} đã mải lên tiên;
+Rượu ngon không có bạn hiền,
+Không mua không phải không tiền không mua.
+Câu thơ nghĩ đắn đo không viết,
+Viết đưa ai, ai biết mà đưa;
+Giường kia treo những hững hờ<ref>[[w:Trần Phồn|Trần Phồn]] đời Hậu Hán, dành riêng cho bạn thân một cái giường khi bạn đến thì mời ngồi, lúc bạn về thì treo lên</ref>,
+Đàn kia gẩy cũng ngẩn ngơ tiếng đàn<ref>Câu này nhắc lại tích [[w:Bá Nha|Bá Nha]] và [[w:Chung Tử Kì|Chung Tử Kì]], hai bạn tri âm. Khi Chung Tử Kì mất thì Bá Nha đập nát cây đàn không gảy nữa</ref>.
+Bác chẳng ở dẫu van chẳng ở,
+Tôi tuy thương, lấy nhớ làm thương;
+Tuổi già hạt lệ như sương,
+Hơi đâu {{khác|chuốc|ép}} lấy hai hàng chứa chan!
+</poem>
+{{chú thích cuối trang}}
+[[Thể loại:Thơ Việt Nam]]
+[[Thể loại:Song thất lục bát]]

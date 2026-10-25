@@ -1,0 +1,53 @@
+# Cư trần lạc đạo phú/Đệ nhất hội — nguồn: https://vi.wikisource.org/wiki/C%C6%B0_tr%E1%BA%A7n_l%E1%BA%A1c_%C4%91%E1%BA%A1o_ph%C3%BA/%C4%90%E1%BB%87_nh%E1%BA%A5t_h%E1%BB%99i
+{{đầu đề
+ | tựa đề     = [[../]]
+ | tác giả    = Trần Nhân Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = Đệ nhất hội - 第一會 
+ | trước      = 
+ | sau        = [[../Đệ nhị hội|Đệ nhị hội]]
+ | ghi chú    = 
+}}
+
+{| align="center"
+! Chữ Nôm
+! Tiếng Việt
+|-
+|
+<poem>
+命憹城市
+涅用山林
+怺業朗安閑體性
+姅挧耒自在身心
+貪愛源停,庄群汝珠腰玉貴
+是非曢朗,特油牐燕說鶯吟
+制搩碧隱筃籑,人間固饒勜得意
+別桃紅処柳綠,天下能某主知音
+月白暈青,芁每祖禪河淶焔
+柳綿花岹,屹群生慧日森林
+慮換骨約飛升,丹神買服
+咅長生衛上界,徃兔群耽
+冊易娂制,腰性瞆腰欣珠寶
+經閒讀酉,重峼耒重女黃金
+</poem>
+|
+<poem>
+Mình ngồi thành thị;
+Nết dụng sơn lâm.
+Muôn nghiệp lặng an nhàn thể tính;
+Nửa ngày rồi tự tại thân tâm.
+Tham ái nguồn dừng, chẳng còn nhớ châu yêu ngọc quý;
+Thị phi tiếng lặng, được dầu nghe yến thốt oanh ngâm.
+Chơi nước biếc ẩn non xanh, nhân gian có nhiều người đắc ý;
+Biết đào hồng hay liễu lục, thiên hạ năng mấy chủ tri âm.
+Nguyệt bạc vừng xanh, soi mọi chỗ thiền hà lai láng;
+Liễu mềm hoa tốt, ngất quần sinh tuệ nhật sâm lâm.
+Lo hoán cốt ước phi thăng, đan thần mới phục;
+Nhắm trường sinh về thượng giới, thuốc thỏ còn đam.
+Sách dễ xem chơi, yêu tính sáng yêu hơn châu báu;
+Kinh nhàn đọc dấu, trọng lòng rồi trọng nữa hoàng kim.
+</poem>
+|}
+
+[[Thể loại:Phú]]

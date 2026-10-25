@@ -1,0 +1,41 @@
+# Cư trần lạc đạo phú/Kệ vân — nguồn: https://vi.wikisource.org/wiki/C%C6%B0_tr%E1%BA%A7n_l%E1%BA%A1c_%C4%91%E1%BA%A1o_ph%C3%BA/K%E1%BB%87_v%C3%A2n
+{{đầu đề
+ | tựa đề     = [[../]]
+ | tác giả    = Trần Nhân Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = Kệ vân - 偈云
+ | trước      = [[../Đệ thập hội|Đệ thập hội]]
+ | sau        = 
+ | ghi chú    = 
+}}
+
+{| align="center"
+! Nguyên văn chữ Hán
+! Phiên âm Hán Việt
+! Dịch nghĩa
+|-
+|
+<poem>
+居塵樂道且隨緣，
+饑則飧兮困則眠。
+家中有宝休尋覓，
+對鏡無心莫問禪。
+</poem>
+|
+<poem>
+Cư trần lạc đạo thả tùy duyên,
+Cơ tắc xan hề khốn tắc miên.
+Gia trung hữu bảo hưu tầm mịch,
+Đối kính vô tâm mạc vấn thiền.
+</poem>
+|
+<poem>
+Sống giữa phàm trần, hãy tùy duyên mà vui với đạo
+Đói thì ăn, mệt thì ngủ
+Trong nhà sẵn của báu, đừng tìm đâu khác
+Đối diện với mọi cảnh giới mà vẫn vô tâm, thì cần chi hỏi thiền nữa.
+</poem>
+|}
+
+[[Thể loại:Kệ]]

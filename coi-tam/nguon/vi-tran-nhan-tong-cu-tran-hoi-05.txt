@@ -1,0 +1,67 @@
+# Cư trần lạc đạo phú/Đệ ngũ hội — nguồn: https://vi.wikisource.org/wiki/C%C6%B0_tr%E1%BA%A7n_l%E1%BA%A1c_%C4%91%E1%BA%A1o_ph%C3%BA/%C4%90%E1%BB%87_ng%C5%A9_h%E1%BB%99i
+{{đầu đề
+ | tựa đề     = [[../]]
+ | tác giả    = Trần Nhân Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = Đệ ngũ hội - 第五會 
+ | trước      = [[../Đệ tứ hội|Đệ tứ hội]]
+ | sau        = [[../Đệ lục hội|Đệ lục hội]]
+ | ghi chú    = 
+}}
+
+{| align="center"
+! Chữ Nôm
+! Tiếng Việt
+|-
+|
+<poem>
+丕買処
+孛於宮茹
+庄沛寻賒
+因虧本年些寻孛
+典谷処㐱孛羅些
+禪午朩句,聮釀工圭何有
+經娂巴遍,憹宜買國新羅
+瑇道義曠機關,它突吝場經翓祖
+另是非稽声色,櫀制排淡柳塘花
+德孛慈悲,蒙饒劫願朱親近
+恩堯曠垰,律全身逋沒乑赦
+襖免绖潭蔭過務,或針或雉
+琟共粥肁奴隊耉,油白油叉
+垠八識裵八風,強提強倍
+唩三玄箼三要,蔑拮沒磨
+琴本少絃,舍彈酉控無生曲
+笛庄固魯,共泛制唱太平歌
+钖檜寻梗,群可惜俱胝長老
+虧頭執俸,乙堪宼演若達多
+律圈金剛,呵炦侯通年艶
+訥蓬栗棘,儍検沛綽像庒
+</poem>
+|
+<poem>
+Vậy mới hay!
+Bụt ở cong nhà;
+Chẳng phải tìm xa.
+Nhân khuây bản nên ta tìm bụt;
+Đến cốc hay chỉn bụt là ta.
+Thiền ngỏ năm câu, nằm nhãng cong quê Hà Hữu;
+Kinh xem ba bận, ngồi ngơi mái quốc Tân La.
+Trong đạo nghĩa, khoảng cơ quan, đà lọt lẫn trường kinh cửa tổ;
+Lánh thị phi, ghê thanh sắc, ngại chơi bời dặm liễu đường hoa.
+Đức bụt từ bi, mong nhiều kiếp nguyền cho thân cận;
+Ân Nghiêu khoáng cả, lọt toàn thân phô việc đã tha.
+Áo miễn chăn đầm ấm qua mùa, hoặc châm hoặc xể;
+Cơm cùng cháo đói no đòi bữa, dầu bạc dầu thoa.
+Ngăn bát thức, nén bát phong, càng đè càng bội;
+Lẩy tam huyền, nong tam yếu, một cắt một ma.
+Cầm vốn thiếu dây, xá đàn dấu xoang Vô sinh khúc;
+Địch chăng có lỗ, cũng bấm chơi xướng Thái bình ca.
+Lẩy cội tìm cành, còn khá tiếc Câu Chi trưởng lão;
+Quay đầu chớp bóng, ắt kham cười Diễn Nhã Đạt Đa.
+Lọt quyển kim cương, há mặt hầu thông nên nóng;
+Nuốt bồng lật cức, nào tay phải xước tượng da.
+</poem>
+|}
+
+[[Thể loại:Phú]]

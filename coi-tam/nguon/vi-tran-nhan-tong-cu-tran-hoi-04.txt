@@ -1,0 +1,51 @@
+# Cư trần lạc đạo phú/Đệ tứ hội — nguồn: https://vi.wikisource.org/wiki/C%C6%B0_tr%E1%BA%A7n_l%E1%BA%A1c_%C4%91%E1%BA%A1o_ph%C3%BA/%C4%90%E1%BB%87_t%E1%BB%A9_h%E1%BB%99i
+{{đầu đề
+ | tựa đề     = [[../]]
+ | tác giả    = Trần Nhân Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = Đệ tứ hội - 第四會 
+ | trước      = [[../Đệ tam hội|Đệ tam hội]]
+ | sau        = [[../Đệ ngũ hội|Đệ ngũ hội]]
+ | ghi chú    = 
+}}
+
+{| align="center"
+! Chữ Nôm
+! Tiếng Việt
+|-
+|
+<poem>
+信娂
+免谷蔑峼
+時耒每惑
+轉三毒買證三身
+断六根年除六賊
+寻唐換骨㐱舍能服藥煉丹
+坙法真空分之另櫀聲執色
+別真如信般若,渚群寻佛祖西東
+證實相年無為,儍辱坙經禪南北
+娂三藏教,乙學隊禪苑清規
+嘥五分香,庄損典栴檀詹蔔
+積仁義修道德,埃処尼庄釋迦
+倿戒行断慳貪,㐱實意羅弥勒
+</poem>
+|
+<poem>
+Tin xem,
+Miễn cốc một lòng;
+Thời rồi mọi hoặc.
+Chuyển tam độc mới chứng tam thân;
+Đoạn lục căn nên trừ lục tặc.
+Tìm đường hoán cốt, chỉn xá năng phục dược luyện đan;
+Hỏi pháp chân không, hề chi lánh ngại thanh chấp sắc.
+Biết chân như, tin bát nhã, chớ còn tìm Phật Tổ tây đông;
+Chứng thực tướng, nên vô vi, nào nhọc hỏi kinh Thiền nam bắc.
+Xem Tam Tạng giáo, ắt học đòi Thiền uyển thanh quy;
+Đốt ngũ phần hương, chẳng tổn đến chiên đàn chiêm bặc.
+Tích nhân nghì, tu đạo đức, ai hay này chẳng Thích Ca;
+Cầm giới hạnh, đoạn ghen tham, chỉn thực ấy là Di Lặc.
+</poem>
+|}
+
+[[Thể loại:Phú]]

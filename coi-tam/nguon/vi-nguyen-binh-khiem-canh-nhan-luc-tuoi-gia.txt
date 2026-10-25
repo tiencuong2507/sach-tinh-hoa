@@ -1,0 +1,29 @@
+# Cảnh nhàn lúc tuổi già — nguồn: https://vi.wikisource.org/wiki/C%E1%BA%A3nh_nh%C3%A0n_l%C3%BAc_tu%E1%BB%95i_gi%C3%A0
+{{đầu đề
+ | tựa đề     = Cảnh nhàn lúc tuổi già
+ | tác giả    = Nguyễn Bỉnh Khiêm
+ | dịch giả   = 
+ | năm        = 
+ | phần       = 
+ | trước      = 
+ | sau        =  
+ | ấn bản = có
+ | ghi chú    = Bài trong '''Bạch Vân quốc ngữ thi''', vốn không có đầu đề, tên bài do người đời sau đặt.
+}}
+
+<poem>
+Tóc đã thưa, răng đã mòn ;
+Việc nhà đã phó mặc dâu con.
+Bàn cờ, cuộc rượu, vầy hoa trúc ;
+Bó củi, cần câu, {{khác|chốn|trốn}} nước non.
+Nhàn được thú vui hay {{khác|bao nả|nấn ná}}<ref>''Bao nả'' : không biết chừng nào</ref>
+Bữa nhiều muối bể chứa tươi ngon.
+Chín mươi thời kể xuân đã muộn ;
+Xuân ấy qua, thì xuân khác còn.
+</poem>
+
+{{chú thích cuối trang}}
+
+{{PD-old}}
+
+[[Thể loại:Thơ Nôm]]

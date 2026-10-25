@@ -1,0 +1,20 @@
+# Sông Lấp — nguồn: https://vi.wikisource.org/wiki/S%C3%B4ng_L%E1%BA%A5p
+{{đầu đề
+ | tựa đề     = Sông Lấp<ref>Một đoạn sông Vị Hoàng bị lấp</ref>
+ | tác giả    = Trần Tế Xương
+ | dịch giả   = 
+ | phần       = 
+ | trước      = 
+ | sau        = 
+ | ghi chú    = 
+}}
+<poem>
+     Sông kia rày đã nên đồng
+Chỗ làm nhà cửa chỗ trồng ngô khoai
+     Vẳng nghe tiếng ếch bên tai
+Giật mình còn tưởng tiếng ai gọi đò
+</poem>
+{{chú thích cuối trang}}
+{{PVCC-cũ}}
+[[Thể loại:Thơ Việt Nam]]
+[[Thể loại:Lục bát]]

@@ -1,0 +1,24 @@
+# Thuật hứng/XXIV — nguồn: https://vi.wikisource.org/wiki/Thu%E1%BA%ADt_h%E1%BB%A9ng/XXIV
+{{đầu đề
+ | tựa đề     = [[../]]
+ | tác giả    = Nguyễn Trãi
+ | dịch giả   = 
+ | năm        = 
+ | phần       = XXIV
+ | trước      = [[../XXIII|XXIII]]
+ | sau        = [[../XXV|XXV]]
+ | ghi chú    = 
+}}
+
+<poem>
+Công danh đã được hợp về nhàn.
+Lành dữ âu chi thế ngợi khen.
+Ao cạn vớt bèo cấy muống ;
+Trì thanh phát cỏ ương sen.
+Kho thu phong nguyệt đầy qua nóc ;
+Thuyền chở yên hà nặng vạy then.
+Bui có một lòng trung liễn hiếu,
+Mài chăng khuyết, nhuộm chăng đen.
+</poem>
+
+[[Thể loại:Thơ Nôm]]

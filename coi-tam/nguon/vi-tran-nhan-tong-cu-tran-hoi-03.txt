@@ -1,0 +1,51 @@
+# Cư trần lạc đạo phú/Đệ tam hội — nguồn: https://vi.wikisource.org/wiki/C%C6%B0_tr%E1%BA%A7n_l%E1%BA%A1c_%C4%91%E1%BA%A1o_ph%C3%BA/%C4%90%E1%BB%87_tam_h%E1%BB%99i
+{{đầu đề
+ | tựa đề     = [[../]]
+ | tác giả    = Trần Nhân Tông
+ | dịch giả   = 
+ | năm        = 
+ | phần       = Đệ tam hội - 第三會
+ | trước      = [[../Đệ nhị hội|Đệ nhị hội]]
+ | sau        = [[../Đệ tứ hội|Đệ tứ hội]]
+ | ghi chú    = 
+}}
+
+{| align="center"
+! Chữ Nôm
+! Tiếng Việt
+|-
+|
+<poem>
+裊麻谷
+罪乙乑空
+法學吏通
+纏性瞆罵落邪道
+所命學朱沛正宗
+㐱孛羅峼舍諳坙隊機馬祖
+忘財對色乙寻朱沛退龐公
+盎資財性瞆庄貪呵為於歳鷂安子
+譤聲色念停庄轉路之憹庵棧筃東
+塵俗麻年,福意強腰歇則
+山林庄谷,禍箕實垰徒功
+願蒙親近明師果菩提蔑店麻佂
+福及情期知識花優曇亖劫耽厠
+</poem>
+|
+<poem>
+Nếu mà cốc,
+Là ắt đã không,
+Pháp học lại thông.
+Gìn tính sáng, mựa lạc tà đạo;
+Sửa mình học, cho phải chính tông.
+Chỉn bụt là lòng, sá ướm hỏi đòi cơ Mã tổ;
+Vong tài đối sắc ắt tìm cho phải thói Bàng công.
+Áng tư tài tính sáng chẳng tham, há vì ở Cánh Diều Yên Tử;
+Răn thanh sắc niềm dừng chẳng chuyển, lọ chi ngồi am Sạn non Đông.
+Trần tục mà nên, phúc ấy càng yêu hết tấc;
+Sơn lâm chẳng cốc, họa kia thực cả đồ công.
+Nguyền mong thân cận minh sư, quả Bồ Đề một đêm mà chín;
+Phúc gặp tình cờ tri thức, hoa Ưu Đàm mấy kiếp đâm bông.
+</poem>
+|}
+
+[[Thể loại:Phú]]

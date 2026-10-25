@@ -50,6 +50,35 @@ const MAC_DINH = [
   ["vi", "Nhàn", "vi-nguyen-binh-khiem-nhan"],
   ["vi", "Cảnh nhàn", "vi-nguyen-binh-khiem-canh-nhan"],
   ["vi", "Nhân tình thế thái (Nguyễn Bỉnh Khiêm)", "vi-nguyen-binh-khiem-nhan-tinh-the-thai"],
+  // Bài 7–12 (tải 25/10/2026). 歸去來兮辭 trên zh.wikisource chuyển hướng tới trang 歸去來 (chỉ là mục lục), bản có chính văn là 歸去來辭並序.
+  // Tâm kinh: trang 般若波羅蜜多心經 là mục các bản dịch; trang "般若波羅蜜多心經 (玄奘)" chỉ nhúng (<pages index=…>) từ bản quét
+  // Đại Chính tạng, chính văn nằm ở trang Page: dưới đây nên tải trang ấy (dòng URL trong file là trang Page:, trang hiển thị là trang (玄奘)).
+  ["zh", "道德經 (王弼本)", "zh-dao-duc-kinh-vuong-bat"],
+  ["zh", "歸去來辭並序", "zh-dao-uyen-minh-quy-khu-lai-tu"],
+  ["zh", "論語/子罕第九", "zh-luan-ngu-tu-han"],
+  ["zh", "Page:SSID-10510986_大正新修_大藏經_第8卷·般若部四.pdf/864", "zh-tam-kinh-huyen-trang"],
+  ["zh", "終南別業", "zh-vuong-duy-chung-nam-biet-nghiep"],
+  ["zh", "飲酒二十首", "zh-dao-uyen-minh-am-tuu"],
+  ["vi", "Tác gia:Nguyễn Trãi", "vi-tac-gia-nguyen-trai"],
+  ["vi", "Tác gia:Trần Tế Xương", "vi-tac-gia-tran-te-xuong"],
+  ["vi", "Sông Lấp", "vi-tu-xuong-song-lap"],
+  ["vi", "Tác gia:Nguyễn Khuyến", "vi-tac-gia-nguyen-khuyen"],
+  ["vi", "Khóc Dương Khuê", "vi-nguyen-khuyen-khoc-duong-khue"],
+  ["vi", "Tác gia:Trần Nhân Tông", "vi-tac-gia-tran-nhan-tong"],
+  ["vi", "Cư trần lạc đạo phú", "vi-tran-nhan-tong-cu-tran-lac-dao-phu"],
+  ["vi", "Văn tế thập loại chúng sinh", "vi-nguyen-du-van-te-thap-loai-chung-sinh"],  // Trang Cư trần lạc đạo phú chỉ là mục lục; từng hội nằm ở trang con. Thuật hứng / Ngôn chí của Nguyễn Trãi gom cả chùm bài trong một trang.
+  ["vi", "Cư trần lạc đạo phú/Đệ nhất hội", "vi-tran-nhan-tong-cu-tran-hoi-01"],
+  ["vi", "Cư trần lạc đạo phú/Đệ nhị hội", "vi-tran-nhan-tong-cu-tran-hoi-02"],
+  ["vi", "Cư trần lạc đạo phú/Đệ tam hội", "vi-tran-nhan-tong-cu-tran-hoi-03"],
+  ["vi", "Cư trần lạc đạo phú/Đệ tứ hội", "vi-tran-nhan-tong-cu-tran-hoi-04"],
+  ["vi", "Cư trần lạc đạo phú/Đệ ngũ hội", "vi-tran-nhan-tong-cu-tran-hoi-05"],
+  ["vi", "Cư trần lạc đạo phú/Kệ vân", "vi-tran-nhan-tong-cu-tran-ke-van"],
+  ["vi", "Thuật hứng", "vi-nguyen-trai-thuat-hung"],
+  ["vi", "Ngôn chí", "vi-nguyen-trai-ngon-chi"],
+  ["vi", "Thuật hứng/XXIV", "vi-nguyen-trai-thuat-hung-24"],
+  ["vi", "Cảnh nhàn lúc tuổi già", "vi-nguyen-binh-khiem-canh-nhan-luc-tuoi-gia"],
+  ["vi", "Thơ vô đề của Nguyễn Bỉnh Khiêm", "vi-nguyen-binh-khiem-vo-de"],
+  ["vi", "Dĩ hòa vi quí", "vi-nguyen-binh-khiem-di-hoa-vi-qui"],
 ];
 
 const slugOf = t => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D")
