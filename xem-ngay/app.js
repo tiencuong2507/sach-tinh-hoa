@@ -51,6 +51,8 @@ function napViec() {
   const ops = XN_THAN_SAT.viec.map(v => `<option value="${v.ma}">${esc(v.ten)}</option>`).join("");
   $("#viec").innerHTML += ops; $("#tViec").innerHTML += ops;
   try { const v = localStorage.getItem("xn_viec"); if (v) { $("#viec").value = v; $("#tViec").value = v; } } catch (e) {}
+  // Mở từ trang khác với ?viec=<mã> (ví dụ Lễ cúng → "Chọn ngày tốt") thì chọn sẵn việc đó
+  try { const q = new URLSearchParams(location.search).get("viec"); if (q && XN_THAN_SAT.viec.some(x => x.ma === q)) { $("#viec").value = q; $("#tViec").value = q; } } catch (e) {}
 }
 function xem() { XemNgay.CAU_HINH.thangTheoTiet = !$("#theoAm").checked; const ns = parseInt($("#ns").value, 10) || null;
   try { localStorage.setItem("xn_viec", $("#viec").value); } catch (e) {}
