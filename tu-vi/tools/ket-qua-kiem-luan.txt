@@ -1,4 +1,17 @@
-Cách cục khớp trong 400 lá số (seed cố định):
+Tóm tắt một phút — tỉ lệ cặp lá số (trong 79800 cặp) có mục trùng chữ > 80%:
+  Con người                1186 cặp  1.49%
+  Điểm mạnh                 961 cặp  1.20%
+  Điểm cần giữ mình         503 cặp  0.63%
+  Tiền bạc                 1010 cặp  1.27%
+  Công việc                1545 cặp  1.94%
+  Gia đình, tình cảm       1329 cặp  1.67%
+  Sức khỏe                  536 cặp  0.67%
+  Giai đoạn hiện tại        405 cặp  0.51%
+  cặp có ít nhất một mục trùng: 4882 (6.12%)
+
+Văn chính: trung bình 1216 chữ/lá số (ít nhất 1012, nhiều nhất 1408); câu trung bình 9.3 chữ; câu dài nhất 24 chữ: "Nói ngắn:  Cung trống, mượn Thái Dương bên cung Tật ách: Là sao cha: sáng thì cha tốt, tối thì tình cha con xa."
+
+Cách cục khớp trong 400 lá số:
     5  Tử Phủ đồng cung 紫府同宮 [V]  vd 24/5/2004 6h nu
     6  Tử Phủ triều viên 紫府朝垣 [V]  vd 12/3/1952 14h nu
     5  Quân thần khánh hội 君臣慶會 [V]  vd 16/3/1995 20h nam
@@ -30,7 +43,7 @@ Cách cục khớp trong 400 lá số (seed cố định):
    16  Hỏa Tham 火貪 [V]  vd 22/5/1989 6h nu
    10  Linh Tham 鈴貪 [V]  vd 10/8/1966 4h nam
    11  Tham Vũ đồng hành 貪武同行 [V]  vd 4/3/1971 4h nam
-   13  Vũ Khúc miếu viên 武曲廟垣 [V]  vd 11/11/1981 14h nu
+   13  Vũ Khúc miếu viên (sao tiền ở chỗ sáng nhất) 武曲廟垣 [V]  vd 11/11/1981 14h nu
     6  Hùng tú triều nguyên 雄宿朝元 [V]  vd 10/8/2005 0h nam
     5  Liêm Sát đồng vị 廉貞七殺 [V]  vd 22/5/2016 8h nam
     9  Phiếm thủy đào hoa 泛水桃花 [V]  vd 26/1/1999 2h nu
@@ -53,6 +66,27 @@ Cách cục khớp trong 400 lá số (seed cố định):
    62  Mệnh vô chính diệu 命無正曜 [V]  vd 20/5/1979 20h nam
     0  Tài ấm giáp ấn 財蔭夾印 [V]
 
-Sao có nguyên văn: 34/34; câu trích đã dò: 232; cách cục: 53 (có nguồn [V] 52, không nguồn [I] 1); cách cục 0 ca: 1
+Sao có nguyên văn: 34/34; câu trích đã dò: 202; cách cục: 53 (có nguồn [V] 52, không nguồn [I] 1); cách cục 0 ca: 1
   CẢNH BÁO: cách cục "Tài ấm giáp ấn" không khớp ca nào trong 400 lá số — [U] điều kiện có thể không bao giờ xảy ra
+
+Ví dụ Tóm tắt một phút:
+  — 9/1/1991 0h nam
+    Con người: Mệnh tại Tý có Thiên Đồng và Thái Âm: ôn hòa, dễ mến, thích an ổn; tế nhị, kín đáo, giàu cảm xúc.
+    Điểm mạnh: hòa giải giỏi, ít gây thù. Thiên Đồng ở Tý là chỗ sáng. Nền Hỏa lục cục: nhanh, nhiệt tình.
+    Điểm cần giữ mình: an phận sớm, thiếu quyết liệt. Mệnh không có sao va chạm; chỗ hay lo là bản thân, tính nết (cung Mệnh).
+    Tiền bạc: Cung Thân trống, mượn Thái Dương bên Phúc đức: Tiền đến từ danh tiếng và việc công khai; ít giấu được.
+    Công việc: Thiên Cơ ở Thìn: Hợp việc lập kế hoạch, kỹ thuật, tham mưu; đổi việc nhiều hơn người khác.
+    Gia đình, tình cảm: Cung Tuất trống, mượn Thiên Cơ bên Quan lộc: Hợp nhau về trí; người ấy hay nghĩ ngợi, nên nói rõ thay vì đoán.
+    Sức khỏe: Cung Mùi trống, mượn Vũ Khúc bên Phụ mẫu: Phổi, mũi, răng, xương; cẩn thận dao kéo, máy móc.
+    Giai đoạn hiện tại: Tuổi 37, chặng 36–45 ở cung Điền trạch (nhà cửa, chỗ ở); năm 2026 thuận ở bản thân, tính nết. Thiên Tướng dẫn chặng này.
+  — 11/11/1981 14h nu
+    Con người: Mệnh tại Thìn có Vũ Khúc: quả quyết, thực tế, nói ít làm nhiều. Thân cư Phúc đức.
+    Điểm mạnh: chịu việc nặng, giữ tiền giỏi. Vũ Khúc ở Thìn là chỗ sáng. Nền Thủy nhị cục: linh hoạt, dễ thích nghi.
+    Điểm cần giữ mình: cứng quá, cô quá trong nhà. Mệnh có Địa Không: mất tiền bất ngờ, hay bỏ dở.
+    Tiền bạc: Liêm Trinh ở Tý: Tiền gắn với cơ quan, pháp lý, kỹ thuật; tránh Phá Quân cùng cung. Cung này bị Tuần, đến chậm.
+    Công việc: Tử Vi ở Thân: Hợp việc đứng đầu, quản lý; cần cấp dưới giỏi mới thành bề thế. Có Đà La, chậm, dây dưa.
+    Gia đình, tình cảm: Thất Sát ở Dần: Vợ chồng mạnh ai nấy làm; giữ bằng tôn trọng khoảng riêng. Có Thiên Việt, quý nhân kín đáo.
+    Sức khỏe: Cự Môn ở Hợi: Thận, tai, họng, tiêu hóa; gặp Hình Kỵ thì mắt. Cự Môn mang chữ Lộc. Ứng tuổi 72–81.
+    Giai đoạn hiện tại: Tuổi 46, chặng 42–51 ở cung Quan lộc (công việc); năm 2026 thuận ở anh em, bạn thân. Tử Vi dẫn chặng này.
+
 Luận giải: đạt
