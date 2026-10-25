@@ -41,7 +41,7 @@ label.sw{font-size:14px;color:var(--mute);margin-left:8px}
  <button data-t="lh">☯ Lục hào</button>
  <button data-t="nam">🗓 Tra năm</button>
  <button data-t="tv">⏳ Thời vận</button>
- <button data-t="ls">🕘 Lịch sử</button>
+ <button data-t="ls">🕘 Sổ chiêm nghiệm</button>
  <label class="sw"><input type="checkbox" id="showzh" checked> hiện chữ Hán</label>
 </nav>
 
@@ -55,13 +55,15 @@ label.sw{font-size:14px;color:var(--mute);margin-left:8px}
 <section id="gieo" class="hidden">
  <div class="card noprint"><p>Mỗi hào tung 3 đồng xu (ngửa = 3, sấp = 2), gieo 6 lần từ hào 1 (dưới) lên hào 6 (trên).
  Tổng 6 = lão âm (động), 7 = thiếu dương, 8 = thiếu âm, 9 = lão dương (động).</p>
- <input id="hoi" placeholder="Điều muốn hỏi (không bắt buộc)" style="width:100%;box-sizing:border-box"><br><br>
+ <input id="hoi" placeholder="Điều muốn hỏi (không bắt buộc)" style="width:100%;box-sizing:border-box"><br>
+ <input id="quyet" placeholder="Điều mình quyết lúc này (không bắt buộc; sẽ lưu vào Sổ chiêm nghiệm để sau chấm kết quả)" style="width:100%;box-sizing:border-box;margin-top:6px"><br><br>
  <button class="btn" id="btnGieo">🎲 Gieo quẻ</button></div><div id="kq"></div>
 </section>
 
 <section id="nhap" class="hidden">
  <div class="card"><p>Anh gieo đồng xu thật rồi chọn giá trị từng hào (hào 6 ở trên cùng):</p><div id="sel"></div><br>
- <input id="hoi2" placeholder="Điều muốn hỏi (không bắt buộc)" style="width:100%;box-sizing:border-box"><br><br>
+ <input id="hoi2" placeholder="Điều muốn hỏi (không bắt buộc)" style="width:100%;box-sizing:border-box"><br>
+ <input id="quyet2" placeholder="Điều mình quyết lúc này (không bắt buộc; sẽ lưu vào Sổ chiêm nghiệm để sau chấm kết quả)" style="width:100%;box-sizing:border-box;margin-top:6px"><br><br>
  <button class="btn" id="btnNhap">Lập quẻ</button></div><div id="kq2"></div>
 </section>
 
@@ -110,6 +112,8 @@ label.sw{font-size:14px;color:var(--mute);margin-left:8px}
 <script src="../chung/ngu-hanh.js"></script><script src="../chung/cuu-cung.js"></script><script src="../chung/lich-chon.js"></script>
 <script src="data/nguyen-van.js"></script>
 <script src="data/nguyen-tac-64.js"></script>
+<script src="data/sau-giai-doan.js"></script>
+<script src="data/tu-quai-doi-nguoi.js"></script>
 <script src="data/dan-nhap.js"></script>
 <script src="data/nghien-cuu.js"></script>
 <script src="data/hckt.js"></script>

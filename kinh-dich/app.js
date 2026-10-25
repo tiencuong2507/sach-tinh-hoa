@@ -7,6 +7,10 @@ const NT = Array.from(window.KD_NGUYEN_TAC || []).filter(Boolean);
 const NT_NHOM = ["Tu thân","Làm việc","Ứng xử","Gia đình","Lãnh đạo","Tiền của","Thời thế"];
 const NT_TUAN_GOC = Date.UTC(2026, 0, 5); // thứ Hai 5/1/2026: mốc đếm tuần để gợi ý "nguyên tắc tuần này"
 const NT_MS_TUAN = 7 * 24 * 3600 * 1000;
+// Cẩm nang: sáu giai đoạn của mọi việc (data/sau-giai-doan.js, trang "gd") và Tự quái như đời một người (data/tu-quai-doi-nguoi.js, trang "tq")
+const GD = window.KD_SAU_GIAI_DOAN || null, TQD = window.KD_TU_QUAI_DOI || null;
+// Sổ chiêm nghiệm (localStorage kd_hist): mỗi lần gieo lưu {t, hoi, vals, quyet}; sau này chấm kq:{muc, ghi, ngay}. Mục cũ không có quyet/kq vẫn hiện.
+const HIST_KEY = "kd_hist", HIST_MAX = 100, HIST_MUC = {dung: "Đúng hướng", nua: "Nửa đúng", sai: "Sai hướng"};
 HT.thuong = Array.from(HT.thuong || []).filter(Boolean); HT.ha = Array.from(HT.ha || []).filter(Boolean);
 // Các thiên Thập dực khác: mã trang "t" + mã thiên + số chương (ví dụ tv0 = Văn ngôn chương 1)
 const TD = window.KD_TD || {};
@@ -84,7 +88,10 @@ function hexPage(n, opt={}) {
 function bookToc() {
   let s = `<div class="card"><h2>Mục lục</h2><div class="row"><div class="toc"><h3>Dẫn nhập</h3>`;
   INTRO.forEach((c,i)=> s += `<a onclick="go('i${i}')">${c.title}</a>`);
-  if (NT.length) s += `<h3>Cẩm nang</h3><a onclick="go('nt')">64 nguyên tắc hành xử (Đại tượng truyện)</a>`;
+  if (NT.length || GD || TQD) s += `<h3>Cẩm nang</h3>`;
+  if (NT.length) s += `<a onclick="go('nt')">64 nguyên tắc hành xử (Đại tượng truyện)</a>`;
+  if (GD) s += `<a onclick="go('gd')">Sáu giai đoạn của mọi việc (cấu trúc hào)</a>`;
+  if (TQD) s += `<a onclick="go('tq')">Tự quái như câu chuyện một đời</a>`;
   s += `</div><div class="toc"><h3>Thượng kinh (1–30)</h3>`;
   for (let n=1;n<=64;n++) {
     if (n===31) s += `</div><div class="toc"><h3>Hạ kinh (31–64)</h3>`;
@@ -102,7 +109,7 @@ function bookToc() {
     STUDY.forEach((c,i)=> s += `<a onclick="go('s${i}')">${c.title}</a>`); s += `</div>`; }
   return s + `</div>`;
 }
-const PAGES = () => ["toc", ...INTRO.map((_,i)=>"i"+i), ...(NT.length ? ["nt"] : []), ...Array.from({length:64},(_,i)=>"q"+(i+1)),
+const PAGES = () => ["toc", ...INTRO.map((_,i)=>"i"+i), ...(NT.length ? ["nt"] : []), ...(GD ? ["gd"] : []), ...(TQD ? ["tq"] : []), ...Array.from({length:64},(_,i)=>"q"+(i+1)),
   ...tdPages(true), ...HT.thuong.map((_,i)=>"a"+i), ...HT.ha.map((_,i)=>"b"+i), ...tdPages(false), ...STUDY.map((_,i)=>"s"+i)];
 // Trang một chương Thập dực (Văn ngôn, Thuyết quái, Tự quái, Tạp quái): cùng bố cục với Hệ từ
 function tdPage(id) {
@@ -160,15 +167,66 @@ function ntPage() {
     <p class="mute">Nguyên văn: Wikisource 周易 (phạm vi công cộng). Phần biên soạn là của kho, để tham khảo.</p></div>`;
   return s;
 }
+// ---- Trang "gd": sáu giai đoạn của mọi việc ----
+const gdQueLink = n => `<a onclick="go('q${n}')" style="cursor:pointer">${HEX[n].ch} ${n}. ${HEX[n].short}</a>`;
+const gdHaoTen = (n, h) => haoLabel(h, HEX[n].lines[h] === "1");
+function gdKhoi(g) {
+  const li = a => `<ul style="margin:.3em 0 .3em 1.2em;padding:0">${a.map(x => `<li>${x}</li>`).join("")}</ul>`;
+  return `<div class="hao gdk" id="gd${g.i}"><div class="t">Bước ${g.i + 1} – hào ${g.ten}: ${g.tenDoi}</div>
+    <p style="margin:.3em 0"><span class="tag">Gốc: Hệ từ hạ</span> <a onclick="go('${g.goc.trang}')" style="cursor:pointer">chương ${+g.goc.trang.slice(1) + 1}</a></p>
+    ${zh(g.goc.zh)}<div class="hv">${g.goc.hv}</div><div class="dich">→ ${g.goc.dich}</div>
+    <div class="giai" style="margin:.4em 0">${g.y}</div>
+    <p style="margin:.4em 0 .2em"><b>Hào từ điển hình</b></p>
+    ${g.hao.map(x => `<div style="margin:.2em 0 .2em .6em">${gdQueLink(x.n)} – ${gdHaoTen(x.n, x.h)}: ${zhOn() ? `<span class="zh">${esc(x.zh)}</span> ` : ""}<span class="dich">${x.dich}</span></div>`).join("")}
+    <p style="margin:.4em 0 .2em"><b>Dấu hiệu mình đang ở đây</b></p>${li(g.dauHieu)}
+    <div class="row"><div style="flex:1;min-width:240px"><b>Nên</b>${li(g.nen)}</div><div style="flex:1;min-width:240px"><b>Không nên</b>${li(g.khongNen)}</div></div>
+    <div class="giai" style="margin-top:.3em"><b>Một tình huống:</b> ${g.tinhHuong}</div></div>`;
+}
+function gdXem() {
+  const tl = GD.cauHoi.map((_, i) => $("#gdQ" + i).value);
+  if (tl.some(v => v !== "1" && v !== "0")) { $("#gdKQ").innerHTML = `<p class="mute"><i>Anh trả lời đủ sáu câu rồi bấm lại.</i></p>`; return; }
+  const r = GD.xacDinh(tl.map(v => v === "1")), g = GD.gd[r.i];
+  $("#gdKQ").innerHTML = `<div class="rule">📌 Gợi ý: anh đang ở <b>bước ${g.i + 1} – hào ${g.ten}: ${g.tenDoi}</b>. ${r.lyDo}
+    ${r.nguoc.length ? `<p style="margin:.4em 0 0"><b>Chỗ chọi nhau trong câu trả lời:</b> ${r.nguoc.join(" ")}</p>` : ""}
+    <p style="margin:.4em 0 0"><b>Nên:</b> ${g.nen[0]} <b>Không nên:</b> ${g.khongNen[0]} <a href="#gd${g.i}">Đọc kỹ bước này ↓</a></p></div>`;
+}
+function gdPage() {
+  const sel = (i) => `<select id="gdQ${i}"><option value="">— chọn —</option><option value="1">Có</option><option value="0">Không</option></select>`;
+  return `<div class="card"><span class="tag">Cẩm nang</span><h2>Sáu giai đoạn của mọi việc</h2><p>${GD.moDau}</p>
+    <p class="mute">Câu gốc lấy từ Hệ từ hạ truyện, hào từ lấy từ kinh văn (Wikisource 易傳, 周易). Phần <b>tên đời thường</b>, <b>dấu hiệu</b>, <b>nên / không nên</b>, <b>tình huống</b> và bộ câu hỏi là bản biên soạn của kho, không phải lời người xưa; tên người trong tình huống là dựng lên.</p>
+    <table class="tb"><tr><th>Bước</th><th>Hào</th><th>Tên đời thường</th><th>Hệ từ nói</th></tr>
+    ${GD.gd.map(g => `<tr><td>${g.i + 1}</td><td><a href="#gd${g.i}">${g.ten}</a></td><td>${g.tenDoi}</td><td class="zh">${esc(g.goc.zh.split("。")[0])}</td></tr>`).join("")}</table></div>
+    <div class="card"><h3>Mình đang ở bước nào? Sáu câu hỏi</h3><p class="mute">Nghĩ về một việc cụ thể (một dự án, một nghề, một mối quan hệ, một khoản tiền) rồi trả lời có / không. Kết quả tính theo luật cố định, không ngẫu nhiên.</p>
+    ${GD.cauHoi.map((c, i) => `<div style="margin:.5em 0"><b>${i + 1}.</b> ${c.q} <span class="mute">(${c.chuThich})</span><br>${sel(i)}</div>`).join("")}
+    <button class="btn" onclick="gdXem()">Xem mình đang ở bước nào</button><div id="gdKQ"></div></div>
+    <div class="card">${GD.gd.map(gdKhoi).join("")}</div>
+    <div class="card"><h3>Cách dùng</h3><p>Mỗi việc đang làm, hỏi mình đang ở bước nào. Việc khác nhau có thể ở bước khác nhau: nghề ở bước năm, nhà mới ở bước một. Bước nào cũng có việc đúng của nó. Việc của bước một là làm đều. Việc của bước ba là làm cho đủ rồi dừng. Việc của bước sáu là trao lại. Sai không phải ở bước, mà ở làm việc của bước khác.</p>
+    <p class="mute">Nguyên văn: Wikisource 易傳/繫辭下, 周易 (phạm vi công cộng). Phần biên soạn là của kho, để tham khảo.</p></div>`;
+}
+// ---- Trang "tq": Tự quái như câu chuyện một đời ----
+function tqPage() {
+  let s = `<div class="card"><span class="tag">Cẩm nang</span><h2>Tự quái như câu chuyện một đời</h2><p>${TQD.moDau}</p>
+    <p class="mute">Câu Hán trích đúng Tự quái truyện (Wikisource 易傳/序卦, phạm vi công cộng). Phần <b>dịch</b> và phần <b>kể</b> theo đời người, đời tổ chức là bản biên soạn của kho, không phải lời người xưa. Bản đầy đủ có âm Hán Việt: <a onclick="go('tq0')" style="cursor:pointer">Tự quái truyện</a>.</p></div>`;
+  TQD.phan.forEach(p => {
+    s += `<div class="card"><h3>${p.tieuDe}</h3>`;
+    p.doan.forEach(d => {
+      s += `<h4 style="margin:.8em 0 .2em;color:var(--acc)">${d.tieuDe}</h4>`;
+      d.buoc.forEach(b => s += `<div class="hao tqb"><div class="t">${b.que.map(gdQueLink).join(" và ")}</div>${zh(b.zh)}<div class="dich">→ ${b.dich}</div><div class="giai">${b.ke}</div></div>`);
+    });
+    s += `</div>`;
+  });
+  return s + `<div class="card"><h3>Kết: việc không bao giờ xong hẳn</h3><p>${TQD.ket}</p>
+    <p class="mute">Nguyên văn: Wikisource 易傳/序卦 (phạm vi công cộng). Phần biên soạn là của kho, để tham khảo.</p></div>`;
+}
 function go(id) {
   const P = PAGES(), k = P.indexOf(id), pv = P[k-1], nx = P[k+1];
-  const title = p => p==="toc" ? "Mục lục" : p==="nt" ? "64 nguyên tắc hành xử" : p[0]==="i" ? INTRO[+p.slice(1)].title : p[0]==="s" ? STUDY[+p.slice(1)].title
+  const title = p => p==="toc" ? "Mục lục" : p==="nt" ? "64 nguyên tắc hành xử" : p==="gd" ? "Sáu giai đoạn" : p==="tq" ? "Tự quái một đời" : p[0]==="i" ? INTRO[+p.slice(1)].title : p[0]==="s" ? STUDY[+p.slice(1)].title
     : p[0]==="a" ? `Hệ từ thượng ${+p.slice(1)+1}` : p[0]==="b" ? `Hệ từ hạ ${+p.slice(1)+1}`
     : p[0]==="t" ? `${tdThien(p[1]).ten.replace(" truyện","")}${TD[tdThien(p[1]).key].length>1?" "+(+p.slice(2)+1):""}` : `Quẻ ${p.slice(1)}. ${HEX[+p.slice(1)].short}`;
   const pager = `<div class="pager">${pv?`<button class="btn" onclick="go('${pv}')">← ${title(pv)}</button>`:"<span></span>"}
     <button class="btn" onclick="go('toc')">Mục lục</button>${nx?`<button class="btn" onclick="go('${nx}')">${title(nx)} →</button>`:"<span></span>"}</div>`;
   const chap = c => `<div class="card"><h2>${c.title}</h2>${c.html}</div>`;
-  let body = id==="toc" ? bookToc() : id==="nt" ? ntPage() : id[0]==="i" ? chap(INTRO[+id.slice(1)]) : id[0]==="s" ? chap(STUDY[+id.slice(1)])
+  let body = id==="toc" ? bookToc() : id==="nt" ? ntPage() : id==="gd" ? gdPage() : id==="tq" ? tqPage() : id[0]==="i" ? chap(INTRO[+id.slice(1)]) : id[0]==="s" ? chap(STUDY[+id.slice(1)])
     : id[0]==="a" ? heTuPage("thuong", +id.slice(1)) : id[0]==="b" ? heTuPage("ha", +id.slice(1))
     : id[0]==="t" ? tdPage(id) : hexPage(+id.slice(1));
   $("#book").innerHTML = pager + body + pager;
@@ -200,14 +258,14 @@ function readingRule(chu, bien, mv) {
       return {txt:"Sáu hào đều động: xem <b>lời quẻ biến</b>.", chu:[], bien:["tu"]};
   }
 }
-function result(vals, hoi, save=true) {
+function result(vals, hoi, save=true, quyet="") {
   const lines = vals.map(v=>v%2?"1":"0").join("");
   const mv = vals.map((v,i)=>v===6||v===9?i:-1).filter(i=>i>=0);
   const bienL = vals.map(v=>v===6?"1":v===9?"0":v%2?"1":"0").join("");
   const hoL = lines.slice(1,4)+lines.slice(2,5);
   const chu = BY[lines], bien = BY[bienL], ho = BY[hoL], r = readingRule(chu,bien,mv);
-  if (save) { const H = JSON.parse(localStorage.getItem("kd_hist")||"[]"); H.unshift({t:new Date().toLocaleString("vi-VN"),hoi,vals}); localStorage.setItem("kd_hist", JSON.stringify(H.slice(0,100))); }
-  let s = `<div class="card">${hoi?`<p><b>Hỏi:</b> ${esc(hoi)}</p>`:""}
+  if (save) { const H = histDoc(); const m = {t:new Date().toLocaleString("vi-VN"), hoi, vals}; if (quyet && quyet.trim()) m.quyet = quyet.trim(); H.unshift(m); histGhi(H); }
+  let s = `<div class="card">${hoi?`<p><b>Hỏi:</b> ${esc(hoi)}</p>`:""}${quyet&&quyet.trim()?`<p><b>Điều mình quyết:</b> ${esc(quyet.trim())}</p>`:""}
    <p>Kết quả (hào 1→6): ${vals.join(", ")} · Hào động: ${mv.length?mv.map(i=>i+1).join(", "):"không"}</p>
    <p>Quẻ chủ <b>${HEX[chu].ch} ${chu}. ${HEX[chu].name}</b>${mv.length?` → quẻ biến <b>${HEX[bien].ch} ${bien}. ${HEX[bien].name}</b>`:""} · quẻ hỗ ${HEX[ho].ch} ${ho}. ${HEX[ho].short}</p>
    <div class="rule">📌 <b>Cách đọc:</b> ${r.txt} Các đoạn cần đọc được tô đỏ bên dưới.</div>
@@ -216,13 +274,70 @@ function result(vals, hoi, save=true) {
   if (mv.length) s += hexPage(bien,{focus:r.bien.length?r.bien:["__"],label:"Quẻ biến"});
   return s;
 }
-function hist() {
-  const H = JSON.parse(localStorage.getItem("kd_hist")||"[]");
-  $("#hist").innerHTML = `<div class="card"><h2>Lịch sử gieo quẻ</h2>${H.length?"":"<p>Chưa có lần gieo nào.</p>"}` +
-    H.map((x,i)=>{const L=x.vals.map(v=>v%2?"1":"0").join("");return `<div class="hao"><a href="#" onclick="replay(${i});return false">${x.t} · ${HEX[BY[L]].ch} ${HEX[BY[L]].short}</a> ${x.hoi?"— "+esc(x.hoi):""}</div>`;}).join("") +
-    (H.length?`<br><button class="btn" onclick="localStorage.removeItem('kd_hist');hist()">Xóa lịch sử</button>`:"") + "</div>";
+// ---- Sổ chiêm nghiệm: lịch sử gieo + điều mình quyết + kết quả thực tế (3 mức) + thống kê + xuất/nhập JSON. Chỉ ở localStorage, không gửi đi đâu. ----
+const histHopLe = x => x && typeof x === "object" && Array.isArray(x.vals) && x.vals.length === 6 && x.vals.every(v => [6,7,8,9].includes(+v));
+function histDoc() { try { const H = JSON.parse(localStorage.getItem(HIST_KEY) || "[]"); return Array.isArray(H) ? H.filter(histHopLe) : []; } catch (e) { return []; } }
+function histGhi(H) { localStorage.setItem(HIST_KEY, JSON.stringify(H.slice(0, HIST_MAX))); }
+const histQue = x => { const L = x.vals.map(v => +v % 2 ? "1" : "0").join(""); return HEX[BY[L]]; };
+// Thống kê: m lần gieo, n lần đã chấm, số mỗi mức
+function histThongKe(H) {
+  const tk = {m: H.length, n: 0, dung: 0, nua: 0, sai: 0};
+  for (const x of H) if (x.kq && HIST_MUC[x.kq.muc]) { tk.n++; tk[x.kq.muc]++; }
+  return tk;
 }
-function replay(i){ const x = JSON.parse(localStorage.getItem("kd_hist"))[i]; $("#hist").innerHTML = result(x.vals,x.hoi,false) + `<button class="btn" onclick="hist()">← Lịch sử</button>`; }
+// Chấm kết quả thực tế cho mục thứ i: muc ∈ dung|nua|sai, ghi chú tự do; ghi ngày chấm. muc rỗng = bỏ chấm.
+function histCham(i, muc, ghi) {
+  const H = histDoc(); if (!H[i]) return false;
+  if (!muc) delete H[i].kq; else if (HIST_MUC[muc]) H[i].kq = {muc, ghi: String(ghi || "").trim(), ngay: new Date().toLocaleDateString("vi-VN")}; else return false;
+  histGhi(H); return true;
+}
+function histChamTuForm(i) { histCham(i, $("#kqMuc" + i).value, $("#kqGhi" + i).value); hist(); }
+function histQuyet(i, quyet) { const H = histDoc(); if (!H[i]) return false; const q = String(quyet || "").trim(); if (q) H[i].quyet = q; else delete H[i].quyet; histGhi(H); return true; }
+// Xuất: chuỗi JSON có bọc {kho, phienBan, xuatLuc, muc}. Nhập: nhận cả dạng bọc và mảng thô; gộp theo (t, vals), mục trùng lấy bản có kq/quyet; trả về số mục sau khi gộp.
+function histXuat() { return JSON.stringify({kho: "kinh-dich", phienBan: 1, xuatLuc: new Date().toISOString(), muc: histDoc()}, null, 1); }
+function histNhap(text) {
+  let d; try { d = JSON.parse(text); } catch (e) { return {ok: false, loi: "Không đọc được JSON."}; }
+  const them = Array.isArray(d) ? d : (d && Array.isArray(d.muc) ? d.muc : null);
+  if (!them) return {ok: false, loi: "File không có danh sách mục."};
+  const H = histDoc(), key = x => x.t + "|" + x.vals.join(""), idx = new Map(H.map((x, i) => [key(x), i]));
+  let moi = 0, capNhat = 0, bo = 0;
+  for (const x of them) {
+    if (!histHopLe(x)) { bo++; continue; }
+    const m = {t: String(x.t || ""), hoi: String(x.hoi || ""), vals: x.vals.map(Number)};
+    if (x.quyet) m.quyet = String(x.quyet); if (x.kq && HIST_MUC[x.kq.muc]) m.kq = {muc: x.kq.muc, ghi: String(x.kq.ghi || ""), ngay: String(x.kq.ngay || "")};
+    const k = key(m);
+    if (idx.has(k)) { const c = H[idx.get(k)]; if ((m.kq && !c.kq) || (m.quyet && !c.quyet)) { H[idx.get(k)] = {...c, ...m}; capNhat++; } }
+    else { idx.set(k, H.length); H.push(m); moi++; }
+  }
+  histGhi(H); return {ok: true, moi, capNhat, bo, tong: Math.min(H.length, HIST_MAX)};
+}
+function histTaiXuong() {
+  const a = document.createElement("a"), b = new Blob([histXuat()], {type: "application/json"});
+  a.href = URL.createObjectURL(b); a.download = `so-chiem-nghiem-${new Date().toISOString().slice(0, 10)}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+function histChonFile(inp) {
+  const f = inp.files && inp.files[0]; if (!f) return;
+  const rd = new FileReader(); rd.onload = () => { const r = histNhap(String(rd.result)); hist(); $("#histTB").innerHTML = r.ok ? `Đã nhập: ${r.moi} mục mới, ${r.capNhat} mục cập nhật, ${r.bo} mục bỏ (không hợp lệ). Tổng ${r.tong}.` : `Lỗi nhập: ${r.loi}`; }; rd.readAsText(f);
+}
+function histDong(x, i) {
+  const h = histQue(x), kq = x.kq && HIST_MUC[x.kq.muc] ? x.kq : null;
+  const sel = `<select id="kqMuc${i}"><option value="">— chưa chấm —</option>${Object.entries(HIST_MUC).map(([k, v]) => `<option value="${k}"${kq && kq.muc === k ? " selected" : ""}>${v}</option>`).join("")}</select>`;
+  return `<tr><td style="white-space:nowrap">${esc(x.t || "")}</td><td style="white-space:nowrap"><a href="#" onclick="replay(${i});return false">${h.ch} ${h.short}</a></td><td>${x.hoi ? esc(x.hoi) : "<span class='mute'>—</span>"}</td>
+    <td><input id="quyet${i}" value="${esc(x.quyet || "")}" placeholder="điều mình quyết" style="width:100%;box-sizing:border-box;padding:4px;font-size:14px" onchange="histQuyet(${i},this.value)"></td>
+    <td style="white-space:nowrap">${sel}<br><input id="kqGhi${i}" value="${esc(kq ? kq.ghi : "")}" placeholder="ghi chú" style="width:140px;padding:4px;font-size:14px"> <button class="btn" style="padding:3px 8px;font-size:13px" onclick="histChamTuForm(${i})">Lưu</button>${kq ? `<br><span class="mute">chấm ngày ${esc(kq.ngay || "")}</span>` : ""}</td></tr>`;
+}
+function hist() {
+  const H = histDoc(), tk = histThongKe(H);
+  $("#hist").innerHTML = `<div class="card"><h2>Sổ chiêm nghiệm</h2>
+    <p class="mute">Mỗi lần gieo, ghi <b>điều mình quyết</b>. Sau một tháng, một năm, quay lại chấm <b>kết quả thực tế</b>: đúng hướng, nửa đúng, sai hướng, kèm ghi chú. Đây là cách duy nhất biết Dịch có ích với mình hay không. Dữ liệu chỉ nằm trong trình duyệt này, không gửi đi đâu; nên xuất file để sao lưu.</p>
+    <div class="rule">📊 <b>Thống kê:</b> đã chấm <b>${tk.n}/${tk.m}</b> lần gieo · đúng hướng <b>${tk.dung}</b> · nửa đúng <b>${tk.nua}</b> · sai hướng <b>${tk.sai}</b>${tk.n ? ` · tỷ lệ đúng hướng ${Math.round(tk.dung * 100 / tk.n)}%` : ""}</div>
+    <p><button class="btn" onclick="histTaiXuong()"${H.length ? "" : " disabled"}>⬇ Xuất JSON (sao lưu)</button>
+    <label class="btn" style="display:inline-block">⬆ Nhập JSON <input type="file" accept=".json,application/json" style="display:none" onchange="histChonFile(this)"></label>
+    <span id="histTB" class="mute"></span></p>
+    ${H.length ? `<div style="overflow-x:auto"><table class="tb"><tr><th>Ngày gieo</th><th>Quẻ</th><th>Hỏi</th><th>Điều mình quyết</th><th>Kết quả thực tế</th></tr>${H.map(histDong).join("")}</table></div>
+    <br><button class="btn" onclick="if(confirm('Xóa toàn bộ sổ chiêm nghiệm trong trình duyệt này?')){localStorage.removeItem('${HIST_KEY}');hist()}">Xóa lịch sử</button>` : "<p>Chưa có lần gieo nào.</p>"}</div>`;
+}
+function replay(i){ const x = histDoc()[i]; if (!x) { hist(); return; } $("#hist").innerHTML = result(x.vals, x.hoi, false, x.quyet || "") + (x.kq && HIST_MUC[x.kq.muc] ? `<div class="card"><b>Kết quả thực tế:</b> ${HIST_MUC[x.kq.muc]}${x.kq.ghi ? " — " + esc(x.kq.ghi) : ""} <span class="mute">(chấm ngày ${esc(x.kq.ngay || "")})</span></div>` : "") + `<button class="btn" onclick="hist()">← Sổ chiêm nghiệm</button>`; }
 
 // ---- Tra năm: can chi, ngũ hành, nạp âm, Tam nguyên cửu vận, niên tinh ----
 // Quy ước: năm can chi/niên tinh tính từ Lập xuân (~4/2 dương lịch); vận 20 năm, Thượng nguyên vận 1 bắt đầu 1864.
@@ -256,10 +371,10 @@ function tab(id) {
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
 $("#q").oninput = search;
 $("#showzh").onchange = () => { const p = localStorage.getItem("kd_page")||"toc"; if (!$("#sach").classList.contains("hidden")) go(p); };
-$("#btnGieo").onclick = () => $("#kq").innerHTML = result(Array.from({length:6},toss), $("#hoi").value);
+$("#btnGieo").onclick = () => $("#kq").innerHTML = result(Array.from({length:6},toss), $("#hoi").value, true, $("#quyet").value);
 $("#sel").innerHTML = [5,4,3,2,1,0].map(i=>`<div>Hào ${i+1}: <select id="h${i}">
   <option value="7">7 – thiếu dương ⚊</option><option value="8">8 – thiếu âm ⚋</option>
   <option value="9">9 – lão dương (động)</option><option value="6">6 – lão âm (động)</option></select></div>`).join("");
-$("#btnNhap").onclick = () => $("#kq2").innerHTML = result([0,1,2,3,4,5].map(i=>+$("#h"+i).value), $("#hoi2").value);
+$("#btnNhap").onclick = () => $("#kq2").innerHTML = result([0,1,2,3,4,5].map(i=>+$("#h"+i).value), $("#hoi2").value, true, $("#quyet2").value);
 $("#btnNam").onclick = traNam;
 search(); { const p = localStorage.getItem("kd_page"); go(p && PAGES().includes(p) ? p : "toc"); }

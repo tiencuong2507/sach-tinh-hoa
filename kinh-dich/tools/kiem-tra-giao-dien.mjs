@@ -27,7 +27,7 @@ const nHeTu = P.filter(p => p[0] === "a" || p[0] === "b").length;
 if (nHeTu !== 21 || !els.book.innerHTML.includes("Hệ từ truyện")) errs.push(`Hệ từ: ${nHeTu}/21 trang hoặc mục lục thiếu`);
 run("go('b3')"); if (!els.book.innerHTML.includes("動之微")) errs.push("Trang Hệ từ hạ 4 thiếu đoạn tri cơ");
 run("go('toc')");
-const nTD = P.filter(p => p[0] === "t" && p !== "toc").length;
+const nTD = P.filter(p => /^t[vtqp]\d+$/.test(p)).length; // trang Thập dực: t + mã thiên + số chương (không lẫn "toc", "tq")
 for (const t of ["Văn ngôn truyện", "Thuyết quái truyện", "Tự quái truyện", "Tạp quái truyện"]) if (!els.book.innerHTML.includes(t)) errs.push("Mục lục thiếu " + t);
 if (nTD !== 19) errs.push(`Thập dực: ${nTD}/19 trang`);
 run("go('tt2')"); if (!els.book.innerHTML.includes("逆數")) errs.push("Trang Thuyết quái 3 thiếu câu nghịch số");
