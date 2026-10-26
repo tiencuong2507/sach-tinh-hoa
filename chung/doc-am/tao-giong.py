@@ -1,4 +1,5 @@
-"""Tạo bản đọc cho mọi mã còn thiếu trong doc-am/van-ban.json — bước 2 của phần đọc thành tiếng.
+"""[KHÔNG DÙNG NỮA từ 26/10/2026 tối — anh Cường chê giọng nhân bản; phần đọc dùng tao-giong-may.py (giọng máy NamMinh mẫu C). Giữ để tham khảo.]
+Tạo bản đọc cho mọi mã còn thiếu trong doc-am/van-ban.json — bước 2 của phần đọc thành tiếng.
 
 Chạy bằng môi trường VieNeu (Python 3.11, cùng cấu hình giọng mẫu 1 anh Cường chốt cho Quán trọ):
     D:\\AI\\vixtts\\venv\\Scripts\\python.exe chung/doc-am/tao-giong.py [--chi <mẫu trang>] [--toi-da <số bài>]
