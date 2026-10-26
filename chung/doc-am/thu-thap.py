@@ -25,6 +25,22 @@ def pham_vi(site, chi=None):
     ds = [r for r in tat_ca if khop(r, pv["gom"]) and not khop(r, pv["bo"])]
     return [r for r in ds if not chi or khop(r, chi)]
 
+def dau_trang(site, rel, kho_de_len=True):
+    """Dấu nội dung của một trang: HTML (bỏ thẻ doc-am.js) + mọi tệp JS cục bộ trang nạp (Sách Tinh Hoa lấy bản kho nếu có).
+    kiem-tra.py so dấu này để biết văn bản thu còn khớp trang hay không — không dựa giờ sửa tệp (bước ghép gắn thẻ sẽ làm đổi giờ)."""
+    import hashlib
+    h = (site / rel).read_text(encoding="utf-8")
+    h = re.sub(r'<script src="/sach-tinh-hoa/chung/doc-am\.js[^"]*" defer></script>\n?', "", h)
+    m = hashlib.sha256(re.sub(r'\?v=[\w.-]+', "", h).encode("utf-8"))   # ?v= chỉ để phá bộ nhớ đệm; nội dung JS tính riêng bên dưới
+    for src in re.findall(r'<script src="([^"?#]+)', h):
+        if re.match(r"https?:", src) or src.endswith(("doc-am.js", "han.js", "library.js")): continue
+        p = (site / src.lstrip("/")) if src.startswith("/") else (site / rel).parent / src
+        p = p.resolve(); r = p.relative_to(site.resolve()).as_posix() if p.is_relative_to(site.resolve()) else None
+        k = KHO / r[len("sach-tinh-hoa/"):] if (kho_de_len and r and r.startswith("sach-tinh-hoa/")) else None
+        f = k if (k and k.is_file()) else p
+        if f.is_file(): m.update(f.read_bytes())
+    return m.hexdigest()[:16]
+
 def may_chu(site, trang):
     class H(http.server.SimpleHTTPRequestHandler):
         def __init__(s, *a, **k): super().__init__(*a, directory=str(site), **k)
@@ -79,6 +95,7 @@ def main():
         for rel in trang:
             t0 = time.time(); kq = thu_mot(chrome, goc + rel + "?doc-thu=1", ho_so)
             cu["trang"][rel] = [{"view": x["view"], "ma": x["ma"], "chu": x["chu"], "van_ban": x["van_ban"]} for x in kq["muc"]]
+            cu.setdefault("dau", {})[rel] = dau_trang(site, rel)
             print(f"{rel}: {kq['so']} đoạn, {sum(x['chu'] for x in kq['muc'])} ký tự, {time.time() - t0:.1f}s", flush=True)
     finally:
         mc.shutdown(); shutil.rmtree(ho_so, ignore_errors=True)

@@ -41,8 +41,9 @@ def main():
     # văn bản thu còn mới so với site
     if a.site:
         site = Path(a.site); trang = tt.pham_vi(site)
-        moi_nhat = max(((site / r).stat().st_mtime, r) for r in trang)
-        if moi_nhat[0] > (DA / "van-ban.json").stat().st_mtime: loi.append(f"van-ban.json cũ hơn trang {moi_nhat[1]} — chạy lại thu-thap.py")
+        dau = vb.get("dau", {})   # trang đổi chữ/JS sau lần thu → văn bản thu đã cũ
+        cu_ = [r for r in trang if r in vb["trang"] and dau.get(r) != tt.dau_trang(site, r, kho_de_len=False)]
+        if cu_: loi.append(f"{len(cu_)} trang đã đổi sau lần thu văn bản — chạy lại thu-thap.py: " + ", ".join(cu_[:8]) + (" …" if len(cu_) > 8 else ""))
         thieu_trang = [r for r in trang if (site / r).read_text(encoding="utf-8").count('src="/sach-tinh-hoa/chung/doc-am.js') != 1]
         if thieu_trang: loi.append("Trang trong phạm vi chưa gắn (hoặc gắn trùng) doc-am.js: " + ", ".join(thieu_trang))
         thieu_vb = [r for r in trang if r not in vb["trang"]]
