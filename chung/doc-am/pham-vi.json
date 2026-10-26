@@ -1,10 +1,14 @@
 {
-  "ghi_chu": "Phạm vi phần đọc thành tiếng (anh Cường chốt 26/10/2026): chỉ mảng lịch sử và trang đọc của Sách Tinh Hoa; không làm trang công cụ. Đường dẫn tính từ thư mục site của website. Bài/sách mới đặt đúng thư mục dưới đây tự vào phạm vi (sách mới của Sách Tinh Hoa: sach-tinh-hoa/<tên-sách>/index.html). Trang mới ở chỗ khác thì thêm mẫu vào 'gom'. 'bo' thắng 'gom'. Kinh Kim Cang bỏ tạm vì đang biên soạn (v20); xuất bản xong thì xóa dòng đó và chạy lại ba bước.",
+  "ghi_chu": "Phạm vi phần đọc thành tiếng (anh Cường chốt 26/10/2026): chỉ mảng lịch sử và trang đọc của Sách Tinh Hoa; không làm trang công cụ. Đường dẫn tính từ thư mục site của website. Bài/sách mới đặt đúng thư mục dưới đây tự vào phạm vi (sách mới của Sách Tinh Hoa: sach-tinh-hoa/<tên-sách>/index.html). Trang mới ở chỗ khác thì thêm mẫu vào 'gom'. 'bo' thắng 'gom'. 26/10 tối: thêm 4 trang lịch sử mới của v22 (bước ngoặt, nhân vật, quyết sách, so sánh) và Kinh Kim Cang (đã xuất bản v20).",
   "gom": [
     "chuong-*/index.html",
     "lich-su-van-hoa/thoi-ky/*/index.html",
     "lich-su-van-hoa/ho-so/*/index.html",
     "lich-su-van-hoa/dong-thoi-gian/index.html",
+    "lich-su-van-hoa/buoc-ngoat/index.html",
+    "lich-su-van-hoa/nhan-vat/index.html",
+    "lich-su-van-hoa/quyet-sach/index.html",
+    "lich-su-van-hoa/so-sanh/index.html",
     "sach-tinh-hoa/*/index.html",
     "sach-tinh-hoa/kinh-dich/kinh-dich.html",
     "sach-tinh-hoa/sach-ngan/sach-ngan.html",
@@ -19,7 +23,6 @@
     "sach-tinh-hoa/tu-vi/*",
     "sach-tinh-hoa/phong-thuy/*",
     "sach-tinh-hoa/chung/*",
-    "sach-tinh-hoa/kinh-kim-cang/*",
     "viet-nam-su-luoc/*",
     "bo-phan-hoi/*",
     "goc-huy-anh/*"

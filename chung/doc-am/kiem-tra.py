@@ -22,8 +22,10 @@ def thoi_luong(f):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--site"); ap.add_argument("--cho-thieu", nargs="*", default=[])
+    ap.add_argument("--muc-luc", help="bản chụp muc-luc.json dùng cho đợt xuất bản (khi tao-giong.py vẫn đang ghi tệp gốc)")
     a = ap.parse_args(); loi, bao = [], []
-    vb = json.loads((DA / "van-ban.json").read_text(encoding="utf-8")); ml = json.loads((DA / "muc-luc.json").read_text(encoding="utf-8")) if (DA / "muc-luc.json").exists() else {"am": {}}
+    ml_p = Path(a.muc_luc) if a.muc_luc else DA / "muc-luc.json"
+    vb = json.loads((DA / "van-ban.json").read_text(encoding="utf-8")); ml = json.loads(ml_p.read_text(encoding="utf-8")) if ml_p.exists() else {"am": {}}
     dung, thieu, nghi, tong_s = set(), [], [], 0.0
     for rel, ds in vb["trang"].items():
         for x in ds:
