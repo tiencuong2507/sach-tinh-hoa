@@ -1,5 +1,5 @@
 {
-  "ghi_chu": "Phạm vi phần đọc thành tiếng (anh Cường chốt 26/10/2026): chỉ mảng lịch sử và trang đọc của Sách Tinh Hoa; không làm trang công cụ. Đường dẫn tính từ thư mục site của website. Bài/sách mới đặt đúng thư mục dưới đây tự vào phạm vi (sách mới của Sách Tinh Hoa: sach-tinh-hoa/<tên-sách>/index.html). Trang mới ở chỗ khác thì thêm mẫu vào 'gom'. 'bo' thắng 'gom'. 26/10 tối: thêm 4 trang lịch sử mới của v22 (bước ngoặt, nhân vật, quyết sách, so sánh) và Kinh Kim Cang (đã xuất bản v20).",
+  "ghi_chu": "Phạm vi phần đọc thành tiếng (anh Cường chốt 26/10/2026): chỉ mảng lịch sử và trang đọc của Sách Tinh Hoa; không làm trang công cụ. Đường dẫn tính từ thư mục site của website. Bài/sách mới đặt đúng thư mục dưới đây tự vào phạm vi (sách mới của Sách Tinh Hoa: sach-tinh-hoa/<tên-sách>/index.html). Trang mới ở chỗ khác thì thêm mẫu vào 'gom'. 'bo' thắng 'gom'. 26/10 tối: thêm 4 trang lịch sử mới của v22 (bước ngoặt, nhân vật, quyết sách, so sánh) và Kinh Kim Cang (đã xuất bản v20). 26/10 khuya: Quán trọ (coi-tam) bỏ trình phát MP3 riêng, dùng nút đọc chung như mọi trang (anh chốt).",
   "gom": [
     "chuong-*/index.html",
     "lich-su-van-hoa/thoi-ky/*/index.html",
@@ -12,13 +12,13 @@
     "sach-tinh-hoa/*/index.html",
     "sach-tinh-hoa/kinh-dich/kinh-dich.html",
     "sach-tinh-hoa/sach-ngan/sach-ngan.html",
-    "sach-tinh-hoa/le-cung/le-cung.html"
+    "sach-tinh-hoa/le-cung/le-cung.html",
+    "sach-tinh-hoa/coi-tam/coi-tam.html"
   ],
   "bo": [
     "khu-vuc-nghien-cuu/*",
     "lich-su-van-hoa/tu-lieu/*",
     "lich-su-van-hoa/cach-doc/*",
-    "sach-tinh-hoa/coi-tam/*",
     "sach-tinh-hoa/xem-ngay/*",
     "sach-tinh-hoa/tu-vi/*",
     "sach-tinh-hoa/phong-thuy/*",

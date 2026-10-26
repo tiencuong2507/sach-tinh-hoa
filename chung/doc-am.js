@@ -3,7 +3,7 @@
 // Cách chạy: lấy NỘI DUNG CHÍNH (bỏ hình, chú thích, nguồn, ghi chú, câu hỏi luyện, nhãn [V]/[I], chữ Hán, nút, mục lục), băm SHA-256 thành mã,
 // tìm bản đọc ghi sẵn /doc-am/a/<mã>.mp3 trong /doc-am/muc-luc.json. Chữ đổi → mã đổi → nút báo "đang cập nhật", không phát bản lệch chữ.
 // Đơn vị đọc: trang thường đọc cả <main>; trang sách nhiều chương đọc theo từng chương ([data-doc-don-vi] hoặc article.ddk-chapter);
-// Kinh Dịch, Sách ngắn, Lễ cúng đọc theo trang con go(id). Trang tự đánh dấu được: data-doc="goc" (vùng đọc), data-doc="bo" (không đọc),
+// Kinh Dịch, Sách ngắn, Lễ cúng, Quán trọ đọc theo trang con go(id). Trang tự đánh dấu được: data-doc="goc" (vùng đọc), data-doc="bo" (không đọc),
 // data-doc-don-vi (mỗi chương một bản đọc). Chế độ thu văn bản: ?doc-thu=1 (công cụ chung/doc-am/thu-thap.py dùng).
 (function () {
   if (typeof document === "undefined" || typeof location === "undefined" || typeof fetch !== "function" || typeof MutationObserver === "undefined" ||
@@ -20,6 +20,8 @@
     { khop: "/sach-ngan/", goc: "#book", chuyen: { "sto-thu": "/sach-tinh-hoa/to-thu/", "ston-tu-binh-phap": "/sach-tinh-hoa/ton-tu-binh-phap/" },
       views() { return PAGES().filter(p => p !== "toc" && !this.chuyen[p]); }, go: id => go(id), hien: () => (typeof KEY_TRANG !== "undefined" ? localStorage.getItem(KEY_TRANG) : null) },
     { khop: "/le-cung/", goc: "#le", views: () => LE.map(l => "le/" + l.ma), go: id => go(id), hien: () => null },
+    // Quán trọ: mỗi bài một bản đọc; không đọc âm Hán Việt (giọng máy đọc sai), như bản đọc soạn tay trước đây
+    { khop: "/coi-tam/", goc: "#book", bo: ".hv", views: () => PAGES().filter(p => p !== "toc"), go: id => go(id), hien: () => localStorage.getItem("ct_bai") },
   ].find(a => duong.includes(a.khop));
   const DON_VI = "[data-doc-don-vi], article.ddk-chapter";
   const donVi = () => AD ? [] : [...document.querySelectorAll(DON_VI)];
@@ -33,7 +35,7 @@
     "blockquote > .m", "cite", ".noprint", ".sr-only", "#han-bong", "#doc-am", "[data-doc=bo]", "[aria-hidden=true]", "[hidden]", ".hidden",
     // bộ đọc sách của Codex: nhãn chương, nguyên văn Hán, dòng nguồn, điều hướng chương, chú giải, nhãn từng lớp, lớp Hán văn
     ".ddk-kicker", ".ddk-original", ".ddk-han", ".ddk-source-line", ".ddk-chapter-nav", ".ddk-toolbar", ".ddk-question", ".kc-notes", ".tt-zh",
-    ".tt-layer > h4", ".tt-segment > h3"].join(",");
+    ".tt-layer > h4", ".tt-segment > h3"].join(",") + (AD && AD.bo ? "," + AD.bo : "");   // AD.bo: phần riêng trang con không đọc
   // Tiêu đề mở một phần phụ (anh Cường dặn 26/10/2026: chỉ đọc nội dung chính): nguồn, ghi chú, hình, từ khó, bài tập, câu hỏi luyện, kiểm chứng
   const DAU_PHU = /^(nguồn|tài liệu tham khảo|tham khảo|tư liệu|hình tư liệu|đọc bằng mắt|đọc thêm|ghi chú|chú thích|chú giải|liên kết|xem thêm|mục lục|từ khó|chủ nhiệm dự án|bài tập|nhiệm vụ|hướng dẫn|gợi ý|câu hỏi về chính mình|tự kể lại|kiểm chứng|biết từ đâu|thử nối lại|giữ một câu hỏi|dị bản|khung pháp lý|dừng lại một chút)/i;
   const KHOI = new Set(["P", "DIV", "LI", "H1", "H2", "H3", "H4", "H5", "H6", "BLOCKQUOTE", "SECTION", "ARTICLE", "DD", "DT", "TR", "SUMMARY", "DETAILS", "PRE", "TABLE", "UL", "OL", "DL", "BR", "HR"]);
@@ -124,7 +126,7 @@
     dangNghe = true; hienTai = tt;
     hop.innerHTML = `<div class="da-thanh">${tt.ten ? `<div class="da-ten">🔊 ${esc(tt.ten)}</div>` : ""}<audio controls preload="metadata" src="${GOC_AM + tt.muc.f}"></audio>
 <select class="da-toc" aria-label="Tốc độ đọc"><option value="0.85">0,85×</option><option value="1" selected>1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select>
-<button class="da-dong" aria-label="Đóng trình đọc" title="Đóng">×</button><div class="da-ghi">Giọng đọc dựng bằng máy từ mẫu giọng; chỉ đọc nội dung chính, không đọc chữ Hán, ghi chú và nguồn.${tt.el ? " Hết chương sẽ tự sang chương sau." : ""}</div></div>`;
+<button class="da-dong" aria-label="Đóng trình đọc" title="Đóng">×</button><div class="da-ghi">Giọng đọc máy (giọng nam trầm); chỉ đọc nội dung chính, không đọc chữ Hán, ghi chú và nguồn.${tt.el ? " Hết chương sẽ tự sang chương sau." : ""}</div></div>`;
     const a = hop.querySelector("audio"), s = hop.querySelector("select");
     try { const v = localStorage.getItem("doc-am:toc"); if (v) s.value = v; } catch (e) {}
     a.playbackRate = +s.value; s.onchange = () => { a.playbackRate = +s.value; try { localStorage.setItem("doc-am:toc", s.value); } catch (e) {} };
