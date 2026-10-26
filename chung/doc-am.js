@@ -135,6 +135,7 @@
       for (let j = tt.i + 1; j < ds.length; j++) {
         const r = await thongTin(ds[j]); if (!r) continue;
         if (!r.muc) break;
+        if (!ds[j].getClientRects().length && ds[j].id) { location.hash = ds[j].id; await new Promise(z => setTimeout(z, 150)); }   // bộ đọc một-chương: mở chương sau qua neo
         ds[j].scrollIntoView({ behavior: "smooth", block: "start" });
         return veThanh({ ...r, el: ds[j], i: j, ten: (ds[j].querySelector("h2,h3") || {}).textContent || "" });
       }
@@ -148,10 +149,14 @@
     if (AD && AD.chuyen) { const v = AD.hien(); if (v && AD.chuyen[v]) { hop.hidden = false; hienTai = null; return veNut({ chuyen: AD.chuyen[v] }); } }
     const ds = donVi();
     let el = vungDoc(), i = -1;
-    if (ds.length) {   // chương đang xem: chương cuối cùng có đầu đã qua 40% chiều cao màn hình
-      i = 0; const moc = innerHeight * 0.4;
-      ds.forEach((d, k) => { if (d.getBoundingClientRect().top <= moc && !d.hidden) i = k; });
-      el = ds[i];
+    if (ds.length) {
+      // chương đang xem: bộ đọc chỉ hiện một chương (các chương khác ẩn bằng CSS) → lấy chương đang hiện/đánh dấu hiện tại;
+      // trang cuộn dài → chương cuối cùng có đầu đã qua 40% chiều cao màn hình
+      const hien = ds.filter(d => d.getClientRects().length && !d.hidden), cur = ds.find(d => d.classList.contains("is-current") && d.getClientRects().length);
+      if (cur) el = cur;
+      else if (hien.length) { el = hien[0]; const moc = innerHeight * 0.4; hien.forEach(d => { if (d.getBoundingClientRect().top <= moc) el = d; }); }
+      else el = ds[0];
+      i = ds.indexOf(el);
     }
     const r = await thongTin(el);
     if (!r) { hop.hidden = true; hienTai = null; return; }
@@ -166,7 +171,7 @@
     document.body.appendChild(hop); capNhat();
     const g = (AD && document.querySelector(AD.goc)) || document.querySelector("main") || document.body;
     new MutationObserver(ms => { if (ms.every(m => hop.contains(m.target))) return; if (AD) maDV.delete(vungDoc()); hoan(); }).observe(g, { childList: true, subtree: true });
-    if (donVi().length) addEventListener("scroll", hoan, { passive: true });
+    if (donVi().length) { addEventListener("scroll", hoan, { passive: true }); addEventListener("hashchange", hoan); document.addEventListener("click", () => setTimeout(hoan, 250)); }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", batDau); else batDau();
   window.DocAm = { vanBan, ma, capNhat };
