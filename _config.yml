@@ -1,0 +1,3 @@
+# GitHub Pages (Jekyll): không xuất bản thư mục âm thanh phần đọc; tệp vẫn lấy được qua raw.githubusercontent.com để chuyển lên hosting.
+exclude:
+  - doc-am

@@ -81,7 +81,7 @@ function trangLe(ma) {
   const nhom = D.nhom.find(n => n.ma === l.nhom), nam = new Date().getFullYear(), ds = ngayLe(l, nam);
   let s = `<div class="card"><p class="noprint"><a href="#muc-luc" onclick="go('muc-luc');return false">← Mục lục</a> · <span class="tag">${esc(nhom.ten)}</span></p>
    <h2>${esc(l.ten)}</h2>${l.tenKhac ? `<p class="mute">Tên khác: ${esc(l.tenKhac)}</p>` : ""}
-   <p><b>Thời điểm:</b> ${moTaThoiDiem(l)}${ds.length ? `<br><b>Năm ${nam}:</b> ${ds.map(d => `<b>${dmy(d)}</b>`).join(", ")}` : ""}
+   <p><b>Thời điểm:</b> ${moTaThoiDiem(l)}${ds.length ? `<span data-doc="bo"><br><b>Năm ${nam}:</b> ${ds.map(d => `<b>${dmy(d)}</b>`).join(", ")}</span>` : ""}
    ${l.viec ? ` &nbsp; <a class="btn noprint" target="_blank" rel="noopener" href="../xem-ngay/xem-ngay.html?viec=${encodeURIComponent(l.viec)}">🗓 Chọn ngày tốt (xem ngày, việc: ${esc(tenViec(l.viec))})</a>` : ""}</p>
    <h3>Ý nghĩa</h3><p>${esc(l.yNghia)}</p>`;
   s += `<h3>Tục lệ xưa — Phan Kế Bính chép</h3>`;
