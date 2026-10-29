@@ -23,6 +23,7 @@ PHAT_AM = {"Maghavā": "Ma-ga-va", "Dhanapāla": "Đa-na-pa-la", "sāla": "sa-la
 
 def lam_sach(t):
     for k, v in PHAT_AM.items(): t = t.replace(k, v)
+    t = re.sub(r"(\d)\s*[–—-]\s*(\d)", r"\1 đến \2", t)   # "Đoạn 1–20" → "Đoạn 1 đến 20" (chỉ khi gửi dịch vụ đọc)
     return t.replace("&", " và ").replace("  ", " ")
 
 def chuan_hoa(vao, ra):
