@@ -18,7 +18,11 @@ DA = KHO / "doc-am"; (DA / "a").mkdir(parents=True, exist_ok=True)
 GIONG = {"voice": "vi-VN-NamMinhNeural", "rate": "-15%", "pitch": "-12Hz"}
 NHAN = "may-C"
 
+# Phiên âm chỉ dùng khi gửi dịch vụ đọc (mã băm vẫn tính trên chữ trang): tên Pāli có dấu gạch trên giọng Việt đọc sai.
+PHAT_AM = {"Maghavā": "Ma-ga-va", "Dhanapāla": "Đa-na-pa-la", "sāla": "sa-la", "bīraṇa": "bi-ra-na"}
+
 def lam_sach(t):
+    for k, v in PHAT_AM.items(): t = t.replace(k, v)
     return t.replace("&", " và ").replace("  ", " ")
 
 def chuan_hoa(vao, ra):
