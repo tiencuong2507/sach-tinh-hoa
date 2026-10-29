@@ -10,6 +10,8 @@
       typeof crypto === "undefined" || !crypto.subtle || window.DOC_AM_DA_GAN) return;
   window.DOC_AM_DA_GAN = true;
   const me = document.currentScript;
+  // Poetry collections opt in; established pages retain the 200-character minimum.
+  const MIN_CHARS = me && me.dataset.minChars === "1" ? 1 : 200;
   const GOC_AM = (me && me.dataset.goc) || "/doc-am/";
   const THU = /[?&]doc-thu=1\b/.test(location.search);
   const duong = location.pathname;
@@ -78,7 +80,7 @@
   if (THU) {
     const chay = async () => {
       const ra = [];
-      const day = async (v, el) => { const t = vanBan(el); if (t.length >= 200) ra.push({ view: v, ma: await ma(t), chu: t.length, van_ban: t }); };
+      const day = async (v, el) => { const t = vanBan(el); if (t.length >= MIN_CHARS) ra.push({ view: v, ma: await ma(t), chu: t.length, van_ban: t }); };
       if (AD) for (const v of AD.views()) { AD.go(v); await new Promise(r => setTimeout(r, 60)); await day(v, vungDoc()); }
       else if (donVi().length) { const ds = donVi(); for (let i = 0; i < ds.length; i++) await day(tenDonVi(ds[i], i), ds[i]); }
       else await day("", vungDoc());
@@ -177,7 +179,7 @@
   const maDV = new WeakMap();
   async function thongTin(el) {
     if (maDV.has(el)) return maDV.get(el);
-    const t = vanBan(el); const r = t.length < 200 ? null : { ma: await ma(t) };
+    const t = vanBan(el); const r = t.length < MIN_CHARS ? null : { ma: await ma(t) };
     if (r) r.muc = ((await taiMucLuc()).am || {})[r.ma] || null;
     maDV.set(el, r); return r;
   }
@@ -192,9 +194,10 @@
   }
   function veThanh(tt) {
     dangNghe = true; hienTai = tt;
+    const nhanGiong = tt.muc.giong === "vieneu-v3-owner-20261029" ? "Giọng đọc AI từ mẫu giọng của chủ dự án" : "Giọng đọc máy (giọng nam trầm)";
     hop.innerHTML = `<div class="da-thanh">${tt.ten ? `<div class="da-ten">🔊 ${esc(tt.ten)}</div>` : ""}<audio controls preload="metadata" src="${GOC_AM + tt.muc.f}"></audio>
 <select class="da-toc" aria-label="Tốc độ đọc"><option value="0.85">0,85×</option><option value="1" selected>1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select>
-<button class="da-dong" aria-label="Đóng trình đọc" title="Đóng">×</button>${coNhac ? `<div class="da-nhac"><label><input type="checkbox" class="da-nhac-bat"> Nhạc nền</label><input type="range" class="da-nhac-muc" min="${NHAC.toiThieu}" max="${NHAC.toiDa}" step="1" aria-label="Âm lượng nhạc nền" title="Âm lượng nhạc nền"></div>` : ""}<div class="da-ghi">Giọng đọc máy (giọng nam trầm)${coNhac ? "; nhạc nền do tác giả tự chơi" : ""}; chỉ đọc nội dung chính, không đọc chữ Hán, ghi chú và nguồn.${tt.el ? " Hết chương sẽ tự sang chương sau." : ""}</div></div>`;
+<button class="da-dong" aria-label="Đóng trình đọc" title="Đóng">×</button>${coNhac ? `<div class="da-nhac"><label><input type="checkbox" class="da-nhac-bat"> Nhạc nền</label><input type="range" class="da-nhac-muc" min="${NHAC.toiThieu}" max="${NHAC.toiDa}" step="1" aria-label="Âm lượng nhạc nền" title="Âm lượng nhạc nền"></div>` : ""}<div class="da-ghi">${nhanGiong}${coNhac ? "; nhạc nền do tác giả tự chơi" : ""}; chỉ đọc nội dung chính, không đọc chữ Hán, ghi chú và nguồn.${tt.el ? " Hết chương sẽ tự sang chương sau." : ""}</div></div>`;
     const a = hop.querySelector("audio"), s = hop.querySelector("select");
     if (coNhac) {
       const cb = hop.querySelector(".da-nhac-bat"), tr = hop.querySelector(".da-nhac-muc");
