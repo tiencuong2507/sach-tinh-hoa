@@ -31,9 +31,10 @@ def dau_trang(site, rel, kho_de_len=True):
     import hashlib
     h = (site / rel).read_text(encoding="utf-8")
     h = re.sub(r'<script src="/sach-tinh-hoa/chung/doc-am\.js[^"]*" defer></script>\n?', "", h)
+    h = re.sub(r'<script src="/sach-tinh-hoa/chung/len-ke\.js[^"]*" defer></script>\n?', "", h)   # dòng ngày lên kệ không đổi chữ đọc
     m = hashlib.sha256(re.sub(r'\?v=[\w.-]+', "", h).encode("utf-8"))   # ?v= chỉ để phá bộ nhớ đệm; nội dung JS tính riêng bên dưới
     for src in re.findall(r'<script src="([^"?#]+)', h):
-        if re.match(r"https?:", src) or src.endswith(("doc-am.js", "han.js", "library.js")): continue
+        if re.match(r"https?:", src) or src.endswith(("doc-am.js", "len-ke.js", "han.js", "library.js")): continue
         p = (site / src.lstrip("/")) if src.startswith("/") else (site / rel).parent / src
         p = p.resolve(); r = p.relative_to(site.resolve()).as_posix() if p.is_relative_to(site.resolve()) else None
         k = KHO / r[len("sach-tinh-hoa/"):] if (kho_de_len and r and r.startswith("sach-tinh-hoa/")) else None
