@@ -100,11 +100,70 @@
 #doc-am .da-ten{flex-basis:100%;font-size:13px;color:#8b2e1f;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #doc-am audio{height:36px;flex:1 1 220px;min-width:0}#doc-am .da-toc{font:inherit;padding:4px;border:1px solid #d9cdb8;border-radius:6px;background:#fff}
 #doc-am .da-dong{border:0;background:none;font-size:20px;cursor:pointer;color:#6b6253;padding:0 4px}#doc-am .da-ghi{flex-basis:100%;font-size:12.5px;color:#7a6f5d}
+#doc-am .da-nhac{display:flex;align-items:center;gap:6px;flex-basis:100%;font-size:13px;color:#6b6253}#doc-am .da-nhac label{display:flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap}
+#doc-am .da-nhac input[type=range]{flex:1 1 120px;max-width:220px;accent-color:#8b2e1f}#doc-am .da-nhac input[type=range]:disabled{opacity:.4}
 @media print{#doc-am{display:none}}`;
   document.head.appendChild(st);
   const hop = document.createElement("div"); hop.id = "doc-am"; hop.setAttribute("data-doc", "bo"); hop.setAttribute("aria-live", "polite");
   const phut = s => s >= 60 ? Math.round(s / 60) + " phút" : Math.round(s) + " giây";
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  // ---- nhạc nền (anh Cường tự chơi, thu 29/10/2026; tệp xuất bằng chung/doc-am/nhac-nen.py) ----
+  // Phát qua Web Audio (giải mã cả tệp, lặp bằng các nguồn chồng mờ CHEO giây) để chỉnh được âm lượng, kể cả iPhone —
+  // iPhone không cho trang web đổi volume của thẻ <audio>. Nhạc và giọng đều chuẩn hóa -18 LUFS, nên mức dB = nhạc nhỏ hơn giọng bấy nhiêu.
+  // iPhone/iPad: tắt cho tới khi anh thử xong trên máy thật; mở thử bằng ?nhac=1 (máy nhớ lựa chọn).
+  const NHAC = { f: GOC_AM + "nhac/nen-01.mp3", chuKy: 98.7, cheo: 3, macDinh: -18, toiDa: -10, toiThieu: -40 };
+  const nho = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
+  const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (/[?&]nhac=1\b/.test(location.search)) nho("doc-am:nhac-ios", "1");
+  const AC = window.AudioContext || window.webkitAudioContext;
+  const coNhac = !!AC && (!IOS || nho("doc-am:nhac-ios") === "1");
+  const nhac = (() => {
+    let ctx = null, chinh = null, buf = null, tai = null, tiep = 0, lap = 0, chay = false, henDung = 0;
+    const bat = () => nho("doc-am:nhac") !== "0";
+    const muc = () => { const v = parseFloat(nho("doc-am:nhac-db")); return isFinite(v) ? Math.min(NHAC.toiDa, Math.max(NHAC.toiThieu, v)) : NHAC.macDinh; };
+    const doi = db => Math.pow(10, db / 20);
+    const N = 64, vao = new Float32Array(N), ra = new Float32Array(N);
+    for (let i = 0; i < N; i++) { vao[i] = Math.sin(Math.PI / 2 * i / (N - 1)); ra[i] = Math.cos(Math.PI / 2 * i / (N - 1)); }   // chồng mờ giữ công suất
+    function khoi() {   // gọi trong lúc người dùng bấm (trình duyệt chỉ cho mở âm thanh khi có thao tác)
+      if (!coNhac) return null;
+      if (!ctx) {
+        ctx = new AC(); try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
+        chinh = ctx.createGain(); chinh.gain.value = 0; chinh.connect(ctx.destination);
+      }
+      if (ctx.state === "suspended") ctx.resume().catch(() => {});
+      if (!tai && bat()) tai = fetch(NHAC.f).then(r => r.arrayBuffer()).then(b => new Promise((ok, loi) => ctx.decodeAudioData(b, ok, loi))).then(b => { buf = b; }).catch(() => { tai = null; });
+      return ctx;
+    }
+    function nguon(luc, coVao) {
+      const s = ctx.createBufferSource(), g = ctx.createGain(), c = NHAC.cheo, k = NHAC.chuKy;
+      s.buffer = buf; s.connect(g); g.connect(chinh);
+      if (coVao) g.gain.setValueCurveAtTime(vao, luc, c); else g.gain.setValueAtTime(1, luc);
+      g.gain.setValueCurveAtTime(ra, luc + k, c);
+      s.start(luc); s.stop(luc + k + c + 0.05);
+    }
+    function lich() { if (ctx && buf && chay) while (tiep < ctx.currentTime + NHAC.cheo + 2) { nguon(tiep, true); tiep += NHAC.chuKy; } }
+    function den(v, giay) { const t = ctx.currentTime, g = chinh.gain; g.cancelScheduledValues(t); g.setValueAtTime(g.value, t); g.linearRampToValueAtTime(v, t + giay); }
+    function phat() {
+      clearTimeout(henDung);
+      if (!khoi() || !bat()) return;
+      const lam = () => {
+        if (!buf) return;
+        if (ctx.state === "suspended") ctx.resume().catch(() => {});
+        if (!chay) { chay = true; const t0 = ctx.currentTime + 0.05; nguon(t0, false); tiep = t0 + NHAC.chuKy; clearInterval(lap); lap = setInterval(lich, 1000); }
+        den(doi(muc()), 1.5);
+      };
+      buf ? lam() : tai && tai.then(lam);
+    }
+    function dung() {   // chờ một chút: hết chương → chương sau phát ngay thì nhạc không bị ngắt
+      if (!ctx) return; clearTimeout(henDung);
+      henDung = setTimeout(() => { den(0, 0.8); henDung = setTimeout(() => { if (ctx.state === "running") ctx.suspend().catch(() => {}); }, 900); }, 700);
+    }
+    function datMuc(db, dangPhat) { nho("doc-am:nhac-db", String(db)); if (ctx && chinh && dangPhat && bat()) den(doi(db), 0.25); }
+    function datBat(b, dangPhat) { nho("doc-am:nhac", b ? "1" : "0"); if (!b) { if (ctx) den(0, 0.5); } else if (dangPhat) phat(); }
+    const trangThai = () => ({ ctx: ctx && ctx.state, daTai: !!buf, chay, tiep: +tiep.toFixed(2), bayGio: ctx ? +ctx.currentTime.toFixed(2) : 0, am: chinh ? +chinh.gain.value.toFixed(4) : 0 });
+    return { khoi, phat, dung, datMuc, datBat, bat, muc, trangThai };
+  })();
+
   let hienTai = null, dangNghe = false;   // hienTai: {ma, muc, el, ten, i}
   const maDV = new WeakMap();
   async function thongTin(el) {
@@ -126,11 +185,20 @@
     dangNghe = true; hienTai = tt;
     hop.innerHTML = `<div class="da-thanh">${tt.ten ? `<div class="da-ten">🔊 ${esc(tt.ten)}</div>` : ""}<audio controls preload="metadata" src="${GOC_AM + tt.muc.f}"></audio>
 <select class="da-toc" aria-label="Tốc độ đọc"><option value="0.85">0,85×</option><option value="1" selected>1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select>
-<button class="da-dong" aria-label="Đóng trình đọc" title="Đóng">×</button><div class="da-ghi">Giọng đọc máy (giọng nam trầm); chỉ đọc nội dung chính, không đọc chữ Hán, ghi chú và nguồn.${tt.el ? " Hết chương sẽ tự sang chương sau." : ""}</div></div>`;
+<button class="da-dong" aria-label="Đóng trình đọc" title="Đóng">×</button>${coNhac ? `<div class="da-nhac"><label><input type="checkbox" class="da-nhac-bat"> Nhạc nền</label><input type="range" class="da-nhac-muc" min="${NHAC.toiThieu}" max="${NHAC.toiDa}" step="1" aria-label="Âm lượng nhạc nền" title="Âm lượng nhạc nền"></div>` : ""}<div class="da-ghi">Giọng đọc máy (giọng nam trầm)${coNhac ? "; nhạc nền do tác giả tự chơi" : ""}; chỉ đọc nội dung chính, không đọc chữ Hán, ghi chú và nguồn.${tt.el ? " Hết chương sẽ tự sang chương sau." : ""}</div></div>`;
     const a = hop.querySelector("audio"), s = hop.querySelector("select");
+    if (coNhac) {
+      const cb = hop.querySelector(".da-nhac-bat"), tr = hop.querySelector(".da-nhac-muc");
+      cb.checked = nhac.bat(); tr.value = nhac.muc(); tr.disabled = !cb.checked;
+      cb.onchange = () => { tr.disabled = !cb.checked; if (cb.checked) nhac.khoi(); nhac.datBat(cb.checked, !a.paused); };
+      tr.oninput = () => nhac.datMuc(+tr.value, !a.paused);
+      hop.querySelector(".da-thanh").addEventListener("pointerdown", () => nhac.khoi(), true);   // bấm nút phát của trình duyệt cũng là một thao tác mở âm thanh
+      nhac.khoi();   // trong lúc người dùng vừa bấm "Nghe"
+    }
     try { const v = localStorage.getItem("doc-am:toc"); if (v) s.value = v; } catch (e) {}
     a.playbackRate = +s.value; s.onchange = () => { a.playbackRate = +s.value; try { localStorage.setItem("doc-am:toc", s.value); } catch (e) {} };
-    a.onplay = () => { a.playbackRate = +s.value; };
+    a.onplay = () => { a.playbackRate = +s.value; if (coNhac) nhac.phat(); };
+    a.onpause = () => { if (coNhac) nhac.dung(); };
     a.onended = async () => {   // trang nhiều chương: tự sang chương sau nếu đã có bản đọc
       if (!tt.el) return;
       const ds = donVi();
@@ -176,5 +244,5 @@
     if (donVi().length) { addEventListener("scroll", hoan, { passive: true }); addEventListener("hashchange", hoan); document.addEventListener("click", () => setTimeout(hoan, 250)); }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", batDau); else batDau();
-  window.DocAm = { vanBan, ma, capNhat };
+  window.DocAm = { vanBan, ma, capNhat, nhac: coNhac ? nhac.trangThai : null };
 })();
