@@ -119,6 +119,8 @@
   const coNhac = !!AC && (!IOS || nho("doc-am:nhac-ios") === "1");
   const nhac = (() => {
     let ctx = null, chinh = null, buf = null, tai = null, tiep = 0, lap = 0, chay = false, henDung = 0;
+    // Canh giọng đọc: giọng kẹt (mất mạng, hết dữ liệu) không phát sự kiện "pause" → nhạc phải tự lặng sau 4 lần kiểm (≈4 s) không tiến.
+    let giongChay = () => true, lang = false, demLang = 0;
     const bat = () => nho("doc-am:nhac") !== "0";
     const muc = () => { const v = parseFloat(nho("doc-am:nhac-db")); return isFinite(v) ? Math.min(NHAC.toiDa, Math.max(NHAC.toiThieu, v)) : NHAC.macDinh; };
     const doi = db => Math.pow(10, db / 20);
@@ -141,7 +143,13 @@
       g.gain.setValueCurveAtTime(ra, luc + k, c);
       s.start(luc); s.stop(luc + k + c + 0.05);
     }
-    function lich() { if (ctx && buf && chay) while (tiep < ctx.currentTime + NHAC.cheo + 2) { nguon(tiep, true); tiep += NHAC.chuKy; } }
+    function lich() {
+      if (!(ctx && buf && chay)) return;
+      while (tiep < ctx.currentTime + NHAC.cheo + 2) { nguon(tiep, true); tiep += NHAC.chuKy; }
+      if (ctx.state !== "running" || !bat()) return;
+      if (giongChay()) { demLang = 0; if (lang) { lang = false; den(doi(muc()), 1.5); } }
+      else if (++demLang >= 4 && !lang) { lang = true; den(0, 0.8); }
+    }
     function den(v, giay) { const t = ctx.currentTime, g = chinh.gain; g.cancelScheduledValues(t); g.setValueAtTime(g.value, t); g.linearRampToValueAtTime(v, t + giay); }
     function phat() {
       clearTimeout(henDung);
@@ -150,7 +158,7 @@
         if (!buf) return;
         if (ctx.state === "suspended") ctx.resume().catch(() => {});
         if (!chay) { chay = true; const t0 = ctx.currentTime + 0.05; nguon(t0, false); tiep = t0 + NHAC.chuKy; clearInterval(lap); lap = setInterval(lich, 1000); }
-        den(doi(muc()), 1.5);
+        lang = false; demLang = 0; den(doi(muc()), 1.5);
       };
       buf ? lam() : tai && tai.then(lam);
     }
@@ -158,10 +166,11 @@
       if (!ctx) return; clearTimeout(henDung);
       henDung = setTimeout(() => { den(0, 0.8); henDung = setTimeout(() => { if (ctx.state === "running") ctx.suspend().catch(() => {}); }, 900); }, 700);
     }
-    function datMuc(db, dangPhat) { nho("doc-am:nhac-db", String(db)); if (ctx && chinh && dangPhat && bat()) den(doi(db), 0.25); }
+    function datMuc(db, dangPhat) { nho("doc-am:nhac-db", String(db)); if (ctx && chinh && dangPhat && bat() && !lang) den(doi(db), 0.25); }
+    function theoDoi(fn) { giongChay = fn; lang = false; demLang = 0; }
     function datBat(b, dangPhat) { nho("doc-am:nhac", b ? "1" : "0"); if (!b) { if (ctx) den(0, 0.5); } else if (dangPhat) phat(); }
-    const trangThai = () => ({ ctx: ctx && ctx.state, daTai: !!buf, chay, tiep: +tiep.toFixed(2), bayGio: ctx ? +ctx.currentTime.toFixed(2) : 0, am: chinh ? +chinh.gain.value.toFixed(4) : 0 });
-    return { khoi, phat, dung, datMuc, datBat, bat, muc, trangThai };
+    const trangThai = () => ({ ctx: ctx && ctx.state, daTai: !!buf, chay, lang, tiep: +tiep.toFixed(2), bayGio: ctx ? +ctx.currentTime.toFixed(2) : 0, am: chinh ? +chinh.gain.value.toFixed(4) : 0 });
+    return { khoi, phat, dung, datMuc, datBat, bat, muc, theoDoi, trangThai };
   })();
 
   let hienTai = null, dangNghe = false;   // hienTai: {ma, muc, el, ten, i}
@@ -194,6 +203,8 @@
       tr.oninput = () => nhac.datMuc(+tr.value, !a.paused);
       hop.querySelector(".da-thanh").addEventListener("pointerdown", () => nhac.khoi(), true);   // bấm nút phát của trình duyệt cũng là một thao tác mở âm thanh
       nhac.khoi();   // trong lúc người dùng vừa bấm "Nghe"
+      let tTruoc = -1;   // giọng "đang chạy" = còn trên trang, không dừng/hết/lỗi, và thời điểm phát có tiến lên giữa hai lần kiểm
+      nhac.theoDoi(() => { const ok = a.isConnected && !a.paused && !a.ended && !a.error && a.currentTime !== tTruoc; tTruoc = a.currentTime; return ok; });
     }
     try { const v = localStorage.getItem("doc-am:toc"); if (v) s.value = v; } catch (e) {}
     a.playbackRate = +s.value; s.onchange = () => { a.playbackRate = +s.value; try { localStorage.setItem("doc-am:toc", s.value); } catch (e) {} };
